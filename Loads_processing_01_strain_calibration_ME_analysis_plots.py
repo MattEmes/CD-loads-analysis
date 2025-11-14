@@ -270,7 +270,6 @@ plt.tight_layout()
 
 
 
-
 #%% Break into periods
 
 loads_inflow_20Hz_20241028_1820_1850_operation = loads_inflow_20Hz_20241028[pd.Timestamp(2024,10,28,18,20).tz_localize('UTC').tz_convert(pacific_tz):pd.Timestamp(2024,10,28,18,50).tz_localize('UTC').tz_convert(pacific_tz)]
@@ -313,102 +312,521 @@ loads_mast_20Hz_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121[pd.Timestamp
 
 #%% Masts wind speeds and turbulence parameters (stow)
 
-H1_wspd_20241028_2030_2100_stow = loads_inflow_20Hz_20241028_2030_2100_stow.wspd_Mid.mean()
-H2_wspd_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m1_wspd_Mid.mean()
-H3_wspd_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m3_wspd_Mid.mean()
+H1_wspd_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.wspd_Low.mean()
+H2_wspd_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wspd_Low.mean()
+H3_wspd_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wspd_Low.mean()
 
-H1_wdir_20241028_2030_2100_stow = loads_inflow_20Hz_20241028_2030_2100_stow.wdir_Mid.mean()
-H2_wdir_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m1_wdir_Mid.mean()
-H3_wdir_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m3_wdir_Mid.mean()
+H1_wdir_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.wdir_Low.mean()
+H2_wdir_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wdir_Low.mean()
+H3_wdir_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wdir_Low.mean()
 
-H1_wspd_20241115_2130_2200_stow = loads_inflow_20Hz_20241115_2130_2200_stow.wspd_Mid.mean()
-H2_wspd_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m1_wspd_Mid.mean()
-H3_wspd_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m3_wspd_Mid.mean()
+H1_wspd_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.wspd_Low.mean()
+H2_wspd_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wspd_Low.mean()
+H3_wspd_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wspd_Low.mean()
 
-H1_wdir_20241115_2130_2200_stow = loads_inflow_20Hz_20241115_2130_2200_stow.wdir_Mid.mean()
-H2_wdir_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m1_wdir_Mid.mean()
-H3_wdir_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m3_wdir_Mid.mean()
+H1_wdir_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.wdir_Low.mean()
+H2_wdir_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wdir_Low.mean()
+H3_wdir_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wdir_Low.mean()
 
-H1_wspd_20241118_1840_1900_stow = loads_inflow_20Hz_20241118_1840_1900_stow.wspd_Mid.mean()
-H2_wspd_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m1_wspd_Mid.mean()
-H3_wspd_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m3_wspd_Mid.mean()
+H1_wspd_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.wspd_Low.mean()
+H2_wspd_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wspd_Low.mean()
+H3_wspd_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wspd_Low.mean()
 
-H1_wdir_20241118_1840_1900_stow = loads_inflow_20Hz_20241118_1840_1900_stow.wdir_Mid.mean()
-H2_wdir_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m1_wdir_Mid.mean()
-H3_wdir_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m3_wdir_Mid.mean()
+H1_wdir_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.wdir_Low.mean()
+H2_wdir_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wdir_Low.mean()
+H3_wdir_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wdir_Low.mean()
 
-H1_wspd_20241120_1800_1830_stow = loads_inflow_20Hz_20241120_1800_1830_stow.wspd_Mid.mean()
-H2_wspd_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m1_wspd_Mid.mean()
-H3_wspd_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m3_wspd_Mid.mean()
+H1_wspd_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.wspd_Low.mean()
+H2_wspd_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wspd_Low.mean()
+H3_wspd_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wspd_Low.mean()
 
-H1_wdir_20241120_1800_1830_stow = loads_inflow_20Hz_20241120_1800_1830_stow.wdir_Mid.mean()
-H2_wdir_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m1_wdir_Mid.mean()
-H3_wdir_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m3_wdir_Mid.mean()
+H1_wdir_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.wdir_Low.mean()
+H2_wdir_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wdir_Low.mean()
+H3_wdir_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wdir_Low.mean()
 
-H1_wspd_20241121_0000_0030_stow1 = loads_inflow_20Hz_20241121_0000_0030_stow1.wspd_Mid.mean()
-H2_wspd_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wspd_Mid.mean()
-H3_wspd_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wspd_Mid.mean()
+H1_wspd_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.wspd_Low.mean()
+H2_wspd_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wspd_Low.mean()
+H3_wspd_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wspd_Low.mean()
 
-H1_wdir_20241121_0000_0030_stow1 = loads_inflow_20Hz_20241121_0000_0030_stow1.wdir_Mid.mean()
-H2_wdir_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wdir_Mid.mean()
-H3_wdir_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wdir_Mid.mean()
+H1_wdir_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.wdir_Low.mean()
+H2_wdir_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wdir_Low.mean()
+H3_wdir_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wdir_Low.mean()
 
-H1_wspd_20241121_0300_0330_stow2 = loads_inflow_20Hz_20241121_0300_0330_stow2.wspd_Mid.mean()
-H2_wspd_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wspd_Mid.mean()
-H3_wspd_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wspd_Mid.mean()
+H1_wspd_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.wspd_Low.mean()
+H2_wspd_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wspd_Low.mean()
+H3_wspd_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wspd_Low.mean()
 
-H1_wdir_20241121_0300_0330_stow2 = loads_inflow_20Hz_20241121_0300_0330_stow2.wdir_Mid.mean()
-H2_wdir_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wdir_Mid.mean()
-H3_wdir_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wdir_Mid.mean()
+H1_wdir_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.wdir_Low.mean()
+H2_wdir_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wdir_Low.mean()
+H3_wdir_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wdir_Low.mean()
 
 
-H1_Iu_20241028_2030_2100_stow = loads_inflow_20Hz_20241028_2030_2100_stow.TI_Mid.mean()
-H2_Iu_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_Mid.mean()
-H3_Iu_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_Mid.mean()
+H1_Iu_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_Low.mean()
+H2_Iu_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_Low.mean()
+H3_Iu_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_Low.mean()
 
-H1_Iw_20241028_2030_2100_stow = loads_inflow_20Hz_20241028_2030_2100_stow.TI_w_Mid.mean()
-H2_Iw_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_w_Mid.mean()
-H3_Iw_20241028_2030_2100_stow = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_w_Mid.mean()
+H1_Iw_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_w_Low.mean()
+H2_Iw_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_w_Low.mean()
+H3_Iw_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_w_Low.mean()
 
-H1_Iu_20241115_2130_2200_stow = loads_inflow_20Hz_20241115_2130_2200_stow.TI_Mid.mean()
-H2_Iu_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_Mid.mean()
-H3_Iu_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_Mid.mean()
+H1_Iu_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_Low.mean()
+H2_Iu_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_Low.mean()
+H3_Iu_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_Low.mean()
 
-H1_Iw_20241115_2130_2200_stow = loads_inflow_20Hz_20241115_2130_2200_stow.TI_w_Mid.mean()
-H2_Iw_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_w_Mid.mean()
-H3_Iw_20241115_2130_2200_stow = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_w_Mid.mean()
+H1_Iw_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_w_Low.mean()
+H2_Iw_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_w_Low.mean()
+H3_Iw_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_w_Low.mean()
 
-H1_Iu_20241118_1840_1900_stow = loads_inflow_20Hz_20241118_1840_1900_stow.TI_Mid.mean()
-H2_Iu_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_Mid.mean()
-H3_Iu_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_Mid.mean()
+H1_Iu_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_Low.mean()
+H2_Iu_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_Low.mean()
+H3_Iu_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_Low.mean()
 
-H1_Iw_20241118_1840_1900_stow = loads_inflow_20Hz_20241118_1840_1900_stow.TI_w_Mid.mean()
-H2_Iw_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_w_Mid.mean()
-H3_Iw_20241118_1840_1900_stow = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_w_Mid.mean()
+H1_Iw_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_w_Low.mean()
+H2_Iw_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_w_Low.mean()
+H3_Iw_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_w_Low.mean()
 
-H1_Iu_20241120_1800_1830_stow = loads_inflow_20Hz_20241120_1800_1830_stow.TI_Mid.mean()
-H2_Iu_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_Mid.mean()
-H3_Iu_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_Mid.mean()
+H1_Iu_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_Low.mean()
+H2_Iu_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_Low.mean()
+H3_Iu_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_Low.mean()
 
-H1_Iw_20241120_1800_1830_stow = loads_inflow_20Hz_20241120_1800_1830_stow.TI_w_Mid.mean()
-H2_Iw_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_w_Mid.mean()
-H3_Iw_20241120_1800_1830_stow = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_w_Mid.mean()
+H1_Iw_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_w_Low.mean()
+H2_Iw_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_w_Low.mean()
+H3_Iw_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_w_Low.mean()
 
-H1_Iu_20241121_0000_0030_stow1 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_Mid.mean()
-H2_Iu_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_Mid.mean()
-H3_Iu_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_Mid.mean()
+H1_Iu_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_Low.mean()
+H2_Iu_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_Low.mean()
+H3_Iu_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_Low.mean()
 
-H1_Iw_20241121_0000_0030_stow1 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_w_Mid.mean()
-H2_Iw_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_w_Mid.mean()
-H3_Iw_20241121_0000_0030_stow1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_w_Mid.mean()
+H1_Iw_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_w_Low.mean()
+H2_Iw_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_w_Low.mean()
+H3_Iw_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_w_Low.mean()
 
-H1_Iu_20241121_0300_0330_stow2 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_Mid.mean()
-H2_Iu_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_Mid.mean()
-H3_Iu_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_Mid.mean()
+H1_Iu_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_Low.mean()
+H2_Iu_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_Low.mean()
+H3_Iu_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_Low.mean()
 
-H1_Iw_20241121_0300_0330_stow2 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_w_Mid.mean()
-H2_Iw_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_w_Mid.mean()
-H3_Iw_20241121_0300_0330_stow2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_w_Mid.mean()
+H1_Iw_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_w_Low.mean()
+H2_Iw_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_w_Low.mean()
+H3_Iw_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_w_Low.mean()
+
+
+H1_wspd_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.wspd_Mid.mean()
+H2_wspd_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wspd_Mid.mean()
+H3_wspd_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wspd_Mid.mean()
+
+H1_wdir_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.wdir_Mid.mean()
+H2_wdir_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wdir_Mid.mean()
+H3_wdir_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wdir_Mid.mean()
+
+H1_wspd_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.wspd_Mid.mean()
+H2_wspd_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wspd_Mid.mean()
+H3_wspd_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wspd_Mid.mean()
+
+H1_wdir_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.wdir_Mid.mean()
+H2_wdir_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wdir_Mid.mean()
+H3_wdir_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wdir_Mid.mean()
+
+H1_wspd_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.wspd_Mid.mean()
+H2_wspd_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wspd_Mid.mean()
+H3_wspd_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wspd_Mid.mean()
+
+H1_wdir_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.wdir_Mid.mean()
+H2_wdir_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wdir_Mid.mean()
+H3_wdir_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wdir_Mid.mean()
+
+H1_wspd_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.wspd_Mid.mean()
+H2_wspd_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wspd_Mid.mean()
+H3_wspd_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wspd_Mid.mean()
+
+H1_wdir_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.wdir_Mid.mean()
+H2_wdir_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wdir_Mid.mean()
+H3_wdir_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wdir_Mid.mean()
+
+H1_wspd_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.wspd_Mid.mean()
+H2_wspd_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wspd_Mid.mean()
+H3_wspd_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wspd_Mid.mean()
+
+H1_wdir_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.wdir_Mid.mean()
+H2_wdir_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wdir_Mid.mean()
+H3_wdir_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wdir_Mid.mean()
+
+H1_wspd_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.wspd_Mid.mean()
+H2_wspd_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wspd_Mid.mean()
+H3_wspd_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wspd_Mid.mean()
+
+H1_wdir_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.wdir_Mid.mean()
+H2_wdir_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wdir_Mid.mean()
+H3_wdir_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wdir_Mid.mean()
+
+
+H1_Iu_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_Mid.mean()
+H2_Iu_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_Mid.mean()
+H3_Iu_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_Mid.mean()
+
+H1_Iw_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_w_Mid.mean()
+H2_Iw_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_w_Mid.mean()
+H3_Iw_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_w_Mid.mean()
+
+H1_Iu_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_Mid.mean()
+H2_Iu_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_Mid.mean()
+H3_Iu_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_Mid.mean()
+
+H1_Iw_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_w_Mid.mean()
+H2_Iw_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_w_Mid.mean()
+H3_Iw_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_w_Mid.mean()
+
+H1_Iu_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_Mid.mean()
+H2_Iu_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_Mid.mean()
+H3_Iu_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_Mid.mean()
+
+H1_Iw_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_w_Mid.mean()
+H2_Iw_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_w_Mid.mean()
+H3_Iw_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_w_Mid.mean()
+
+H1_Iu_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_Mid.mean()
+H2_Iu_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_Mid.mean()
+H3_Iu_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_Mid.mean()
+
+H1_Iw_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_w_Mid.mean()
+H2_Iw_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_w_Mid.mean()
+H3_Iw_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_w_Mid.mean()
+
+H1_Iu_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_Mid.mean()
+H2_Iu_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_Mid.mean()
+H3_Iu_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_Mid.mean()
+
+H1_Iw_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_w_Mid.mean()
+H2_Iw_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_w_Mid.mean()
+H3_Iw_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_w_Mid.mean()
+
+H1_Iu_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_Mid.mean()
+H2_Iu_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_Mid.mean()
+H3_Iu_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_Mid.mean()
+
+H1_Iw_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_w_Mid.mean()
+H2_Iw_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_w_Mid.mean()
+H3_Iw_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_w_Mid.mean()
+
+
+H1_wspd_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.wspd_Top.mean()
+H2_wspd_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wspd_Top.mean()
+H3_wspd_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wspd_Top.mean()
+
+H1_wdir_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.wdir_Top.mean()
+H2_wdir_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_wdir_Top.mean()
+H3_wdir_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_wdir_Top.mean()
+
+H1_wspd_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.wspd_Top.mean()
+H2_wspd_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wspd_Top.mean()
+H3_wspd_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wspd_Top.mean()
+
+H1_wdir_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.wdir_Top.mean()
+H2_wdir_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_wdir_Top.mean()
+H3_wdir_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_wdir_Top.mean()
+
+H1_wspd_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.wspd_Top.mean()
+H2_wspd_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wspd_Top.mean()
+H3_wspd_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wspd_Top.mean()
+
+H1_wdir_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.wdir_Top.mean()
+H2_wdir_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_wdir_Top.mean()
+H3_wdir_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_wdir_Top.mean()
+
+H1_wspd_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.wspd_Top.mean()
+H2_wspd_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wspd_Top.mean()
+H3_wspd_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wspd_Top.mean()
+
+H1_wdir_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.wdir_Top.mean()
+H2_wdir_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_wdir_Top.mean()
+H3_wdir_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_wdir_Top.mean()
+
+H1_wspd_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.wspd_Top.mean()
+H2_wspd_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wspd_Top.mean()
+H3_wspd_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wspd_Top.mean()
+
+H1_wdir_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.wdir_Top.mean()
+H2_wdir_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_wdir_Top.mean()
+H3_wdir_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_wdir_Top.mean()
+
+H1_wspd_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.wspd_Top.mean()
+H2_wspd_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wspd_Top.mean()
+H3_wspd_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wspd_Top.mean()
+
+H1_wdir_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.wdir_Top.mean()
+H2_wdir_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_wdir_Top.mean()
+H3_wdir_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_wdir_Top.mean()
+
+
+H1_Iu_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_Top.mean()
+H2_Iu_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_Top.mean()
+H3_Iu_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_Top.mean()
+
+H1_Iw_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.TI_w_Top.mean()
+H2_Iw_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_TI_w_Top.mean()
+H3_Iw_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_TI_w_Top.mean()
+
+H1_Iu_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_Top.mean()
+H2_Iu_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_Top.mean()
+H3_Iu_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_Top.mean()
+
+H1_Iw_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.TI_w_Top.mean()
+H2_Iw_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_TI_w_Top.mean()
+H3_Iw_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_TI_w_Top.mean()
+
+H1_Iu_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_Top.mean()
+H2_Iu_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_Top.mean()
+H3_Iu_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_Top.mean()
+
+H1_Iw_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.TI_w_Top.mean()
+H2_Iw_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_TI_w_Top.mean()
+H3_Iw_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_TI_w_Top.mean()
+
+H1_Iu_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_Top.mean()
+H2_Iu_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_Top.mean()
+H3_Iu_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_Top.mean()
+
+H1_Iw_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.TI_w_Top.mean()
+H2_Iw_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_TI_w_Top.mean()
+H3_Iw_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_TI_w_Top.mean()
+
+H1_Iu_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_Top.mean()
+H2_Iu_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_Top.mean()
+H3_Iu_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_Top.mean()
+
+H1_Iw_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.TI_w_Top.mean()
+H2_Iw_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_TI_w_Top.mean()
+H3_Iw_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_TI_w_Top.mean()
+
+H1_Iu_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_Top.mean()
+H2_Iu_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_Top.mean()
+H3_Iu_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_Top.mean()
+
+H1_Iw_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.TI_w_Top.mean()
+H2_Iw_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_TI_w_Top.mean()
+H3_Iw_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_TI_w_Top.mean()
+
+
+H1_U_ax_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.mean()
+H2_U_ax_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.mean()
+H3_U_ax_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.mean()
+
+H1_W_ax_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.mean()
+H2_W_ax_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.mean()
+H3_W_ax_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.mean()
+
+H1_U_ax_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.mean()
+H2_U_ax_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.mean()
+H3_U_ax_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.mean()
+
+H1_W_ax_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.mean()
+H2_W_ax_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.mean()
+H3_W_ax_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.mean()
+
+H1_U_ax_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.mean()
+H2_U_ax_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.mean()
+H3_U_ax_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.mean()
+
+H1_W_ax_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.mean()
+H2_W_ax_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.mean()
+H3_W_ax_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.mean()
+
+H1_U_ax_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.mean()
+H2_U_ax_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.mean()
+H3_U_ax_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.mean()
+
+H1_W_ax_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.mean()
+H2_W_ax_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.mean()
+H3_W_ax_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.mean()
+
+H1_U_ax_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.mean()
+H2_U_ax_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.mean()
+H3_U_ax_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.mean()
+
+H1_W_ax_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.mean()
+H2_W_ax_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.mean()
+H3_W_ax_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.mean()
+
+H1_U_ax_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.mean()
+H2_U_ax_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.mean()
+H3_U_ax_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.mean()
+
+H1_W_ax_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.mean()
+H2_W_ax_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.mean()
+H3_W_ax_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.mean()
+
+
+H1_U_ax_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.mean()
+H2_U_ax_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.mean()
+H3_U_ax_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.mean()
+H2_W_ax_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.mean()
+H3_W_ax_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.mean()
+
+H1_U_ax_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.mean()
+H2_U_ax_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.mean()
+H3_U_ax_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.mean()
+H2_W_ax_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.mean()
+H3_W_ax_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.mean()
+
+H1_U_ax_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.mean()
+H2_U_ax_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.mean()
+H3_U_ax_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.mean()
+H2_W_ax_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.mean()
+H3_W_ax_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.mean()
+
+H1_U_ax_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.mean()
+H2_U_ax_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.mean()
+H3_U_ax_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.mean()
+H2_W_ax_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.mean()
+H3_W_ax_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.mean()
+
+H1_U_ax_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.mean()
+H2_U_ax_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.mean()
+H3_U_ax_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.mean()
+H2_W_ax_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.mean()
+H3_W_ax_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.mean()
+
+H1_U_ax_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.mean()
+H2_U_ax_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.mean()
+H3_U_ax_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.mean()
+
+H1_W_ax_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.mean()
+H2_W_ax_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.mean()
+H3_W_ax_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.mean()
+
+
+
+H1_U_ax_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.mean()
+H2_U_ax_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.mean()
+H3_U_ax_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.mean()
+
+H1_W_ax_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.mean()
+H2_W_ax_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.mean()
+H3_W_ax_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.mean()
+
+H1_U_ax_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.mean()
+H2_U_ax_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.mean()
+H3_U_ax_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.mean()
+
+H1_W_ax_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.mean()
+H2_W_ax_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.mean()
+H3_W_ax_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.mean()
+
+H1_U_ax_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.mean()
+H2_U_ax_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.mean()
+H3_U_ax_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.mean()
+
+H1_W_ax_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.mean()
+H2_W_ax_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.mean()
+H3_W_ax_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.mean()
+
+H1_U_ax_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.mean()
+H2_U_ax_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.mean()
+H3_U_ax_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.mean()
+
+H1_W_ax_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.mean()
+H2_W_ax_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.mean()
+H3_W_ax_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.mean()
+
+H1_U_ax_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.mean()
+H2_U_ax_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.mean()
+H3_U_ax_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.mean()
+
+H1_W_ax_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.mean()
+H2_W_ax_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.mean()
+H3_W_ax_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.mean()
+
+H1_U_ax_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.mean()
+H2_U_ax_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.mean()
+H3_U_ax_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.mean()
+
+H1_W_ax_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.mean()
+H2_W_ax_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.mean()
+H3_W_ax_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.mean()
+
+
+
+H1_Ts_20241028_2030_2100_stow_z1 = loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Low.mean()
+H2_Ts_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m1_Ts_Low.mean()
+H3_Ts_20241028_2030_2100_stow_z1 = loads_mast_20Hz_20241028_2030_2100_stow.m3_Ts_Low.mean()
+
+H1_Ts_20241115_2130_2200_stow_z1 = loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Low.mean()
+H2_Ts_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m1_Ts_Low.mean()
+H3_Ts_20241115_2130_2200_stow_z1 = loads_mast_20Hz_20241115_2130_2200_stow.m3_Ts_Low.mean()
+
+H1_Ts_20241118_1840_1900_stow_z1 = loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Low.mean()
+H2_Ts_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m1_Ts_Low.mean()
+H3_Ts_20241118_1840_1900_stow_z1 = loads_mast_20Hz_20241118_1840_1900_stow.m3_Ts_Low.mean()
+
+H1_Ts_20241120_1800_1830_stow_z1 = loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Low.mean()
+H2_Ts_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m1_Ts_Low.mean()
+H3_Ts_20241120_1800_1830_stow_z1 = loads_mast_20Hz_20241120_1800_1830_stow.m3_Ts_Low.mean()
+
+H1_Ts_20241121_0000_0030_stow1_z1 = loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Low.mean()
+H2_Ts_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_Ts_Low.mean()
+H3_Ts_20241121_0000_0030_stow1_z1 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_Ts_Low.mean()
+
+H1_Ts_20241121_0300_0330_stow2_z1 = loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Low.mean()
+H2_Ts_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_Ts_Low.mean()
+H3_Ts_20241121_0300_0330_stow2_z1 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_Ts_Low.mean()
+
+H1_Ts_20241028_2030_2100_stow_z2 = loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Mid.mean()
+H2_Ts_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m1_Ts_Mid.mean()
+H3_Ts_20241028_2030_2100_stow_z2 = loads_mast_20Hz_20241028_2030_2100_stow.m3_Ts_Mid.mean()
+
+H1_Ts_20241115_2130_2200_stow_z2 = loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Mid.mean()
+H2_Ts_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m1_Ts_Mid.mean()
+H3_Ts_20241115_2130_2200_stow_z2 = loads_mast_20Hz_20241115_2130_2200_stow.m3_Ts_Mid.mean()
+
+H1_Ts_20241118_1840_1900_stow_z2 = loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Mid.mean()
+H2_Ts_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m1_Ts_Mid.mean()
+H3_Ts_20241118_1840_1900_stow_z2 = loads_mast_20Hz_20241118_1840_1900_stow.m3_Ts_Mid.mean()
+
+H1_Ts_20241120_1800_1830_stow_z2 = loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Mid.mean()
+H2_Ts_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m1_Ts_Mid.mean()
+H3_Ts_20241120_1800_1830_stow_z2 = loads_mast_20Hz_20241120_1800_1830_stow.m3_Ts_Mid.mean()
+
+H1_Ts_20241121_0000_0030_stow1_z2 = loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Mid.mean()
+H2_Ts_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_Ts_Mid.mean()
+H3_Ts_20241121_0000_0030_stow1_z2 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_Ts_Mid.mean()
+
+H1_Ts_20241121_0300_0330_stow2_z2 = loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Mid.mean()
+H2_Ts_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_Ts_Mid.mean()
+H3_Ts_20241121_0300_0330_stow2_z2 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_Ts_Mid.mean()
+
+H1_Ts_20241028_2030_2100_stow_z3 = loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Top.mean()
+H2_Ts_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m1_Ts_Top.mean()
+H3_Ts_20241028_2030_2100_stow_z3 = loads_mast_20Hz_20241028_2030_2100_stow.m3_Ts_Top.mean()
+
+H1_Ts_20241115_2130_2200_stow_z3 = loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Top.mean()
+H2_Ts_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m1_Ts_Top.mean()
+H3_Ts_20241115_2130_2200_stow_z3 = loads_mast_20Hz_20241115_2130_2200_stow.m3_Ts_Top.mean()
+
+H1_Ts_20241118_1840_1900_stow_z3 = loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Top.mean()
+H2_Ts_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m1_Ts_Top.mean()
+H3_Ts_20241118_1840_1900_stow_z3 = loads_mast_20Hz_20241118_1840_1900_stow.m3_Ts_Top.mean()
+
+H1_Ts_20241120_1800_1830_stow_z3 = loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Top.mean()
+H2_Ts_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m1_Ts_Top.mean()
+H3_Ts_20241120_1800_1830_stow_z3 = loads_mast_20Hz_20241120_1800_1830_stow.m3_Ts_Top.mean()
+
+H1_Ts_20241121_0000_0030_stow1_z3 = loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Top.mean()
+H2_Ts_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m1_Ts_Top.mean()
+H3_Ts_20241121_0000_0030_stow1_z3 = loads_mast_20Hz_20241121_0000_0030_stow1.m3_Ts_Top.mean()
+
+H1_Ts_20241121_0300_0330_stow2_z3 = loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Top.mean()
+H2_Ts_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m1_Ts_Top.mean()
+H3_Ts_20241121_0300_0330_stow2_z3 = loads_mast_20Hz_20241121_0300_0330_stow2.m3_Ts_Top.mean()
+
 
 
 
@@ -429,27 +847,27 @@ nblock = len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241028_2030_2100_stow_z1, Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z1*heights[0]/H1_U_ax_20241028_2030_2100_stow_z1
 nPxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = (fu_loads_inflow_20Hz_20241028_2030_2100_stow_z1*Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1)/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241028_2030_2100_stow_z2, Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z2*heights[1]/H1_U_ax_20241028_2030_2100_stow_z2
 nPxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = (fu_loads_inflow_20Hz_20241028_2030_2100_stow_z2*Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z2)/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241028_2030_2100_stow_z3, Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = fu_loads_inflow_20Hz_20241028_2030_2100_stow_z3*heights[2]/H1_U_ax_20241028_2030_2100_stow_z3
 nPxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = (fu_loads_inflow_20Hz_20241028_2030_2100_stow_z3*Pxxfu_loads_inflow_20Hz_20241028_2030_2100_stow_z3)/loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241028_2030_2100_stow_z1, Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z1*heights[0]/H1_W_ax_20241028_2030_2100_stow_z1
 nPxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z1 = (fw_loads_inflow_20Hz_20241028_2030_2100_stow_z1*Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z1)/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241028_2030_2100_stow_z2, Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z2*heights[1]/H1_W_ax_20241028_2030_2100_stow_z2
 nPxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z2 = (fw_loads_inflow_20Hz_20241028_2030_2100_stow_z2*Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z2)/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241028_2030_2100_stow_z3, Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = welch(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = fw_loads_inflow_20Hz_20241028_2030_2100_stow_z3*heights[2]/H1_W_ax_20241028_2030_2100_stow_z3
 nPxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = (fw_loads_inflow_20Hz_20241028_2030_2100_stow_z3*Pxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3)/loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.std()**2              
 
 
@@ -486,7 +904,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = runningMeanFast(nPx
 nPxxfw_mod_loads_inflow_20Hz_20241028_2030_2100_stow_z3 = [nPxxfw_loads_inflow_20Hz_20241028_2030_2100_stow_z3[0:index_highfreq_loads_inflow_20Hz_20241028_2030_2100_stow_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241028_2030_2100_stow_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241028_2030_2100_stow_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241028_2030_2100_stow_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241028_2030_2100_stow_z1[1], label='2.75m')            
@@ -513,6 +930,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241028_2030_2100_stow_z1 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low)
+U_corr_inflow_20241028_2030_2100_stow_z2 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid)
+U_corr_inflow_20241028_2030_2100_stow_z3 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top)
+
+V_corr_inflow_20241028_2030_2100_stow_z1 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.V_ax_Low)
+V_corr_inflow_20241028_2030_2100_stow_z2 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.V_ax_Mid)
+V_corr_inflow_20241028_2030_2100_stow_z3 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.V_ax_Top)
+
+W_corr_inflow_20241028_2030_2100_stow_z1 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low)
+W_corr_inflow_20241028_2030_2100_stow_z2 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid)
+W_corr_inflow_20241028_2030_2100_stow_z3 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top)
+
+Ts_corr_inflow_20241028_2030_2100_stow_z1 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Low)
+Ts_corr_inflow_20241028_2030_2100_stow_z2 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Mid)
+Ts_corr_inflow_20241028_2030_2100_stow_z3 = pd.Series(loads_inflow_20Hz_20241028_2030_2100_stow.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241028_2030_2100_stow_z1[U_corr_inflow_20241028_2030_2100_stow_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241028_2030_2100_stow_z1.dropna()) 
+U_corr_inflow_20241028_2030_2100_stow_z2[U_corr_inflow_20241028_2030_2100_stow_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241028_2030_2100_stow_z2.dropna()) 
+U_corr_inflow_20241028_2030_2100_stow_z3[U_corr_inflow_20241028_2030_2100_stow_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241028_2030_2100_stow_z3.dropna()) 
+
+V_corr_inflow_20241028_2030_2100_stow_z1[V_corr_inflow_20241028_2030_2100_stow_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241028_2030_2100_stow_z1.dropna()) 
+V_corr_inflow_20241028_2030_2100_stow_z2[V_corr_inflow_20241028_2030_2100_stow_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241028_2030_2100_stow_z2.dropna()) 
+V_corr_inflow_20241028_2030_2100_stow_z3[V_corr_inflow_20241028_2030_2100_stow_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241028_2030_2100_stow_z3.dropna()) 
+
+W_corr_inflow_20241028_2030_2100_stow_z1[W_corr_inflow_20241028_2030_2100_stow_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241028_2030_2100_stow_z1.dropna()) 
+W_corr_inflow_20241028_2030_2100_stow_z2[W_corr_inflow_20241028_2030_2100_stow_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241028_2030_2100_stow_z2.dropna()) 
+W_corr_inflow_20241028_2030_2100_stow_z3[W_corr_inflow_20241028_2030_2100_stow_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241028_2030_2100_stow_z3.dropna()) 
+
+Ts_corr_inflow_20241028_2030_2100_stow_z1[Ts_corr_inflow_20241028_2030_2100_stow_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241028_2030_2100_stow_z1.dropna()) 
+Ts_corr_inflow_20241028_2030_2100_stow_z2[Ts_corr_inflow_20241028_2030_2100_stow_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241028_2030_2100_stow_z2.dropna()) 
+Ts_corr_inflow_20241028_2030_2100_stow_z3[Ts_corr_inflow_20241028_2030_2100_stow_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241028_2030_2100_stow_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z1*V_corr_inflow_20241028_2030_2100_stow_z1).mean()-(U_corr_inflow_20241028_2030_2100_stow_z1.mean()*V_corr_inflow_20241028_2030_2100_stow_z1.mean());
+inflow_vw_z1_20241028_2030_2100_stow = (V_corr_inflow_20241028_2030_2100_stow_z1*W_corr_inflow_20241028_2030_2100_stow_z1).mean()-(V_corr_inflow_20241028_2030_2100_stow_z1.mean()*W_corr_inflow_20241028_2030_2100_stow_z1.mean());
+inflow_uw_z1_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z1*W_corr_inflow_20241028_2030_2100_stow_z1).mean()-(U_corr_inflow_20241028_2030_2100_stow_z1.mean()*W_corr_inflow_20241028_2030_2100_stow_z1.mean());
+inflow_wT_z1_20241028_2030_2100_stow = (W_corr_inflow_20241028_2030_2100_stow_z1*Ts_corr_inflow_20241028_2030_2100_stow_z1).mean()-(W_corr_inflow_20241028_2030_2100_stow_z1.mean()*Ts_corr_inflow_20241028_2030_2100_stow_z1.mean());
+
+inflow_uv_z2_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z2*V_corr_inflow_20241028_2030_2100_stow_z2).mean()-(U_corr_inflow_20241028_2030_2100_stow_z2.mean()*V_corr_inflow_20241028_2030_2100_stow_z2.mean());
+inflow_vw_z2_20241028_2030_2100_stow = (V_corr_inflow_20241028_2030_2100_stow_z2*W_corr_inflow_20241028_2030_2100_stow_z2).mean()-(V_corr_inflow_20241028_2030_2100_stow_z2.mean()*W_corr_inflow_20241028_2030_2100_stow_z2.mean());
+inflow_uw_z2_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z2*W_corr_inflow_20241028_2030_2100_stow_z2).mean()-(U_corr_inflow_20241028_2030_2100_stow_z2.mean()*W_corr_inflow_20241028_2030_2100_stow_z2.mean());
+inflow_wT_z2_20241028_2030_2100_stow = (W_corr_inflow_20241028_2030_2100_stow_z2*Ts_corr_inflow_20241028_2030_2100_stow_z2).mean()-(W_corr_inflow_20241028_2030_2100_stow_z2.mean()*Ts_corr_inflow_20241028_2030_2100_stow_z2.mean());
+
+inflow_uv_z3_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z3*V_corr_inflow_20241028_2030_2100_stow_z3).mean()-(U_corr_inflow_20241028_2030_2100_stow_z3.mean()*V_corr_inflow_20241028_2030_2100_stow_z3.mean());
+inflow_vw_z3_20241028_2030_2100_stow = (V_corr_inflow_20241028_2030_2100_stow_z3*W_corr_inflow_20241028_2030_2100_stow_z3).mean()-(V_corr_inflow_20241028_2030_2100_stow_z3.mean()*W_corr_inflow_20241028_2030_2100_stow_z3.mean());
+inflow_uw_z3_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z3*W_corr_inflow_20241028_2030_2100_stow_z3).mean()-(U_corr_inflow_20241028_2030_2100_stow_z3.mean()*W_corr_inflow_20241028_2030_2100_stow_z3.mean());
+inflow_wT_z3_20241028_2030_2100_stow = (W_corr_inflow_20241028_2030_2100_stow_z3*Ts_corr_inflow_20241028_2030_2100_stow_z3).mean()-(W_corr_inflow_20241028_2030_2100_stow_z3.mean()*Ts_corr_inflow_20241028_2030_2100_stow_z3.mean());
+
+utau_z1_20241028_2030_2100_stow = (inflow_uw_z1_20241028_2030_2100_stow**2+inflow_vw_z1_20241028_2030_2100_stow**2)**(1/4) 
+utau_z2_20241028_2030_2100_stow = (inflow_uw_z2_20241028_2030_2100_stow**2+inflow_vw_z2_20241028_2030_2100_stow**2)**(1/4) 
+utau_z3_20241028_2030_2100_stow = (inflow_uw_z3_20241028_2030_2100_stow**2+inflow_vw_z3_20241028_2030_2100_stow**2)**(1/4) 
+
+L_z1_20241028_2030_2100_stow = -1*(utau_z1_20241028_2030_2100_stow**3)/(0.4*(9.81/H1_Ts_20241028_2030_2100_stow_z1)*inflow_wT_z1_20241028_2030_2100_stow)
+L_z2_20241028_2030_2100_stow = -1*(utau_z2_20241028_2030_2100_stow**3)/(0.4*(9.81/H1_Ts_20241028_2030_2100_stow_z2)*inflow_wT_z2_20241028_2030_2100_stow)
+L_z3_20241028_2030_2100_stow = -1*(utau_z3_20241028_2030_2100_stow**3)/(0.4*(9.81/H1_Ts_20241028_2030_2100_stow_z3)*inflow_wT_z3_20241028_2030_2100_stow)
+
+zL_z1_20241028_2030_2100_stow = heights[0]/L_z1_20241028_2030_2100_stow
+zL_z2_20241028_2030_2100_stow = heights[1]/L_z2_20241028_2030_2100_stow
+zL_z3_20241028_2030_2100_stow = heights[2]/L_z3_20241028_2030_2100_stow
+
+inflow_uprimewprime_z1_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z1*W_corr_inflow_20241028_2030_2100_stow_z1);
+inflow_uprimewprime_z2_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z2*W_corr_inflow_20241028_2030_2100_stow_z2);
+inflow_uprimewprime_z3_20241028_2030_2100_stow = (U_corr_inflow_20241028_2030_2100_stow_z3*W_corr_inflow_20241028_2030_2100_stow_z3);
+
 
 #%% LS exponential fit method
 
@@ -520,47 +1005,48 @@ autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_2024102
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.mean())
+Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z1)
 Lux_20241028_2030_2100_stow_z1 = Lux_20241028_2030_2100_stow_z1[Lux_20241028_2030_2100_stow_z1>0]
 
 autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.mean())
+Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z2)
 Lux_20241028_2030_2100_stow_z2 = Lux_20241028_2030_2100_stow_z2[Lux_20241028_2030_2100_stow_z2>0]
 
 autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.mean())
+Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z3)
 Lux_20241028_2030_2100_stow_z3 = Lux_20241028_2030_2100_stow_z3[Lux_20241028_2030_2100_stow_z3>0]
 
 autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Low.mean())
+Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z1)
 Lwx_20241028_2030_2100_stow_z1 = Lwx_20241028_2030_2100_stow_z1[Lwx_20241028_2030_2100_stow_z1>0]
 
 autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Mid.mean())
+Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z2)
 Lwx_20241028_2030_2100_stow_z2 = Lwx_20241028_2030_2100_stow_z2[Lwx_20241028_2030_2100_stow_z2>0]
 
 autocorr_inflow_20241028_2030_2100_stow = np.correlate(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241028_2030_2100_stow.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241028_2030_2100_stow.U_ax_Top.mean())
+Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241028_2030_2100_stow_z3)
 Lwx_20241028_2030_2100_stow_z3 = Lwx_20241028_2030_2100_stow_z3[Lwx_20241028_2030_2100_stow_z3>0]
 
 Lux_profile_inflow_20241028_2030_2100_stow = pd.Series([Lux_20241028_2030_2100_stow_z1,Lux_20241028_2030_2100_stow_z2,Lux_20241028_2030_2100_stow_z3])
 Lwx_profile_inflow_20241028_2030_2100_stow = pd.Series([Lwx_20241028_2030_2100_stow_z1,Lwx_20241028_2030_2100_stow_z2,Lwx_20241028_2030_2100_stow_z3])
  
+
 
 #%% Mast 1
 
@@ -569,28 +1055,29 @@ nblock = len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241028_2030_2100_stow_z1, Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z1*heights[0]/H2_U_ax_20241028_2030_2100_stow_z1
 nPxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = (fu_loads_mast1_20Hz_20241028_2030_2100_stow_z1*Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z1)/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241028_2030_2100_stow_z2, Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z2*heights[1]/H2_U_ax_20241028_2030_2100_stow_z2
 nPxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = (fu_loads_mast1_20Hz_20241028_2030_2100_stow_z2*Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z2)/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241028_2030_2100_stow_z3, Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = fu_loads_mast1_20Hz_20241028_2030_2100_stow_z3*heights[2]/H2_U_ax_20241028_2030_2100_stow_z3
 nPxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = (fu_loads_mast1_20Hz_20241028_2030_2100_stow_z3*Pxxfu_loads_mast1_20Hz_20241028_2030_2100_stow_z3)/loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241028_2030_2100_stow_z1, Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z1*heights[0]/H2_W_ax_20241028_2030_2100_stow_z1
 nPxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z1 = (fw_loads_mast1_20Hz_20241028_2030_2100_stow_z1*Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z1)/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241028_2030_2100_stow_z2, Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z2*heights[1]/H2_W_ax_20241028_2030_2100_stow_z2
 nPxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z2 = (fw_loads_mast1_20Hz_20241028_2030_2100_stow_z2*Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z2)/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241028_2030_2100_stow_z3, Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = fw_loads_mast1_20Hz_20241028_2030_2100_stow_z3*heights[2]/H2_W_ax_20241028_2030_2100_stow_z3
 nPxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z3 = (fw_loads_mast1_20Hz_20241028_2030_2100_stow_z3*Pxxfw_loads_mast1_20Hz_20241028_2030_2100_stow_z3)/loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -660,42 +1147,42 @@ autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.mean())
+Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z1)
 Lux_mast1_20241028_2030_2100_stow_z1 = Lux_20241028_2030_2100_stow_z1[Lux_20241028_2030_2100_stow_z1>0]
 
 autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.mean())
+Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z2)
 Lux_mast1_20241028_2030_2100_stow_z2 = Lux_20241028_2030_2100_stow_z2[Lux_20241028_2030_2100_stow_z2>0]
 
 autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.mean())
+Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z3)
 Lux_mast1_20241028_2030_2100_stow_z3 = Lux_20241028_2030_2100_stow_z3[Lux_20241028_2030_2100_stow_z3>0]
 
 autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Low.mean())
+Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z1)
 Lwx_mast1_20241028_2030_2100_stow_z1 = Lwx_20241028_2030_2100_stow_z1[Lwx_20241028_2030_2100_stow_z1>0]
 
 autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Mid.mean())
+Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z2)
 Lwx_mast1_20241028_2030_2100_stow_z2 = Lwx_20241028_2030_2100_stow_z2[Lwx_20241028_2030_2100_stow_z2>0]
 
 autocorr_mast1_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m1_U_ax_Top.mean())
+Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241028_2030_2100_stow_z3)
 Lwx_mast1_20241028_2030_2100_stow_z3 = Lwx_20241028_2030_2100_stow_z3[Lwx_20241028_2030_2100_stow_z3>0]
 
 Lux_profile_mast1_20241028_2030_2100_stow = pd.Series([Lux_mast1_20241028_2030_2100_stow_z1,Lux_mast1_20241028_2030_2100_stow_z2,Lux_mast1_20241028_2030_2100_stow_z3])
@@ -710,27 +1197,27 @@ nblock = len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241028_2030_2100_stow_z1, Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z1*heights[0]/H3_U_ax_20241028_2030_2100_stow_z1
 nPxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = (fu_loads_mast3_20Hz_20241028_2030_2100_stow_z1*Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z1)/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241028_2030_2100_stow_z2, Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z2*heights[1]/H3_U_ax_20241028_2030_2100_stow_z2
 nPxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = (fu_loads_mast3_20Hz_20241028_2030_2100_stow_z2*Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z2)/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241028_2030_2100_stow_z3, Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = fu_loads_mast3_20Hz_20241028_2030_2100_stow_z3*heights[2]/H3_U_ax_20241028_2030_2100_stow_z3
 nPxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = (fu_loads_mast3_20Hz_20241028_2030_2100_stow_z3*Pxxfu_loads_mast3_20Hz_20241028_2030_2100_stow_z3)/loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241028_2030_2100_stow_z1, Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z1*heights[0]/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z1*heights[0]/H3_W_ax_20241028_2030_2100_stow_z1
 nPxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z1 = (fw_loads_mast3_20Hz_20241028_2030_2100_stow_z1*Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z1)/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241028_2030_2100_stow_z2, Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z2*heights[1]/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z2*heights[1]/H3_W_ax_20241028_2030_2100_stow_z2
 nPxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z2 = (fw_loads_mast3_20Hz_20241028_2030_2100_stow_z2*Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z2)/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241028_2030_2100_stow_z3, Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = welch(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z3*heights[2]/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = fw_loads_mast3_20Hz_20241028_2030_2100_stow_z3*heights[2]/H3_W_ax_20241028_2030_2100_stow_z3
 nPxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z3 = (fw_loads_mast3_20Hz_20241028_2030_2100_stow_z3*Pxxfw_loads_mast3_20Hz_20241028_2030_2100_stow_z3)/loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.std()**2              
 
 
@@ -795,48 +1282,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.mean())
+Lux_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z1)
 Lux_mast3_20241028_2030_2100_stow_z1 = Lux_20241028_2030_2100_stow_z1[Lux_20241028_2030_2100_stow_z1>0]
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.mean())
+Lux_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z2)
 Lux_mast3_20241028_2030_2100_stow_z2 = Lux_20241028_2030_2100_stow_z2[Lux_20241028_2030_2100_stow_z2>0]
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.mean())
+Lux_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z3)
 Lux_mast3_20241028_2030_2100_stow_z3 = Lux_20241028_2030_2100_stow_z3[Lux_20241028_2030_2100_stow_z3>0]
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Low.mean())
+Lwx_20241028_2030_2100_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z1)
 Lwx_mast3_20241028_2030_2100_stow_z1 = Lwx_20241028_2030_2100_stow_z1[Lwx_20241028_2030_2100_stow_z1>0]
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Mid.mean())
+Lwx_20241028_2030_2100_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z2)
 Lwx_mast3_20241028_2030_2100_stow_z2 = Lwx_20241028_2030_2100_stow_z2[Lwx_20241028_2030_2100_stow_z2>0]
 
 autocorr_mast3_20241028_2030_2100_stow = np.correlate(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241028_2030_2100_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241028_2030_2100_stow.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241028_2030_2100_stow)
-Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241028_2030_2100_stow.m3_U_ax_Top.mean())
+Lwx_20241028_2030_2100_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241028_2030_2100_stow_z3)
 Lwx_mast3_20241028_2030_2100_stow_z3 = Lwx_20241028_2030_2100_stow_z3[Lwx_20241028_2030_2100_stow_z3>0]
 
 Lux_profile_mast3_20241028_2030_2100_stow = pd.Series([Lux_mast3_20241028_2030_2100_stow_z1,Lux_mast3_20241028_2030_2100_stow_z2,Lux_mast3_20241028_2030_2100_stow_z3])
@@ -868,9 +1357,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241028_2030_2100_stow,H1_wspd_20241028_2030_2100_stow,H1_wspd_20241028_2030_2100_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241028_2030_2100_stow,H2_wspd_20241028_2030_2100_stow,H2_wspd_20241028_2030_2100_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241028_2030_2100_stow,H3_wspd_20241028_2030_2100_stow,H3_wspd_20241028_2030_2100_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241028_2030_2100_stow_z1,H1_wspd_20241028_2030_2100_stow_z2,H1_wspd_20241028_2030_2100_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241028_2030_2100_stow_z1,H2_wspd_20241028_2030_2100_stow_z2,H2_wspd_20241028_2030_2100_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241028_2030_2100_stow_z1,H3_wspd_20241028_2030_2100_stow_z2,H3_wspd_20241028_2030_2100_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -881,9 +1370,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241028_2030_2100_stow,H1_wdir_20241028_2030_2100_stow,H1_wdir_20241028_2030_2100_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241028_2030_2100_stow,H2_wdir_20241028_2030_2100_stow,H2_wdir_20241028_2030_2100_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241028_2030_2100_stow,H3_wdir_20241028_2030_2100_stow,H3_wdir_20241028_2030_2100_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241028_2030_2100_stow_z1,H1_wdir_20241028_2030_2100_stow_z2,H1_wdir_20241028_2030_2100_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241028_2030_2100_stow_z1,H2_wdir_20241028_2030_2100_stow_z2,H2_wdir_20241028_2030_2100_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241028_2030_2100_stow_z1,H3_wdir_20241028_2030_2100_stow_z2,H3_wdir_20241028_2030_2100_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -895,9 +1384,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241028_2030_2100_stow,H1_Iu_20241028_2030_2100_stow,H1_Iu_20241028_2030_2100_stow], heights, label='inflow')            
-plt.scatter([H2_Iu_20241028_2030_2100_stow,H2_Iu_20241028_2030_2100_stow,H2_Iu_20241028_2030_2100_stow], heights, label='mast1')            
-plt.scatter([H3_Iu_20241028_2030_2100_stow,H3_Iu_20241028_2030_2100_stow,H3_Iu_20241028_2030_2100_stow], heights, label='mast3')            
+plt.scatter([H1_Iu_20241028_2030_2100_stow_z1,H1_Iu_20241028_2030_2100_stow_z2,H1_Iu_20241028_2030_2100_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241028_2030_2100_stow_z1,H2_Iu_20241028_2030_2100_stow_z2,H2_Iu_20241028_2030_2100_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241028_2030_2100_stow_z1,H3_Iu_20241028_2030_2100_stow_z2,H3_Iu_20241028_2030_2100_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -908,9 +1397,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241028_2030_2100_stow,H1_Iw_20241028_2030_2100_stow,H1_Iw_20241028_2030_2100_stow], heights, label='inflow')            
-plt.scatter([H2_Iw_20241028_2030_2100_stow,H2_Iw_20241028_2030_2100_stow,H2_Iw_20241028_2030_2100_stow], heights, label='mast1')            
-plt.scatter([H3_Iw_20241028_2030_2100_stow,H3_Iw_20241028_2030_2100_stow,H3_Iw_20241028_2030_2100_stow], heights, label='mast3')            
+plt.scatter([H1_Iw_20241028_2030_2100_stow_z1,H1_Iw_20241028_2030_2100_stow_z2,H1_Iw_20241028_2030_2100_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241028_2030_2100_stow_z1,H2_Iw_20241028_2030_2100_stow_z2,H2_Iw_20241028_2030_2100_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241028_2030_2100_stow_z1,H3_Iw_20241028_2030_2100_stow_z2,H3_Iw_20241028_2030_2100_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -922,27 +1411,27 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241028_2030_2100_stow/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241028_2030_2100_stow/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241028_2030_2100_stow/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241028_2030_2100_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241028_2030_2100_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241028_2030_2100_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,100)
+plt.xlim(0,150)
 plt.ylim(0,12)
 plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241028_2030_2100_stow/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241028_2030_2100_stow/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241028_2030_2100_stow/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241028_2030_2100_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241028_2030_2100_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241028_2030_2100_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,0.5)
+plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
 
@@ -964,27 +1453,27 @@ nblock = len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241115_2130_2200_stow_z1, Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z1*heights[0]/H1_U_ax_20241115_2130_2200_stow_z1
 nPxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = (fu_loads_inflow_20Hz_20241115_2130_2200_stow_z1*Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1)/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241115_2130_2200_stow_z2, Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z2*heights[1]/H1_U_ax_20241115_2130_2200_stow_z2
 nPxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = (fu_loads_inflow_20Hz_20241115_2130_2200_stow_z2*Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z2)/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241115_2130_2200_stow_z3, Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = fu_loads_inflow_20Hz_20241115_2130_2200_stow_z3*heights[2]/H1_U_ax_20241115_2130_2200_stow_z3
 nPxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = (fu_loads_inflow_20Hz_20241115_2130_2200_stow_z3*Pxxfu_loads_inflow_20Hz_20241115_2130_2200_stow_z3)/loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241115_2130_2200_stow_z1, Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z1*heights[0]/H1_W_ax_20241115_2130_2200_stow_z1
 nPxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z1 = (fw_loads_inflow_20Hz_20241115_2130_2200_stow_z1*Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z1)/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241115_2130_2200_stow_z2, Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z2*heights[1]/H1_W_ax_20241115_2130_2200_stow_z2
 nPxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z2 = (fw_loads_inflow_20Hz_20241115_2130_2200_stow_z2*Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z2)/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241115_2130_2200_stow_z3, Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = welch(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = fw_loads_inflow_20Hz_20241115_2130_2200_stow_z3*heights[2]/H1_W_ax_20241115_2130_2200_stow_z3
 nPxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = (fw_loads_inflow_20Hz_20241115_2130_2200_stow_z3*Pxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3)/loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.std()**2              
 
 
@@ -1021,7 +1510,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = runningMeanFast(nPx
 nPxxfw_mod_loads_inflow_20Hz_20241115_2130_2200_stow_z3 = [nPxxfw_loads_inflow_20Hz_20241115_2130_2200_stow_z3[0:index_highfreq_loads_inflow_20Hz_20241115_2130_2200_stow_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241115_2130_2200_stow_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241115_2130_2200_stow_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241115_2130_2200_stow_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241115_2130_2200_stow_z1[1], label='2.75m')            
@@ -1048,6 +1536,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241115_2130_2200_stow_z1 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low)
+U_corr_inflow_20241115_2130_2200_stow_z2 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid)
+U_corr_inflow_20241115_2130_2200_stow_z3 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top)
+
+V_corr_inflow_20241115_2130_2200_stow_z1 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.V_ax_Low)
+V_corr_inflow_20241115_2130_2200_stow_z2 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.V_ax_Mid)
+V_corr_inflow_20241115_2130_2200_stow_z3 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.V_ax_Top)
+
+W_corr_inflow_20241115_2130_2200_stow_z1 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low)
+W_corr_inflow_20241115_2130_2200_stow_z2 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid)
+W_corr_inflow_20241115_2130_2200_stow_z3 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top)
+
+Ts_corr_inflow_20241115_2130_2200_stow_z1 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Low)
+Ts_corr_inflow_20241115_2130_2200_stow_z2 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Mid)
+Ts_corr_inflow_20241115_2130_2200_stow_z3 = pd.Series(loads_inflow_20Hz_20241115_2130_2200_stow.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241115_2130_2200_stow_z1[U_corr_inflow_20241115_2130_2200_stow_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241115_2130_2200_stow_z1.dropna()) 
+U_corr_inflow_20241115_2130_2200_stow_z2[U_corr_inflow_20241115_2130_2200_stow_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241115_2130_2200_stow_z2.dropna()) 
+U_corr_inflow_20241115_2130_2200_stow_z3[U_corr_inflow_20241115_2130_2200_stow_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241115_2130_2200_stow_z3.dropna()) 
+
+V_corr_inflow_20241115_2130_2200_stow_z1[V_corr_inflow_20241115_2130_2200_stow_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241115_2130_2200_stow_z1.dropna()) 
+V_corr_inflow_20241115_2130_2200_stow_z2[V_corr_inflow_20241115_2130_2200_stow_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241115_2130_2200_stow_z2.dropna()) 
+V_corr_inflow_20241115_2130_2200_stow_z3[V_corr_inflow_20241115_2130_2200_stow_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241115_2130_2200_stow_z3.dropna()) 
+
+W_corr_inflow_20241115_2130_2200_stow_z1[W_corr_inflow_20241115_2130_2200_stow_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241115_2130_2200_stow_z1.dropna()) 
+W_corr_inflow_20241115_2130_2200_stow_z2[W_corr_inflow_20241115_2130_2200_stow_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241115_2130_2200_stow_z2.dropna()) 
+W_corr_inflow_20241115_2130_2200_stow_z3[W_corr_inflow_20241115_2130_2200_stow_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241115_2130_2200_stow_z3.dropna()) 
+
+Ts_corr_inflow_20241115_2130_2200_stow_z1[Ts_corr_inflow_20241115_2130_2200_stow_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241115_2130_2200_stow_z1.dropna()) 
+Ts_corr_inflow_20241115_2130_2200_stow_z2[Ts_corr_inflow_20241115_2130_2200_stow_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241115_2130_2200_stow_z2.dropna()) 
+Ts_corr_inflow_20241115_2130_2200_stow_z3[Ts_corr_inflow_20241115_2130_2200_stow_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241115_2130_2200_stow_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z1*V_corr_inflow_20241115_2130_2200_stow_z1).mean()-(U_corr_inflow_20241115_2130_2200_stow_z1.mean()*V_corr_inflow_20241115_2130_2200_stow_z1.mean());
+inflow_vw_z1_20241115_2130_2200_stow = (V_corr_inflow_20241115_2130_2200_stow_z1*W_corr_inflow_20241115_2130_2200_stow_z1).mean()-(V_corr_inflow_20241115_2130_2200_stow_z1.mean()*W_corr_inflow_20241115_2130_2200_stow_z1.mean());
+inflow_uw_z1_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z1*W_corr_inflow_20241115_2130_2200_stow_z1).mean()-(U_corr_inflow_20241115_2130_2200_stow_z1.mean()*W_corr_inflow_20241115_2130_2200_stow_z1.mean());
+inflow_wT_z1_20241115_2130_2200_stow = (W_corr_inflow_20241115_2130_2200_stow_z1*Ts_corr_inflow_20241115_2130_2200_stow_z1).mean()-(W_corr_inflow_20241115_2130_2200_stow_z1.mean()*Ts_corr_inflow_20241115_2130_2200_stow_z1.mean());
+
+inflow_uv_z2_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z2*V_corr_inflow_20241115_2130_2200_stow_z2).mean()-(U_corr_inflow_20241115_2130_2200_stow_z2.mean()*V_corr_inflow_20241115_2130_2200_stow_z2.mean());
+inflow_vw_z2_20241115_2130_2200_stow = (V_corr_inflow_20241115_2130_2200_stow_z2*W_corr_inflow_20241115_2130_2200_stow_z2).mean()-(V_corr_inflow_20241115_2130_2200_stow_z2.mean()*W_corr_inflow_20241115_2130_2200_stow_z2.mean());
+inflow_uw_z2_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z2*W_corr_inflow_20241115_2130_2200_stow_z2).mean()-(U_corr_inflow_20241115_2130_2200_stow_z2.mean()*W_corr_inflow_20241115_2130_2200_stow_z2.mean());
+inflow_wT_z2_20241115_2130_2200_stow = (W_corr_inflow_20241115_2130_2200_stow_z2*Ts_corr_inflow_20241115_2130_2200_stow_z2).mean()-(W_corr_inflow_20241115_2130_2200_stow_z2.mean()*Ts_corr_inflow_20241115_2130_2200_stow_z2.mean());
+
+inflow_uv_z3_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z3*V_corr_inflow_20241115_2130_2200_stow_z3).mean()-(U_corr_inflow_20241115_2130_2200_stow_z3.mean()*V_corr_inflow_20241115_2130_2200_stow_z3.mean());
+inflow_vw_z3_20241115_2130_2200_stow = (V_corr_inflow_20241115_2130_2200_stow_z3*W_corr_inflow_20241115_2130_2200_stow_z3).mean()-(V_corr_inflow_20241115_2130_2200_stow_z3.mean()*W_corr_inflow_20241115_2130_2200_stow_z3.mean());
+inflow_uw_z3_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z3*W_corr_inflow_20241115_2130_2200_stow_z3).mean()-(U_corr_inflow_20241115_2130_2200_stow_z3.mean()*W_corr_inflow_20241115_2130_2200_stow_z3.mean());
+inflow_wT_z3_20241115_2130_2200_stow = (W_corr_inflow_20241115_2130_2200_stow_z3*Ts_corr_inflow_20241115_2130_2200_stow_z3).mean()-(W_corr_inflow_20241115_2130_2200_stow_z3.mean()*Ts_corr_inflow_20241115_2130_2200_stow_z3.mean());
+
+utau_z1_20241115_2130_2200_stow = (inflow_uw_z1_20241115_2130_2200_stow**2+inflow_vw_z1_20241115_2130_2200_stow**2)**(1/4) 
+utau_z2_20241115_2130_2200_stow = (inflow_uw_z2_20241115_2130_2200_stow**2+inflow_vw_z2_20241115_2130_2200_stow**2)**(1/4) 
+utau_z3_20241115_2130_2200_stow = (inflow_uw_z3_20241115_2130_2200_stow**2+inflow_vw_z3_20241115_2130_2200_stow**2)**(1/4) 
+
+L_z1_20241115_2130_2200_stow = -1*(utau_z1_20241115_2130_2200_stow**3)/(0.4*(9.81/H1_Ts_20241115_2130_2200_stow_z1)*inflow_wT_z1_20241115_2130_2200_stow)
+L_z2_20241115_2130_2200_stow = -1*(utau_z2_20241115_2130_2200_stow**3)/(0.4*(9.81/H1_Ts_20241115_2130_2200_stow_z2)*inflow_wT_z2_20241115_2130_2200_stow)
+L_z3_20241115_2130_2200_stow = -1*(utau_z3_20241115_2130_2200_stow**3)/(0.4*(9.81/H1_Ts_20241115_2130_2200_stow_z3)*inflow_wT_z3_20241115_2130_2200_stow)
+
+zL_z1_20241115_2130_2200_stow = heights[0]/L_z1_20241115_2130_2200_stow
+zL_z2_20241115_2130_2200_stow = heights[1]/L_z2_20241115_2130_2200_stow
+zL_z3_20241115_2130_2200_stow = heights[2]/L_z3_20241115_2130_2200_stow
+
+inflow_uprimewprime_z1_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z1*W_corr_inflow_20241115_2130_2200_stow_z1);
+inflow_uprimewprime_z2_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z2*W_corr_inflow_20241115_2130_2200_stow_z2);
+inflow_uprimewprime_z3_20241115_2130_2200_stow = (U_corr_inflow_20241115_2130_2200_stow_z3*W_corr_inflow_20241115_2130_2200_stow_z3);
+
 
 #%% LS exponential fit method
 
@@ -1055,47 +1611,48 @@ autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_2024111
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.mean())
+Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z1)
 Lux_20241115_2130_2200_stow_z1 = Lux_20241115_2130_2200_stow_z1[Lux_20241115_2130_2200_stow_z1>0]
 
 autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.mean())
+Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z2)
 Lux_20241115_2130_2200_stow_z2 = Lux_20241115_2130_2200_stow_z2[Lux_20241115_2130_2200_stow_z2>0]
 
 autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.mean())
+Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z3)
 Lux_20241115_2130_2200_stow_z3 = Lux_20241115_2130_2200_stow_z3[Lux_20241115_2130_2200_stow_z3>0]
 
 autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Low.mean())
+Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z1)
 Lwx_20241115_2130_2200_stow_z1 = Lwx_20241115_2130_2200_stow_z1[Lwx_20241115_2130_2200_stow_z1>0]
 
 autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Mid.mean())
+Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z2)
 Lwx_20241115_2130_2200_stow_z2 = Lwx_20241115_2130_2200_stow_z2[Lwx_20241115_2130_2200_stow_z2>0]
 
 autocorr_inflow_20241115_2130_2200_stow = np.correlate(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241115_2130_2200_stow.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241115_2130_2200_stow.U_ax_Top.mean())
+Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241115_2130_2200_stow_z3)
 Lwx_20241115_2130_2200_stow_z3 = Lwx_20241115_2130_2200_stow_z3[Lwx_20241115_2130_2200_stow_z3>0]
 
 Lux_profile_inflow_20241115_2130_2200_stow = pd.Series([Lux_20241115_2130_2200_stow_z1,Lux_20241115_2130_2200_stow_z2,Lux_20241115_2130_2200_stow_z3])
 Lwx_profile_inflow_20241115_2130_2200_stow = pd.Series([Lwx_20241115_2130_2200_stow_z1,Lwx_20241115_2130_2200_stow_z2,Lwx_20241115_2130_2200_stow_z3])
  
+
 
 #%% Mast 1
 
@@ -1104,28 +1661,29 @@ nblock = len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241115_2130_2200_stow_z1, Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z1*heights[0]/H2_U_ax_20241115_2130_2200_stow_z1
 nPxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = (fu_loads_mast1_20Hz_20241115_2130_2200_stow_z1*Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z1)/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241115_2130_2200_stow_z2, Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z2*heights[1]/H2_U_ax_20241115_2130_2200_stow_z2
 nPxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = (fu_loads_mast1_20Hz_20241115_2130_2200_stow_z2*Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z2)/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241115_2130_2200_stow_z3, Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = fu_loads_mast1_20Hz_20241115_2130_2200_stow_z3*heights[2]/H2_U_ax_20241115_2130_2200_stow_z3
 nPxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = (fu_loads_mast1_20Hz_20241115_2130_2200_stow_z3*Pxxfu_loads_mast1_20Hz_20241115_2130_2200_stow_z3)/loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241115_2130_2200_stow_z1, Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z1*heights[0]/H2_W_ax_20241115_2130_2200_stow_z1
 nPxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z1 = (fw_loads_mast1_20Hz_20241115_2130_2200_stow_z1*Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z1)/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241115_2130_2200_stow_z2, Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z2*heights[1]/H2_W_ax_20241115_2130_2200_stow_z2
 nPxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z2 = (fw_loads_mast1_20Hz_20241115_2130_2200_stow_z2*Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z2)/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241115_2130_2200_stow_z3, Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = fw_loads_mast1_20Hz_20241115_2130_2200_stow_z3*heights[2]/H2_W_ax_20241115_2130_2200_stow_z3
 nPxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z3 = (fw_loads_mast1_20Hz_20241115_2130_2200_stow_z3*Pxxfw_loads_mast1_20Hz_20241115_2130_2200_stow_z3)/loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -1195,42 +1753,42 @@ autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.mean())
+Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z1)
 Lux_mast1_20241115_2130_2200_stow_z1 = Lux_20241115_2130_2200_stow_z1[Lux_20241115_2130_2200_stow_z1>0]
 
 autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.mean())
+Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z2)
 Lux_mast1_20241115_2130_2200_stow_z2 = Lux_20241115_2130_2200_stow_z2[Lux_20241115_2130_2200_stow_z2>0]
 
 autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.mean())
+Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z3)
 Lux_mast1_20241115_2130_2200_stow_z3 = Lux_20241115_2130_2200_stow_z3[Lux_20241115_2130_2200_stow_z3>0]
 
 autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Low.mean())
+Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z1)
 Lwx_mast1_20241115_2130_2200_stow_z1 = Lwx_20241115_2130_2200_stow_z1[Lwx_20241115_2130_2200_stow_z1>0]
 
 autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Mid.mean())
+Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z2)
 Lwx_mast1_20241115_2130_2200_stow_z2 = Lwx_20241115_2130_2200_stow_z2[Lwx_20241115_2130_2200_stow_z2>0]
 
 autocorr_mast1_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m1_U_ax_Top.mean())
+Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241115_2130_2200_stow_z3)
 Lwx_mast1_20241115_2130_2200_stow_z3 = Lwx_20241115_2130_2200_stow_z3[Lwx_20241115_2130_2200_stow_z3>0]
 
 Lux_profile_mast1_20241115_2130_2200_stow = pd.Series([Lux_mast1_20241115_2130_2200_stow_z1,Lux_mast1_20241115_2130_2200_stow_z2,Lux_mast1_20241115_2130_2200_stow_z3])
@@ -1245,27 +1803,27 @@ nblock = len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241115_2130_2200_stow_z1, Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z1*heights[0]/H3_U_ax_20241115_2130_2200_stow_z1
 nPxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = (fu_loads_mast3_20Hz_20241115_2130_2200_stow_z1*Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z1)/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241115_2130_2200_stow_z2, Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z2*heights[1]/H3_U_ax_20241115_2130_2200_stow_z2
 nPxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = (fu_loads_mast3_20Hz_20241115_2130_2200_stow_z2*Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z2)/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241115_2130_2200_stow_z3, Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = fu_loads_mast3_20Hz_20241115_2130_2200_stow_z3*heights[2]/H3_U_ax_20241115_2130_2200_stow_z3
 nPxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = (fu_loads_mast3_20Hz_20241115_2130_2200_stow_z3*Pxxfu_loads_mast3_20Hz_20241115_2130_2200_stow_z3)/loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241115_2130_2200_stow_z1, Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z1*heights[0]/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z1*heights[0]/H3_W_ax_20241115_2130_2200_stow_z1
 nPxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z1 = (fw_loads_mast3_20Hz_20241115_2130_2200_stow_z1*Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z1)/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241115_2130_2200_stow_z2, Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z2*heights[1]/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z2*heights[1]/H3_W_ax_20241115_2130_2200_stow_z2
 nPxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z2 = (fw_loads_mast3_20Hz_20241115_2130_2200_stow_z2*Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z2)/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241115_2130_2200_stow_z3, Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = welch(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z3*heights[2]/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = fw_loads_mast3_20Hz_20241115_2130_2200_stow_z3*heights[2]/H3_W_ax_20241115_2130_2200_stow_z3
 nPxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z3 = (fw_loads_mast3_20Hz_20241115_2130_2200_stow_z3*Pxxfw_loads_mast3_20Hz_20241115_2130_2200_stow_z3)/loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.std()**2              
 
 
@@ -1330,48 +1888,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.mean())
+Lux_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z1)
 Lux_mast3_20241115_2130_2200_stow_z1 = Lux_20241115_2130_2200_stow_z1[Lux_20241115_2130_2200_stow_z1>0]
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.mean())
+Lux_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z2)
 Lux_mast3_20241115_2130_2200_stow_z2 = Lux_20241115_2130_2200_stow_z2[Lux_20241115_2130_2200_stow_z2>0]
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.mean())
+Lux_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z3)
 Lux_mast3_20241115_2130_2200_stow_z3 = Lux_20241115_2130_2200_stow_z3[Lux_20241115_2130_2200_stow_z3>0]
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Low.mean())
+Lwx_20241115_2130_2200_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z1)
 Lwx_mast3_20241115_2130_2200_stow_z1 = Lwx_20241115_2130_2200_stow_z1[Lwx_20241115_2130_2200_stow_z1>0]
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Mid.mean())
+Lwx_20241115_2130_2200_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z2)
 Lwx_mast3_20241115_2130_2200_stow_z2 = Lwx_20241115_2130_2200_stow_z2[Lwx_20241115_2130_2200_stow_z2>0]
 
 autocorr_mast3_20241115_2130_2200_stow = np.correlate(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241115_2130_2200_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241115_2130_2200_stow.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241115_2130_2200_stow)
-Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241115_2130_2200_stow.m3_U_ax_Top.mean())
+Lwx_20241115_2130_2200_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241115_2130_2200_stow_z3)
 Lwx_mast3_20241115_2130_2200_stow_z3 = Lwx_20241115_2130_2200_stow_z3[Lwx_20241115_2130_2200_stow_z3>0]
 
 Lux_profile_mast3_20241115_2130_2200_stow = pd.Series([Lux_mast3_20241115_2130_2200_stow_z1,Lux_mast3_20241115_2130_2200_stow_z2,Lux_mast3_20241115_2130_2200_stow_z3])
@@ -1400,11 +1960,12 @@ plt.xlim(0,10)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241115_2130_2200_stow,H1_wspd_20241115_2130_2200_stow,H1_wspd_20241115_2130_2200_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241115_2130_2200_stow,H2_wspd_20241115_2130_2200_stow,H2_wspd_20241115_2130_2200_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241115_2130_2200_stow,H3_wspd_20241115_2130_2200_stow,H3_wspd_20241115_2130_2200_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241115_2130_2200_stow_z1,H1_wspd_20241115_2130_2200_stow_z2,H1_wspd_20241115_2130_2200_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241115_2130_2200_stow_z1,H2_wspd_20241115_2130_2200_stow_z2,H2_wspd_20241115_2130_2200_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241115_2130_2200_stow_z1,H3_wspd_20241115_2130_2200_stow_z2,H3_wspd_20241115_2130_2200_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -1415,9 +1976,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241115_2130_2200_stow,H1_wdir_20241115_2130_2200_stow,H1_wdir_20241115_2130_2200_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241115_2130_2200_stow,H2_wdir_20241115_2130_2200_stow,H2_wdir_20241115_2130_2200_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241115_2130_2200_stow,H3_wdir_20241115_2130_2200_stow,H3_wdir_20241115_2130_2200_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241115_2130_2200_stow_z1,H1_wdir_20241115_2130_2200_stow_z2,H1_wdir_20241115_2130_2200_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241115_2130_2200_stow_z1,H2_wdir_20241115_2130_2200_stow_z2,H2_wdir_20241115_2130_2200_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241115_2130_2200_stow_z1,H3_wdir_20241115_2130_2200_stow_z2,H3_wdir_20241115_2130_2200_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -1426,11 +1987,12 @@ plt.xlim(300,360)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241115_2130_2200_stow,H1_Iu_20241115_2130_2200_stow,H1_Iu_20241115_2130_2200_stow], heights, label='inflow')            
-plt.scatter([H2_Iu_20241115_2130_2200_stow,H2_Iu_20241115_2130_2200_stow,H2_Iu_20241115_2130_2200_stow], heights, label='mast1')            
-plt.scatter([H3_Iu_20241115_2130_2200_stow,H3_Iu_20241115_2130_2200_stow,H3_Iu_20241115_2130_2200_stow], heights, label='mast3')            
+plt.scatter([H1_Iu_20241115_2130_2200_stow_z1,H1_Iu_20241115_2130_2200_stow_z2,H1_Iu_20241115_2130_2200_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241115_2130_2200_stow_z1,H2_Iu_20241115_2130_2200_stow_z2,H2_Iu_20241115_2130_2200_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241115_2130_2200_stow_z1,H3_Iu_20241115_2130_2200_stow_z2,H3_Iu_20241115_2130_2200_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -1441,9 +2003,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241115_2130_2200_stow,H1_Iw_20241115_2130_2200_stow,H1_Iw_20241115_2130_2200_stow], heights, label='inflow')            
-plt.scatter([H2_Iw_20241115_2130_2200_stow,H2_Iw_20241115_2130_2200_stow,H2_Iw_20241115_2130_2200_stow], heights, label='mast1')            
-plt.scatter([H3_Iw_20241115_2130_2200_stow,H3_Iw_20241115_2130_2200_stow,H3_Iw_20241115_2130_2200_stow], heights, label='mast3')            
+plt.scatter([H1_Iw_20241115_2130_2200_stow_z1,H1_Iw_20241115_2130_2200_stow_z2,H1_Iw_20241115_2130_2200_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241115_2130_2200_stow_z1,H2_Iw_20241115_2130_2200_stow_z2,H2_Iw_20241115_2130_2200_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241115_2130_2200_stow_z1,H3_Iw_20241115_2130_2200_stow_z2,H3_Iw_20241115_2130_2200_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -1455,22 +2017,22 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241115_2130_2200_stow/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241115_2130_2200_stow/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241115_2130_2200_stow/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241115_2130_2200_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241115_2130_2200_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241115_2130_2200_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,100)
+plt.xlim(0,150)
 plt.ylim(0,12)
 plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241115_2130_2200_stow/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241115_2130_2200_stow/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241115_2130_2200_stow/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241115_2130_2200_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241115_2130_2200_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241115_2130_2200_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
@@ -1478,6 +2040,166 @@ plt.ylabel("$z$ (m)")
 plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
+
+
+
+#%% Quadrant analysis
+
+Q1_west_Apr_May_2023_z1 = Q2_west_Apr_May_2023_z1 = Q3_west_Apr_May_2023_z1 = Q4_west_Apr_May_2023_z1 = 0
+ejections_west_Apr_May_2023_z1 = outward_interactions_west_Apr_May_2023_z1 = sweeps_west_Apr_May_2023_z1 = inward_interactions_west_Apr_May_2023_z1 = 0
+
+for i in range(0,len(W_corr_west_Apr_May_2023_z1)):
+    if (U_corr_west_Apr_May_2023_z1[i]>0)&(W_corr_west_Apr_May_2023_z1[i]>0):
+        Q1_west_Apr_May_2023_z1 += 1
+        if (inflow_uprimewprime_z1_west_Apr_May_2023[i]>0):
+            ejections_west_Apr_May_2023_z1 += 1
+        elif (inflow_uprimewprime_z1_west_Apr_May_2023[i]<0):
+            outward_interactions_west_Apr_May_2023_z1 += 1            
+    elif (U_corr_west_Apr_May_2023_z1[i]>0)&(W_corr_west_Apr_May_2023_z1[i]<0):
+        Q2_west_Apr_May_2023_z1 += 1
+        if (inflow_uprimewprime_z1_west_Apr_May_2023[i]<0):
+            sweeps_west_Apr_May_2023_z1 += 1
+        elif (inflow_uprimewprime_z1_west_Apr_May_2023[i]>0):
+            inward_interactions_west_Apr_May_2023_z1 += 1 
+    elif (U_corr_west_Apr_May_2023_z1[i]<0)&(W_corr_west_Apr_May_2023_z1[i]<0):
+        Q3_west_Apr_May_2023_z1 += 1
+        if (inflow_uprimewprime_z1_west_Apr_May_2023[i]>0):
+            sweeps_west_Apr_May_2023_z1 += 1
+        elif (inflow_uprimewprime_z1_west_Apr_May_2023[i]<0):
+            inward_interactions_west_Apr_May_2023_z1 += 1 
+    elif (U_corr_west_Apr_May_2023_z1[i]<0)&(W_corr_west_Apr_May_2023_z1[i]>0):
+        Q2_west_Apr_May_2023_z1 += 1
+        if (inflow_uprimewprime_z1_west_Apr_May_2023[i]<0):
+            ejections_west_Apr_May_2023_z1 += 1
+        elif (inflow_uprimewprime_z1_west_Apr_May_2023[i]>0):
+            outward_interactions_west_Apr_May_2023_z1 += 1 
+
+
+S1_west_Apr_May_2023_z1 = 100*Q1_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S2_west_Apr_May_2023_z1 = 100*Q2_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S3_west_Apr_May_2023_z1 = 100*Q3_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S4_west_Apr_May_2023_z1 = 100*Q4_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+
+S_ejections_west_Apr_May_2023_z1 = 100*ejections_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S_outward_interactions_west_Apr_May_2023_z1 = 100*outward_interactions_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S_sweeps_west_Apr_May_2023_z1 = 100*sweeps_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+S_inward_interactions_west_Apr_May_2023_z1 = 100*inward_interactions_west_Apr_May_2023_z1/(Q1_west_Apr_May_2023_z1+Q2_west_Apr_May_2023_z1+Q3_west_Apr_May_2023_z1+Q4_west_Apr_May_2023_z1)
+
+
+Q1_west_Apr_May_2023_z2 = Q2_west_Apr_May_2023_z2 = Q3_west_Apr_May_2023_z2 = Q4_west_Apr_May_2023_z2 = 0
+ejections_west_Apr_May_2023_z2 = outward_interactions_west_Apr_May_2023_z2 = sweeps_west_Apr_May_2023_z2 = inward_interactions_west_Apr_May_2023_z2 = 0
+
+for i in range(0,len(W_corr_west_Apr_May_2023_z2)):
+    if (U_corr_west_Apr_May_2023_z2[i]>0)&(W_corr_west_Apr_May_2023_z2[i]>0):
+        Q1_west_Apr_May_2023_z2 += 1
+        if (inflow_uprimewprime_z2_west_Apr_May_2023[i]>0):
+            ejections_west_Apr_May_2023_z2 += 1
+        elif (inflow_uprimewprime_z2_west_Apr_May_2023[i]<0):
+            outward_interactions_west_Apr_May_2023_z2 += 1            
+    elif (U_corr_west_Apr_May_2023_z2[i]<0)&(W_corr_west_Apr_May_2023_z2[i]>0):
+        Q2_west_Apr_May_2023_z2 += 1
+        if (inflow_uprimewprime_z2_west_Apr_May_2023[i]<0):
+            ejections_west_Apr_May_2023_z2 += 1
+        elif (inflow_uprimewprime_z2_west_Apr_May_2023[i]>0):
+            outward_interactions_west_Apr_May_2023_z2 += 1 
+    elif (U_corr_west_Apr_May_2023_z2[i]<0)&(W_corr_west_Apr_May_2023_z2[i]<0):
+        Q3_west_Apr_May_2023_z2 += 1
+        if (inflow_uprimewprime_z2_west_Apr_May_2023[i]>0):
+            sweeps_west_Apr_May_2023_z2 += 1
+        elif (inflow_uprimewprime_z2_west_Apr_May_2023[i]<0):
+            inward_interactions_west_Apr_May_2023_z2 += 1 
+    elif (U_corr_west_Apr_May_2023_z2[i]>0)&(W_corr_west_Apr_May_2023_z2[i]<0):
+        Q4_west_Apr_May_2023_z2 += 1
+        if (inflow_uprimewprime_z2_west_Apr_May_2023[i]<0):
+            sweeps_west_Apr_May_2023_z2 += 1
+        elif (inflow_uprimewprime_z2_west_Apr_May_2023[i]>0):
+            inward_interactions_west_Apr_May_2023_z2 += 1 
+
+S1_west_Apr_May_2023_z2 = 100*Q1_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S2_west_Apr_May_2023_z2 = 100*Q2_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S3_west_Apr_May_2023_z2 = 100*Q3_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S4_west_Apr_May_2023_z2 = 100*Q4_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+
+S_ejections_west_Apr_May_2023_z2 = 100*ejections_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S_outward_interactions_west_Apr_May_2023_z2 = 100*outward_interactions_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S_sweeps_west_Apr_May_2023_z2 = 100*sweeps_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+S_inward_interactions_west_Apr_May_2023_z2 = 100*inward_interactions_west_Apr_May_2023_z2/(Q1_west_Apr_May_2023_z2+Q2_west_Apr_May_2023_z2+Q3_west_Apr_May_2023_z2+Q4_west_Apr_May_2023_z2)
+
+
+Q1_west_Apr_May_2023_z3 = Q2_west_Apr_May_2023_z3 = Q3_west_Apr_May_2023_z3 = Q4_west_Apr_May_2023_z3 = 0
+ejections_west_Apr_May_2023_z3 = outward_interactions_west_Apr_May_2023_z3 = sweeps_west_Apr_May_2023_z3 = inward_interactions_west_Apr_May_2023_z3 = 0
+
+for i in range(0,len(W_corr_west_Apr_May_2023_z3)):
+    if (U_corr_west_Apr_May_2023_z3[i]>0)&(W_corr_west_Apr_May_2023_z3[i]>0):
+        Q1_west_Apr_May_2023_z3 += 1
+        if (inflow_uprimewprime_z3_west_Apr_May_2023[i]>0):
+            ejections_west_Apr_May_2023_z3 += 1
+        elif (inflow_uprimewprime_z3_west_Apr_May_2023[i]<0):
+            outward_interactions_west_Apr_May_2023_z3 += 1            
+    elif (U_corr_west_Apr_May_2023_z3[i]<0)&(W_corr_west_Apr_May_2023_z3[i]>0):
+        Q2_west_Apr_May_2023_z3 += 1
+        if (inflow_uprimewprime_z3_west_Apr_May_2023[i]<0):
+            ejections_west_Apr_May_2023_z3 += 1
+        elif (inflow_uprimewprime_z3_west_Apr_May_2023[i]>0):
+            outward_interactions_west_Apr_May_2023_z3 += 1 
+    elif (U_corr_west_Apr_May_2023_z3[i]<0)&(W_corr_west_Apr_May_2023_z3[i]<0):
+        Q3_west_Apr_May_2023_z3 += 1
+        if (inflow_uprimewprime_z3_west_Apr_May_2023[i]>0):
+            sweeps_west_Apr_May_2023_z3 += 1
+        elif (inflow_uprimewprime_z3_west_Apr_May_2023[i]<0):
+            inward_interactions_west_Apr_May_2023_z3 += 1 
+    elif (U_corr_west_Apr_May_2023_z3[i]>0)&(W_corr_west_Apr_May_2023_z3[i]<0):
+        Q4_west_Apr_May_2023_z3 += 1
+        if (inflow_uprimewprime_z3_west_Apr_May_2023[i]<0):
+            sweeps_west_Apr_May_2023_z3 += 1
+        elif (inflow_uprimewprime_z3_west_Apr_May_2023[i]>0):
+            inward_interactions_west_Apr_May_2023_z3 += 1 
+
+S1_west_Apr_May_2023_z3 = 100*Q1_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S2_west_Apr_May_2023_z3 = 100*Q2_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S3_west_Apr_May_2023_z3 = 100*Q3_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S4_west_Apr_May_2023_z3 = 100*Q4_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+
+S_ejections_west_Apr_May_2023_z3 = 100*ejections_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S_outward_interactions_west_Apr_May_2023_z3 = 100*outward_interactions_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S_sweeps_west_Apr_May_2023_z3 = 100*sweeps_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+S_inward_interactions_west_Apr_May_2023_z3 = 100*inward_interactions_west_Apr_May_2023_z3/(Q1_west_Apr_May_2023_z3+Q2_west_Apr_May_2023_z3+Q3_west_Apr_May_2023_z3+Q4_west_Apr_May_2023_z3)
+
+
+plt.figure()
+plt.subplot(1, 2, 1)
+plt.scatter([S1_west_Apr_May_2023_z1,S1_west_Apr_May_2023_z2,S1_west_Apr_May_2023_z3],heights,marker='o',s=20, label='u+w+ (Q1)')    
+plt.scatter([S2_west_Apr_May_2023_z1,S2_west_Apr_May_2023_z2,S2_west_Apr_May_2023_z3],heights,marker='s',s=20, label='u-w+ (Q2)')    
+plt.scatter([S3_west_Apr_May_2023_z1,S3_west_Apr_May_2023_z2,S3_west_Apr_May_2023_z3],heights,marker='d',s=20, label='u-w- (Q3)')    
+plt.scatter([S4_west_Apr_May_2023_z1,S4_west_Apr_May_2023_z2,S4_west_Apr_May_2023_z3],heights,marker='v',s=20, label='u+w- (Q4)')    
+plt.legend(loc='lower right',fontsize=8)
+plt.xlim(0, 55)
+plt.xticks([0,10,20,30,40,50])  
+plt.ylim(0, 12)
+plt.title('west (3 Apr 2023)')     
+plt.xlabel("Momentum flux statistics (%)")
+plt.ylabel("Height (m)")
+plt.show()
+
+
+plt.figure()
+plt.subplot(1, 2, 1)
+plt.scatter([S_ejections_west_Apr_May_2023_z1,S_ejections_west_Apr_May_2023_z2,S_ejections_west_Apr_May_2023_z3],heights,marker='o',s=20, label='ejections')    
+plt.scatter([S_outward_interactions_west_Apr_May_2023_z1,S_outward_interactions_west_Apr_May_2023_z2,S_outward_interactions_west_Apr_May_2023_z3],heights,marker='s',s=20, label='outward interactions')    
+plt.scatter([S_sweeps_west_Apr_May_2023_z1,S_sweeps_west_Apr_May_2023_z2,S_sweeps_west_Apr_May_2023_z3],heights,marker='d',s=20, label='sweeps')    
+plt.scatter([S_inward_interactions_west_Apr_May_2023_z1,S_inward_interactions_west_Apr_May_2023_z2,S_inward_interactions_west_Apr_May_2023_z3],heights,marker='v',s=20, label='inward interactions')    
+plt.legend(loc='lower right',fontsize=8)
+plt.xlim(0, 100)
+plt.ylim(0, 12)
+plt.title('west (3 Apr 2023)')     
+plt.xlabel("Momentum flux statistics (%)")
+plt.ylabel("Height (m)")
+plt.show()
+
+
+
+
+
 
 
 #%% PSD analysis
@@ -1497,27 +2219,27 @@ nblock = len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241118_1840_1900_stow_z1, Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z1*heights[0]/H1_U_ax_20241118_1840_1900_stow_z1
 nPxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = (fu_loads_inflow_20Hz_20241118_1840_1900_stow_z1*Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1)/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241118_1840_1900_stow_z2, Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z2*heights[1]/H1_U_ax_20241118_1840_1900_stow_z2
 nPxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = (fu_loads_inflow_20Hz_20241118_1840_1900_stow_z2*Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z2)/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241118_1840_1900_stow_z3, Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = fu_loads_inflow_20Hz_20241118_1840_1900_stow_z3*heights[2]/H1_U_ax_20241118_1840_1900_stow_z3
 nPxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = (fu_loads_inflow_20Hz_20241118_1840_1900_stow_z3*Pxxfu_loads_inflow_20Hz_20241118_1840_1900_stow_z3)/loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241118_1840_1900_stow_z1, Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z1*heights[0]/H1_W_ax_20241118_1840_1900_stow_z1
 nPxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z1 = (fw_loads_inflow_20Hz_20241118_1840_1900_stow_z1*Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z1)/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241118_1840_1900_stow_z2, Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z2*heights[1]/H1_W_ax_20241118_1840_1900_stow_z2
 nPxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z2 = (fw_loads_inflow_20Hz_20241118_1840_1900_stow_z2*Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z2)/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241118_1840_1900_stow_z3, Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = welch(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = fw_loads_inflow_20Hz_20241118_1840_1900_stow_z3*heights[2]/H1_W_ax_20241118_1840_1900_stow_z3
 nPxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = (fw_loads_inflow_20Hz_20241118_1840_1900_stow_z3*Pxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3)/loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.std()**2              
 
 
@@ -1554,7 +2276,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = runningMeanFast(nPx
 nPxxfw_mod_loads_inflow_20Hz_20241118_1840_1900_stow_z3 = [nPxxfw_loads_inflow_20Hz_20241118_1840_1900_stow_z3[0:index_highfreq_loads_inflow_20Hz_20241118_1840_1900_stow_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241118_1840_1900_stow_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241118_1840_1900_stow_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241118_1840_1900_stow_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241118_1840_1900_stow_z1[1], label='2.75m')            
@@ -1581,6 +2302,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241118_1840_1900_stow_z1 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low)
+U_corr_inflow_20241118_1840_1900_stow_z2 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid)
+U_corr_inflow_20241118_1840_1900_stow_z3 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top)
+
+V_corr_inflow_20241118_1840_1900_stow_z1 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.V_ax_Low)
+V_corr_inflow_20241118_1840_1900_stow_z2 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.V_ax_Mid)
+V_corr_inflow_20241118_1840_1900_stow_z3 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.V_ax_Top)
+
+W_corr_inflow_20241118_1840_1900_stow_z1 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low)
+W_corr_inflow_20241118_1840_1900_stow_z2 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid)
+W_corr_inflow_20241118_1840_1900_stow_z3 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top)
+
+Ts_corr_inflow_20241118_1840_1900_stow_z1 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Low)
+Ts_corr_inflow_20241118_1840_1900_stow_z2 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Mid)
+Ts_corr_inflow_20241118_1840_1900_stow_z3 = pd.Series(loads_inflow_20Hz_20241118_1840_1900_stow.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241118_1840_1900_stow_z1[U_corr_inflow_20241118_1840_1900_stow_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241118_1840_1900_stow_z1.dropna()) 
+U_corr_inflow_20241118_1840_1900_stow_z2[U_corr_inflow_20241118_1840_1900_stow_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241118_1840_1900_stow_z2.dropna()) 
+U_corr_inflow_20241118_1840_1900_stow_z3[U_corr_inflow_20241118_1840_1900_stow_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241118_1840_1900_stow_z3.dropna()) 
+
+V_corr_inflow_20241118_1840_1900_stow_z1[V_corr_inflow_20241118_1840_1900_stow_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241118_1840_1900_stow_z1.dropna()) 
+V_corr_inflow_20241118_1840_1900_stow_z2[V_corr_inflow_20241118_1840_1900_stow_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241118_1840_1900_stow_z2.dropna()) 
+V_corr_inflow_20241118_1840_1900_stow_z3[V_corr_inflow_20241118_1840_1900_stow_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241118_1840_1900_stow_z3.dropna()) 
+
+W_corr_inflow_20241118_1840_1900_stow_z1[W_corr_inflow_20241118_1840_1900_stow_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241118_1840_1900_stow_z1.dropna()) 
+W_corr_inflow_20241118_1840_1900_stow_z2[W_corr_inflow_20241118_1840_1900_stow_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241118_1840_1900_stow_z2.dropna()) 
+W_corr_inflow_20241118_1840_1900_stow_z3[W_corr_inflow_20241118_1840_1900_stow_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241118_1840_1900_stow_z3.dropna()) 
+
+Ts_corr_inflow_20241118_1840_1900_stow_z1[Ts_corr_inflow_20241118_1840_1900_stow_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241118_1840_1900_stow_z1.dropna()) 
+Ts_corr_inflow_20241118_1840_1900_stow_z2[Ts_corr_inflow_20241118_1840_1900_stow_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241118_1840_1900_stow_z2.dropna()) 
+Ts_corr_inflow_20241118_1840_1900_stow_z3[Ts_corr_inflow_20241118_1840_1900_stow_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241118_1840_1900_stow_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z1*V_corr_inflow_20241118_1840_1900_stow_z1).mean()-(U_corr_inflow_20241118_1840_1900_stow_z1.mean()*V_corr_inflow_20241118_1840_1900_stow_z1.mean());
+inflow_vw_z1_20241118_1840_1900_stow = (V_corr_inflow_20241118_1840_1900_stow_z1*W_corr_inflow_20241118_1840_1900_stow_z1).mean()-(V_corr_inflow_20241118_1840_1900_stow_z1.mean()*W_corr_inflow_20241118_1840_1900_stow_z1.mean());
+inflow_uw_z1_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z1*W_corr_inflow_20241118_1840_1900_stow_z1).mean()-(U_corr_inflow_20241118_1840_1900_stow_z1.mean()*W_corr_inflow_20241118_1840_1900_stow_z1.mean());
+inflow_wT_z1_20241118_1840_1900_stow = (W_corr_inflow_20241118_1840_1900_stow_z1*Ts_corr_inflow_20241118_1840_1900_stow_z1).mean()-(W_corr_inflow_20241118_1840_1900_stow_z1.mean()*Ts_corr_inflow_20241118_1840_1900_stow_z1.mean());
+
+inflow_uv_z2_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z2*V_corr_inflow_20241118_1840_1900_stow_z2).mean()-(U_corr_inflow_20241118_1840_1900_stow_z2.mean()*V_corr_inflow_20241118_1840_1900_stow_z2.mean());
+inflow_vw_z2_20241118_1840_1900_stow = (V_corr_inflow_20241118_1840_1900_stow_z2*W_corr_inflow_20241118_1840_1900_stow_z2).mean()-(V_corr_inflow_20241118_1840_1900_stow_z2.mean()*W_corr_inflow_20241118_1840_1900_stow_z2.mean());
+inflow_uw_z2_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z2*W_corr_inflow_20241118_1840_1900_stow_z2).mean()-(U_corr_inflow_20241118_1840_1900_stow_z2.mean()*W_corr_inflow_20241118_1840_1900_stow_z2.mean());
+inflow_wT_z2_20241118_1840_1900_stow = (W_corr_inflow_20241118_1840_1900_stow_z2*Ts_corr_inflow_20241118_1840_1900_stow_z2).mean()-(W_corr_inflow_20241118_1840_1900_stow_z2.mean()*Ts_corr_inflow_20241118_1840_1900_stow_z2.mean());
+
+inflow_uv_z3_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z3*V_corr_inflow_20241118_1840_1900_stow_z3).mean()-(U_corr_inflow_20241118_1840_1900_stow_z3.mean()*V_corr_inflow_20241118_1840_1900_stow_z3.mean());
+inflow_vw_z3_20241118_1840_1900_stow = (V_corr_inflow_20241118_1840_1900_stow_z3*W_corr_inflow_20241118_1840_1900_stow_z3).mean()-(V_corr_inflow_20241118_1840_1900_stow_z3.mean()*W_corr_inflow_20241118_1840_1900_stow_z3.mean());
+inflow_uw_z3_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z3*W_corr_inflow_20241118_1840_1900_stow_z3).mean()-(U_corr_inflow_20241118_1840_1900_stow_z3.mean()*W_corr_inflow_20241118_1840_1900_stow_z3.mean());
+inflow_wT_z3_20241118_1840_1900_stow = (W_corr_inflow_20241118_1840_1900_stow_z3*Ts_corr_inflow_20241118_1840_1900_stow_z3).mean()-(W_corr_inflow_20241118_1840_1900_stow_z3.mean()*Ts_corr_inflow_20241118_1840_1900_stow_z3.mean());
+
+utau_z1_20241118_1840_1900_stow = (inflow_uw_z1_20241118_1840_1900_stow**2+inflow_vw_z1_20241118_1840_1900_stow**2)**(1/4) 
+utau_z2_20241118_1840_1900_stow = (inflow_uw_z2_20241118_1840_1900_stow**2+inflow_vw_z2_20241118_1840_1900_stow**2)**(1/4) 
+utau_z3_20241118_1840_1900_stow = (inflow_uw_z3_20241118_1840_1900_stow**2+inflow_vw_z3_20241118_1840_1900_stow**2)**(1/4) 
+
+L_z1_20241118_1840_1900_stow = -1*(utau_z1_20241118_1840_1900_stow**3)/(0.4*(9.81/H1_Ts_20241118_1840_1900_stow_z1)*inflow_wT_z1_20241118_1840_1900_stow)
+L_z2_20241118_1840_1900_stow = -1*(utau_z2_20241118_1840_1900_stow**3)/(0.4*(9.81/H1_Ts_20241118_1840_1900_stow_z2)*inflow_wT_z2_20241118_1840_1900_stow)
+L_z3_20241118_1840_1900_stow = -1*(utau_z3_20241118_1840_1900_stow**3)/(0.4*(9.81/H1_Ts_20241118_1840_1900_stow_z3)*inflow_wT_z3_20241118_1840_1900_stow)
+
+zL_z1_20241118_1840_1900_stow = heights[0]/L_z1_20241118_1840_1900_stow
+zL_z2_20241118_1840_1900_stow = heights[1]/L_z2_20241118_1840_1900_stow
+zL_z3_20241118_1840_1900_stow = heights[2]/L_z3_20241118_1840_1900_stow
+
+inflow_uprimewprime_z1_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z1*W_corr_inflow_20241118_1840_1900_stow_z1);
+inflow_uprimewprime_z2_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z2*W_corr_inflow_20241118_1840_1900_stow_z2);
+inflow_uprimewprime_z3_20241118_1840_1900_stow = (U_corr_inflow_20241118_1840_1900_stow_z3*W_corr_inflow_20241118_1840_1900_stow_z3);
+
 
 #%% LS exponential fit method
 
@@ -1588,47 +2377,48 @@ autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_2024111
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.mean())
+Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z1)
 Lux_20241118_1840_1900_stow_z1 = Lux_20241118_1840_1900_stow_z1[Lux_20241118_1840_1900_stow_z1>0]
 
 autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.mean())
+Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z2)
 Lux_20241118_1840_1900_stow_z2 = Lux_20241118_1840_1900_stow_z2[Lux_20241118_1840_1900_stow_z2>0]
 
 autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.mean())
+Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z3)
 Lux_20241118_1840_1900_stow_z3 = Lux_20241118_1840_1900_stow_z3[Lux_20241118_1840_1900_stow_z3>0]
 
 autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Low.mean())
+Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z1)
 Lwx_20241118_1840_1900_stow_z1 = Lwx_20241118_1840_1900_stow_z1[Lwx_20241118_1840_1900_stow_z1>0]
 
 autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Mid.mean())
+Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z2)
 Lwx_20241118_1840_1900_stow_z2 = Lwx_20241118_1840_1900_stow_z2[Lwx_20241118_1840_1900_stow_z2>0]
 
 autocorr_inflow_20241118_1840_1900_stow = np.correlate(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241118_1840_1900_stow.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241118_1840_1900_stow.U_ax_Top.mean())
+Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241118_1840_1900_stow_z3)
 Lwx_20241118_1840_1900_stow_z3 = Lwx_20241118_1840_1900_stow_z3[Lwx_20241118_1840_1900_stow_z3>0]
 
 Lux_profile_inflow_20241118_1840_1900_stow = pd.Series([Lux_20241118_1840_1900_stow_z1,Lux_20241118_1840_1900_stow_z2,Lux_20241118_1840_1900_stow_z3])
 Lwx_profile_inflow_20241118_1840_1900_stow = pd.Series([Lwx_20241118_1840_1900_stow_z1,Lwx_20241118_1840_1900_stow_z2,Lwx_20241118_1840_1900_stow_z3])
  
+
 
 #%% Mast 1
 
@@ -1637,28 +2427,29 @@ nblock = len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241118_1840_1900_stow_z1, Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z1*heights[0]/H2_U_ax_20241118_1840_1900_stow_z1
 nPxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = (fu_loads_mast1_20Hz_20241118_1840_1900_stow_z1*Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z1)/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241118_1840_1900_stow_z2, Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z2*heights[1]/H2_U_ax_20241118_1840_1900_stow_z2
 nPxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = (fu_loads_mast1_20Hz_20241118_1840_1900_stow_z2*Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z2)/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241118_1840_1900_stow_z3, Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = fu_loads_mast1_20Hz_20241118_1840_1900_stow_z3*heights[2]/H2_U_ax_20241118_1840_1900_stow_z3
 nPxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = (fu_loads_mast1_20Hz_20241118_1840_1900_stow_z3*Pxxfu_loads_mast1_20Hz_20241118_1840_1900_stow_z3)/loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241118_1840_1900_stow_z1, Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z1*heights[0]/H2_W_ax_20241118_1840_1900_stow_z1
 nPxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z1 = (fw_loads_mast1_20Hz_20241118_1840_1900_stow_z1*Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z1)/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241118_1840_1900_stow_z2, Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z2*heights[1]/H2_W_ax_20241118_1840_1900_stow_z2
 nPxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z2 = (fw_loads_mast1_20Hz_20241118_1840_1900_stow_z2*Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z2)/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241118_1840_1900_stow_z3, Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = fw_loads_mast1_20Hz_20241118_1840_1900_stow_z3*heights[2]/H2_W_ax_20241118_1840_1900_stow_z3
 nPxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z3 = (fw_loads_mast1_20Hz_20241118_1840_1900_stow_z3*Pxxfw_loads_mast1_20Hz_20241118_1840_1900_stow_z3)/loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -1728,42 +2519,42 @@ autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.mean())
+Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z1)
 Lux_mast1_20241118_1840_1900_stow_z1 = Lux_20241118_1840_1900_stow_z1[Lux_20241118_1840_1900_stow_z1>0]
 
 autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.mean())
+Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z2)
 Lux_mast1_20241118_1840_1900_stow_z2 = Lux_20241118_1840_1900_stow_z2[Lux_20241118_1840_1900_stow_z2>0]
 
 autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.mean())
+Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z3)
 Lux_mast1_20241118_1840_1900_stow_z3 = Lux_20241118_1840_1900_stow_z3[Lux_20241118_1840_1900_stow_z3>0]
 
 autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Low.mean())
+Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z1)
 Lwx_mast1_20241118_1840_1900_stow_z1 = Lwx_20241118_1840_1900_stow_z1[Lwx_20241118_1840_1900_stow_z1>0]
 
 autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Mid.mean())
+Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z2)
 Lwx_mast1_20241118_1840_1900_stow_z2 = Lwx_20241118_1840_1900_stow_z2[Lwx_20241118_1840_1900_stow_z2>0]
 
 autocorr_mast1_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m1_U_ax_Top.mean())
+Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241118_1840_1900_stow_z3)
 Lwx_mast1_20241118_1840_1900_stow_z3 = Lwx_20241118_1840_1900_stow_z3[Lwx_20241118_1840_1900_stow_z3>0]
 
 Lux_profile_mast1_20241118_1840_1900_stow = pd.Series([Lux_mast1_20241118_1840_1900_stow_z1,Lux_mast1_20241118_1840_1900_stow_z2,Lux_mast1_20241118_1840_1900_stow_z3])
@@ -1778,27 +2569,27 @@ nblock = len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241118_1840_1900_stow_z1, Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z1*heights[0]/H3_U_ax_20241118_1840_1900_stow_z1
 nPxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = (fu_loads_mast3_20Hz_20241118_1840_1900_stow_z1*Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z1)/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241118_1840_1900_stow_z2, Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z2*heights[1]/H3_U_ax_20241118_1840_1900_stow_z2
 nPxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = (fu_loads_mast3_20Hz_20241118_1840_1900_stow_z2*Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z2)/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241118_1840_1900_stow_z3, Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = fu_loads_mast3_20Hz_20241118_1840_1900_stow_z3*heights[2]/H3_U_ax_20241118_1840_1900_stow_z3
 nPxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = (fu_loads_mast3_20Hz_20241118_1840_1900_stow_z3*Pxxfu_loads_mast3_20Hz_20241118_1840_1900_stow_z3)/loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241118_1840_1900_stow_z1, Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z1*heights[0]/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z1*heights[0]/H3_W_ax_20241118_1840_1900_stow_z1
 nPxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z1 = (fw_loads_mast3_20Hz_20241118_1840_1900_stow_z1*Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z1)/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241118_1840_1900_stow_z2, Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z2*heights[1]/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z2*heights[1]/H3_W_ax_20241118_1840_1900_stow_z2
 nPxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z2 = (fw_loads_mast3_20Hz_20241118_1840_1900_stow_z2*Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z2)/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241118_1840_1900_stow_z3, Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = welch(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z3*heights[2]/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = fw_loads_mast3_20Hz_20241118_1840_1900_stow_z3*heights[2]/H3_W_ax_20241118_1840_1900_stow_z3
 nPxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z3 = (fw_loads_mast3_20Hz_20241118_1840_1900_stow_z3*Pxxfw_loads_mast3_20Hz_20241118_1840_1900_stow_z3)/loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.std()**2              
 
 
@@ -1863,48 +2654,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.mean())
+Lux_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z1)
 Lux_mast3_20241118_1840_1900_stow_z1 = Lux_20241118_1840_1900_stow_z1[Lux_20241118_1840_1900_stow_z1>0]
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.mean())
+Lux_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z2)
 Lux_mast3_20241118_1840_1900_stow_z2 = Lux_20241118_1840_1900_stow_z2[Lux_20241118_1840_1900_stow_z2>0]
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.mean())
+Lux_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z3)
 Lux_mast3_20241118_1840_1900_stow_z3 = Lux_20241118_1840_1900_stow_z3[Lux_20241118_1840_1900_stow_z3>0]
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Low.mean())
+Lwx_20241118_1840_1900_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z1)
 Lwx_mast3_20241118_1840_1900_stow_z1 = Lwx_20241118_1840_1900_stow_z1[Lwx_20241118_1840_1900_stow_z1>0]
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Mid.mean())
+Lwx_20241118_1840_1900_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z2)
 Lwx_mast3_20241118_1840_1900_stow_z2 = Lwx_20241118_1840_1900_stow_z2[Lwx_20241118_1840_1900_stow_z2>0]
 
 autocorr_mast3_20241118_1840_1900_stow = np.correlate(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241118_1840_1900_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241118_1840_1900_stow.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241118_1840_1900_stow)
-Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241118_1840_1900_stow.m3_U_ax_Top.mean())
+Lwx_20241118_1840_1900_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241118_1840_1900_stow_z3)
 Lwx_mast3_20241118_1840_1900_stow_z3 = Lwx_20241118_1840_1900_stow_z3[Lwx_20241118_1840_1900_stow_z3>0]
 
 Lux_profile_mast3_20241118_1840_1900_stow = pd.Series([Lux_mast3_20241118_1840_1900_stow_z1,Lux_mast3_20241118_1840_1900_stow_z2,Lux_mast3_20241118_1840_1900_stow_z3])
@@ -1933,11 +2726,12 @@ plt.xlim(0,10)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241118_1840_1900_stow,H1_wspd_20241118_1840_1900_stow,H1_wspd_20241118_1840_1900_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241118_1840_1900_stow,H2_wspd_20241118_1840_1900_stow,H2_wspd_20241118_1840_1900_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241118_1840_1900_stow,H3_wspd_20241118_1840_1900_stow,H3_wspd_20241118_1840_1900_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241118_1840_1900_stow_z1,H1_wspd_20241118_1840_1900_stow_z2,H1_wspd_20241118_1840_1900_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241118_1840_1900_stow_z1,H2_wspd_20241118_1840_1900_stow_z2,H2_wspd_20241118_1840_1900_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241118_1840_1900_stow_z1,H3_wspd_20241118_1840_1900_stow_z2,H3_wspd_20241118_1840_1900_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -1948,9 +2742,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241118_1840_1900_stow,H1_wdir_20241118_1840_1900_stow,H1_wdir_20241118_1840_1900_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241118_1840_1900_stow,H2_wdir_20241118_1840_1900_stow,H2_wdir_20241118_1840_1900_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241118_1840_1900_stow,H3_wdir_20241118_1840_1900_stow,H3_wdir_20241118_1840_1900_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241118_1840_1900_stow_z1,H1_wdir_20241118_1840_1900_stow_z2,H1_wdir_20241118_1840_1900_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241118_1840_1900_stow_z1,H2_wdir_20241118_1840_1900_stow_z2,H2_wdir_20241118_1840_1900_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241118_1840_1900_stow_z1,H3_wdir_20241118_1840_1900_stow_z2,H3_wdir_20241118_1840_1900_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -1959,11 +2753,12 @@ plt.xlim(300,360)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241118_1840_1900_stow,H1_Iu_20241118_1840_1900_stow,H1_Iu_20241118_1840_1900_stow], heights, label='inflow')            
-plt.scatter([H2_Iu_20241118_1840_1900_stow,H2_Iu_20241118_1840_1900_stow,H2_Iu_20241118_1840_1900_stow], heights, label='mast1')            
-plt.scatter([H3_Iu_20241118_1840_1900_stow,H3_Iu_20241118_1840_1900_stow,H3_Iu_20241118_1840_1900_stow], heights, label='mast3')            
+plt.scatter([H1_Iu_20241118_1840_1900_stow_z1,H1_Iu_20241118_1840_1900_stow_z2,H1_Iu_20241118_1840_1900_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241118_1840_1900_stow_z1,H2_Iu_20241118_1840_1900_stow_z2,H2_Iu_20241118_1840_1900_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241118_1840_1900_stow_z1,H3_Iu_20241118_1840_1900_stow_z2,H3_Iu_20241118_1840_1900_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -1974,9 +2769,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241118_1840_1900_stow,H1_Iw_20241118_1840_1900_stow,H1_Iw_20241118_1840_1900_stow], heights, label='inflow')            
-plt.scatter([H2_Iw_20241118_1840_1900_stow,H2_Iw_20241118_1840_1900_stow,H2_Iw_20241118_1840_1900_stow], heights, label='mast1')            
-plt.scatter([H3_Iw_20241118_1840_1900_stow,H3_Iw_20241118_1840_1900_stow,H3_Iw_20241118_1840_1900_stow], heights, label='mast3')            
+plt.scatter([H1_Iw_20241118_1840_1900_stow_z1,H1_Iw_20241118_1840_1900_stow_z2,H1_Iw_20241118_1840_1900_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241118_1840_1900_stow_z1,H2_Iw_20241118_1840_1900_stow_z2,H2_Iw_20241118_1840_1900_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241118_1840_1900_stow_z1,H3_Iw_20241118_1840_1900_stow_z2,H3_Iw_20241118_1840_1900_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -1988,27 +2783,27 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241118_1840_1900_stow/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241118_1840_1900_stow/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241118_1840_1900_stow/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241118_1840_1900_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241118_1840_1900_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241118_1840_1900_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,100)
+plt.xlim(0,150)
 plt.ylim(0,12)
 plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241118_1840_1900_stow/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241118_1840_1900_stow/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241118_1840_1900_stow/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241118_1840_1900_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241118_1840_1900_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241118_1840_1900_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,0.41)
+plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
 
@@ -2031,27 +2826,27 @@ nblock = len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241120_1800_1830_stow_z1, Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z1*heights[0]/H1_U_ax_20241120_1800_1830_stow_z1
 nPxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = (fu_loads_inflow_20Hz_20241120_1800_1830_stow_z1*Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1)/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241120_1800_1830_stow_z2, Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z2*heights[1]/H1_U_ax_20241120_1800_1830_stow_z2
 nPxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = (fu_loads_inflow_20Hz_20241120_1800_1830_stow_z2*Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z2)/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241120_1800_1830_stow_z3, Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = fu_loads_inflow_20Hz_20241120_1800_1830_stow_z3*heights[2]/H1_U_ax_20241120_1800_1830_stow_z3
 nPxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = (fu_loads_inflow_20Hz_20241120_1800_1830_stow_z3*Pxxfu_loads_inflow_20Hz_20241120_1800_1830_stow_z3)/loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241120_1800_1830_stow_z1, Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z1*heights[0]/H1_W_ax_20241120_1800_1830_stow_z1
 nPxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z1 = (fw_loads_inflow_20Hz_20241120_1800_1830_stow_z1*Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z1)/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241120_1800_1830_stow_z2, Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z2*heights[1]/H1_W_ax_20241120_1800_1830_stow_z2
 nPxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z2 = (fw_loads_inflow_20Hz_20241120_1800_1830_stow_z2*Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z2)/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241120_1800_1830_stow_z3, Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = welch(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = fw_loads_inflow_20Hz_20241120_1800_1830_stow_z3*heights[2]/H1_W_ax_20241120_1800_1830_stow_z3
 nPxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = (fw_loads_inflow_20Hz_20241120_1800_1830_stow_z3*Pxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3)/loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.std()**2              
 
 
@@ -2088,7 +2883,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = runningMeanFast(nPx
 nPxxfw_mod_loads_inflow_20Hz_20241120_1800_1830_stow_z3 = [nPxxfw_loads_inflow_20Hz_20241120_1800_1830_stow_z3[0:index_highfreq_loads_inflow_20Hz_20241120_1800_1830_stow_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241120_1800_1830_stow_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241120_1800_1830_stow_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241120_1800_1830_stow_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241120_1800_1830_stow_z1[1], label='2.75m')            
@@ -2115,6 +2909,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241120_1800_1830_stow_z1 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low)
+U_corr_inflow_20241120_1800_1830_stow_z2 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid)
+U_corr_inflow_20241120_1800_1830_stow_z3 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top)
+
+V_corr_inflow_20241120_1800_1830_stow_z1 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.V_ax_Low)
+V_corr_inflow_20241120_1800_1830_stow_z2 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.V_ax_Mid)
+V_corr_inflow_20241120_1800_1830_stow_z3 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.V_ax_Top)
+
+W_corr_inflow_20241120_1800_1830_stow_z1 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low)
+W_corr_inflow_20241120_1800_1830_stow_z2 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid)
+W_corr_inflow_20241120_1800_1830_stow_z3 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top)
+
+Ts_corr_inflow_20241120_1800_1830_stow_z1 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Low)
+Ts_corr_inflow_20241120_1800_1830_stow_z2 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Mid)
+Ts_corr_inflow_20241120_1800_1830_stow_z3 = pd.Series(loads_inflow_20Hz_20241120_1800_1830_stow.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241120_1800_1830_stow_z1[U_corr_inflow_20241120_1800_1830_stow_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241120_1800_1830_stow_z1.dropna()) 
+U_corr_inflow_20241120_1800_1830_stow_z2[U_corr_inflow_20241120_1800_1830_stow_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241120_1800_1830_stow_z2.dropna()) 
+U_corr_inflow_20241120_1800_1830_stow_z3[U_corr_inflow_20241120_1800_1830_stow_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241120_1800_1830_stow_z3.dropna()) 
+
+V_corr_inflow_20241120_1800_1830_stow_z1[V_corr_inflow_20241120_1800_1830_stow_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241120_1800_1830_stow_z1.dropna()) 
+V_corr_inflow_20241120_1800_1830_stow_z2[V_corr_inflow_20241120_1800_1830_stow_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241120_1800_1830_stow_z2.dropna()) 
+V_corr_inflow_20241120_1800_1830_stow_z3[V_corr_inflow_20241120_1800_1830_stow_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241120_1800_1830_stow_z3.dropna()) 
+
+W_corr_inflow_20241120_1800_1830_stow_z1[W_corr_inflow_20241120_1800_1830_stow_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241120_1800_1830_stow_z1.dropna()) 
+W_corr_inflow_20241120_1800_1830_stow_z2[W_corr_inflow_20241120_1800_1830_stow_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241120_1800_1830_stow_z2.dropna()) 
+W_corr_inflow_20241120_1800_1830_stow_z3[W_corr_inflow_20241120_1800_1830_stow_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241120_1800_1830_stow_z3.dropna()) 
+
+Ts_corr_inflow_20241120_1800_1830_stow_z1[Ts_corr_inflow_20241120_1800_1830_stow_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241120_1800_1830_stow_z1.dropna()) 
+Ts_corr_inflow_20241120_1800_1830_stow_z2[Ts_corr_inflow_20241120_1800_1830_stow_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241120_1800_1830_stow_z2.dropna()) 
+Ts_corr_inflow_20241120_1800_1830_stow_z3[Ts_corr_inflow_20241120_1800_1830_stow_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241120_1800_1830_stow_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z1*V_corr_inflow_20241120_1800_1830_stow_z1).mean()-(U_corr_inflow_20241120_1800_1830_stow_z1.mean()*V_corr_inflow_20241120_1800_1830_stow_z1.mean());
+inflow_vw_z1_20241120_1800_1830_stow = (V_corr_inflow_20241120_1800_1830_stow_z1*W_corr_inflow_20241120_1800_1830_stow_z1).mean()-(V_corr_inflow_20241120_1800_1830_stow_z1.mean()*W_corr_inflow_20241120_1800_1830_stow_z1.mean());
+inflow_uw_z1_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z1*W_corr_inflow_20241120_1800_1830_stow_z1).mean()-(U_corr_inflow_20241120_1800_1830_stow_z1.mean()*W_corr_inflow_20241120_1800_1830_stow_z1.mean());
+inflow_wT_z1_20241120_1800_1830_stow = (W_corr_inflow_20241120_1800_1830_stow_z1*Ts_corr_inflow_20241120_1800_1830_stow_z1).mean()-(W_corr_inflow_20241120_1800_1830_stow_z1.mean()*Ts_corr_inflow_20241120_1800_1830_stow_z1.mean());
+
+inflow_uv_z2_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z2*V_corr_inflow_20241120_1800_1830_stow_z2).mean()-(U_corr_inflow_20241120_1800_1830_stow_z2.mean()*V_corr_inflow_20241120_1800_1830_stow_z2.mean());
+inflow_vw_z2_20241120_1800_1830_stow = (V_corr_inflow_20241120_1800_1830_stow_z2*W_corr_inflow_20241120_1800_1830_stow_z2).mean()-(V_corr_inflow_20241120_1800_1830_stow_z2.mean()*W_corr_inflow_20241120_1800_1830_stow_z2.mean());
+inflow_uw_z2_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z2*W_corr_inflow_20241120_1800_1830_stow_z2).mean()-(U_corr_inflow_20241120_1800_1830_stow_z2.mean()*W_corr_inflow_20241120_1800_1830_stow_z2.mean());
+inflow_wT_z2_20241120_1800_1830_stow = (W_corr_inflow_20241120_1800_1830_stow_z2*Ts_corr_inflow_20241120_1800_1830_stow_z2).mean()-(W_corr_inflow_20241120_1800_1830_stow_z2.mean()*Ts_corr_inflow_20241120_1800_1830_stow_z2.mean());
+
+inflow_uv_z3_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z3*V_corr_inflow_20241120_1800_1830_stow_z3).mean()-(U_corr_inflow_20241120_1800_1830_stow_z3.mean()*V_corr_inflow_20241120_1800_1830_stow_z3.mean());
+inflow_vw_z3_20241120_1800_1830_stow = (V_corr_inflow_20241120_1800_1830_stow_z3*W_corr_inflow_20241120_1800_1830_stow_z3).mean()-(V_corr_inflow_20241120_1800_1830_stow_z3.mean()*W_corr_inflow_20241120_1800_1830_stow_z3.mean());
+inflow_uw_z3_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z3*W_corr_inflow_20241120_1800_1830_stow_z3).mean()-(U_corr_inflow_20241120_1800_1830_stow_z3.mean()*W_corr_inflow_20241120_1800_1830_stow_z3.mean());
+inflow_wT_z3_20241120_1800_1830_stow = (W_corr_inflow_20241120_1800_1830_stow_z3*Ts_corr_inflow_20241120_1800_1830_stow_z3).mean()-(W_corr_inflow_20241120_1800_1830_stow_z3.mean()*Ts_corr_inflow_20241120_1800_1830_stow_z3.mean());
+
+utau_z1_20241120_1800_1830_stow = (inflow_uw_z1_20241120_1800_1830_stow**2+inflow_vw_z1_20241120_1800_1830_stow**2)**(1/4) 
+utau_z2_20241120_1800_1830_stow = (inflow_uw_z2_20241120_1800_1830_stow**2+inflow_vw_z2_20241120_1800_1830_stow**2)**(1/4) 
+utau_z3_20241120_1800_1830_stow = (inflow_uw_z3_20241120_1800_1830_stow**2+inflow_vw_z3_20241120_1800_1830_stow**2)**(1/4) 
+
+L_z1_20241120_1800_1830_stow = -1*(utau_z1_20241120_1800_1830_stow**3)/(0.4*(9.81/H1_Ts_20241120_1800_1830_stow_z1)*inflow_wT_z1_20241120_1800_1830_stow)
+L_z2_20241120_1800_1830_stow = -1*(utau_z2_20241120_1800_1830_stow**3)/(0.4*(9.81/H1_Ts_20241120_1800_1830_stow_z2)*inflow_wT_z2_20241120_1800_1830_stow)
+L_z3_20241120_1800_1830_stow = -1*(utau_z3_20241120_1800_1830_stow**3)/(0.4*(9.81/H1_Ts_20241120_1800_1830_stow_z3)*inflow_wT_z3_20241120_1800_1830_stow)
+
+zL_z1_20241120_1800_1830_stow = heights[0]/L_z1_20241120_1800_1830_stow
+zL_z2_20241120_1800_1830_stow = heights[1]/L_z2_20241120_1800_1830_stow
+zL_z3_20241120_1800_1830_stow = heights[2]/L_z3_20241120_1800_1830_stow
+
+inflow_uprimewprime_z1_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z1*W_corr_inflow_20241120_1800_1830_stow_z1);
+inflow_uprimewprime_z2_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z2*W_corr_inflow_20241120_1800_1830_stow_z2);
+inflow_uprimewprime_z3_20241120_1800_1830_stow = (U_corr_inflow_20241120_1800_1830_stow_z3*W_corr_inflow_20241120_1800_1830_stow_z3);
+
 
 #%% LS exponential fit method
 
@@ -2122,47 +2984,48 @@ autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_2024112
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.mean())
+Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z1)
 Lux_20241120_1800_1830_stow_z1 = Lux_20241120_1800_1830_stow_z1[Lux_20241120_1800_1830_stow_z1>0]
 
 autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.mean())
+Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z2)
 Lux_20241120_1800_1830_stow_z2 = Lux_20241120_1800_1830_stow_z2[Lux_20241120_1800_1830_stow_z2>0]
 
 autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.mean())
+Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z3)
 Lux_20241120_1800_1830_stow_z3 = Lux_20241120_1800_1830_stow_z3[Lux_20241120_1800_1830_stow_z3>0]
 
 autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Low.mean())
+Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z1)
 Lwx_20241120_1800_1830_stow_z1 = Lwx_20241120_1800_1830_stow_z1[Lwx_20241120_1800_1830_stow_z1>0]
 
 autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Mid.mean())
+Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z2)
 Lwx_20241120_1800_1830_stow_z2 = Lwx_20241120_1800_1830_stow_z2[Lwx_20241120_1800_1830_stow_z2>0]
 
 autocorr_inflow_20241120_1800_1830_stow = np.correlate(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna(), loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241120_1800_1830_stow.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241120_1800_1830_stow.U_ax_Top.mean())
+Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241120_1800_1830_stow_z3)
 Lwx_20241120_1800_1830_stow_z3 = Lwx_20241120_1800_1830_stow_z3[Lwx_20241120_1800_1830_stow_z3>0]
 
 Lux_profile_inflow_20241120_1800_1830_stow = pd.Series([Lux_20241120_1800_1830_stow_z1,Lux_20241120_1800_1830_stow_z2,Lux_20241120_1800_1830_stow_z3])
 Lwx_profile_inflow_20241120_1800_1830_stow = pd.Series([Lwx_20241120_1800_1830_stow_z1,Lwx_20241120_1800_1830_stow_z2,Lwx_20241120_1800_1830_stow_z3])
  
+
 
 #%% Mast 1
 
@@ -2171,28 +3034,29 @@ nblock = len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241120_1800_1830_stow_z1, Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z1*heights[0]/H2_U_ax_20241120_1800_1830_stow_z1
 nPxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = (fu_loads_mast1_20Hz_20241120_1800_1830_stow_z1*Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z1)/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241120_1800_1830_stow_z2, Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z2*heights[1]/H2_U_ax_20241120_1800_1830_stow_z2
 nPxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = (fu_loads_mast1_20Hz_20241120_1800_1830_stow_z2*Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z2)/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241120_1800_1830_stow_z3, Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = fu_loads_mast1_20Hz_20241120_1800_1830_stow_z3*heights[2]/H2_U_ax_20241120_1800_1830_stow_z3
 nPxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = (fu_loads_mast1_20Hz_20241120_1800_1830_stow_z3*Pxxfu_loads_mast1_20Hz_20241120_1800_1830_stow_z3)/loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241120_1800_1830_stow_z1, Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z1*heights[0]/H2_W_ax_20241120_1800_1830_stow_z1
 nPxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z1 = (fw_loads_mast1_20Hz_20241120_1800_1830_stow_z1*Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z1)/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241120_1800_1830_stow_z2, Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z2*heights[1]/H2_W_ax_20241120_1800_1830_stow_z2
 nPxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z2 = (fw_loads_mast1_20Hz_20241120_1800_1830_stow_z2*Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z2)/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241120_1800_1830_stow_z3, Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = fw_loads_mast1_20Hz_20241120_1800_1830_stow_z3*heights[2]/H2_W_ax_20241120_1800_1830_stow_z3
 nPxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z3 = (fw_loads_mast1_20Hz_20241120_1800_1830_stow_z3*Pxxfw_loads_mast1_20Hz_20241120_1800_1830_stow_z3)/loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -2262,42 +3126,42 @@ autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.mean())
+Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z1)
 Lux_mast1_20241120_1800_1830_stow_z1 = Lux_20241120_1800_1830_stow_z1[Lux_20241120_1800_1830_stow_z1>0]
 
 autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.mean())
+Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z2)
 Lux_mast1_20241120_1800_1830_stow_z2 = Lux_20241120_1800_1830_stow_z2[Lux_20241120_1800_1830_stow_z2>0]
 
 autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.mean())
+Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z3)
 Lux_mast1_20241120_1800_1830_stow_z3 = Lux_20241120_1800_1830_stow_z3[Lux_20241120_1800_1830_stow_z3>0]
 
 autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Low.mean())
+Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z1)
 Lwx_mast1_20241120_1800_1830_stow_z1 = Lwx_20241120_1800_1830_stow_z1[Lwx_20241120_1800_1830_stow_z1>0]
 
 autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Mid.mean())
+Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z2)
 Lwx_mast1_20241120_1800_1830_stow_z2 = Lwx_20241120_1800_1830_stow_z2[Lwx_20241120_1800_1830_stow_z2>0]
 
 autocorr_mast1_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m1_U_ax_Top.mean())
+Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241120_1800_1830_stow_z3)
 Lwx_mast1_20241120_1800_1830_stow_z3 = Lwx_20241120_1800_1830_stow_z3[Lwx_20241120_1800_1830_stow_z3>0]
 
 Lux_profile_mast1_20241120_1800_1830_stow = pd.Series([Lux_mast1_20241120_1800_1830_stow_z1,Lux_mast1_20241120_1800_1830_stow_z2,Lux_mast1_20241120_1800_1830_stow_z3])
@@ -2312,27 +3176,27 @@ nblock = len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241120_1800_1830_stow_z1, Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z1*heights[0]/H3_U_ax_20241120_1800_1830_stow_z1
 nPxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = (fu_loads_mast3_20Hz_20241120_1800_1830_stow_z1*Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z1)/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241120_1800_1830_stow_z2, Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z2*heights[1]/H3_U_ax_20241120_1800_1830_stow_z2
 nPxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = (fu_loads_mast3_20Hz_20241120_1800_1830_stow_z2*Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z2)/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241120_1800_1830_stow_z3, Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = fu_loads_mast3_20Hz_20241120_1800_1830_stow_z3*heights[2]/H3_U_ax_20241120_1800_1830_stow_z3
 nPxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = (fu_loads_mast3_20Hz_20241120_1800_1830_stow_z3*Pxxfu_loads_mast3_20Hz_20241120_1800_1830_stow_z3)/loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241120_1800_1830_stow_z1, Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z1*heights[0]/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z1*heights[0]/H3_W_ax_20241120_1800_1830_stow_z1
 nPxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z1 = (fw_loads_mast3_20Hz_20241120_1800_1830_stow_z1*Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z1)/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241120_1800_1830_stow_z2, Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z2*heights[1]/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z2*heights[1]/H3_W_ax_20241120_1800_1830_stow_z2
 nPxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z2 = (fw_loads_mast3_20Hz_20241120_1800_1830_stow_z2*Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z2)/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241120_1800_1830_stow_z3, Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = welch(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z3*heights[2]/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = fw_loads_mast3_20Hz_20241120_1800_1830_stow_z3*heights[2]/H3_W_ax_20241120_1800_1830_stow_z3
 nPxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z3 = (fw_loads_mast3_20Hz_20241120_1800_1830_stow_z3*Pxxfw_loads_mast3_20Hz_20241120_1800_1830_stow_z3)/loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.std()**2              
 
 
@@ -2397,48 +3261,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.mean())
+Lux_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z1)
 Lux_mast3_20241120_1800_1830_stow_z1 = Lux_20241120_1800_1830_stow_z1[Lux_20241120_1800_1830_stow_z1>0]
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.mean())
+Lux_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z2)
 Lux_mast3_20241120_1800_1830_stow_z2 = Lux_20241120_1800_1830_stow_z2[Lux_20241120_1800_1830_stow_z2>0]
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.mean())
+Lux_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z3)
 Lux_mast3_20241120_1800_1830_stow_z3 = Lux_20241120_1800_1830_stow_z3[Lux_20241120_1800_1830_stow_z3>0]
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Low.mean())
+Lwx_20241120_1800_1830_stow_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z1)
 Lwx_mast3_20241120_1800_1830_stow_z1 = Lwx_20241120_1800_1830_stow_z1[Lwx_20241120_1800_1830_stow_z1>0]
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Mid.mean())
+Lwx_20241120_1800_1830_stow_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z2)
 Lwx_mast3_20241120_1800_1830_stow_z2 = Lwx_20241120_1800_1830_stow_z2[Lwx_20241120_1800_1830_stow_z2>0]
 
 autocorr_mast3_20241120_1800_1830_stow = np.correlate(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241120_1800_1830_stow /= np.sqrt(np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241120_1800_1830_stow.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241120_1800_1830_stow)
-Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241120_1800_1830_stow.m3_U_ax_Top.mean())
+Lwx_20241120_1800_1830_stow_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241120_1800_1830_stow_z3)
 Lwx_mast3_20241120_1800_1830_stow_z3 = Lwx_20241120_1800_1830_stow_z3[Lwx_20241120_1800_1830_stow_z3>0]
 
 Lux_profile_mast3_20241120_1800_1830_stow = pd.Series([Lux_mast3_20241120_1800_1830_stow_z1,Lux_mast3_20241120_1800_1830_stow_z2,Lux_mast3_20241120_1800_1830_stow_z3])
@@ -2467,11 +3333,12 @@ plt.xlim(0,10)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241120_1800_1830_stow,H1_wspd_20241120_1800_1830_stow,H1_wspd_20241120_1800_1830_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241120_1800_1830_stow,H2_wspd_20241120_1800_1830_stow,H2_wspd_20241120_1800_1830_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241120_1800_1830_stow,H3_wspd_20241120_1800_1830_stow,H3_wspd_20241120_1800_1830_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241120_1800_1830_stow_z1,H1_wspd_20241120_1800_1830_stow_z2,H1_wspd_20241120_1800_1830_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241120_1800_1830_stow_z1,H2_wspd_20241120_1800_1830_stow_z2,H2_wspd_20241120_1800_1830_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241120_1800_1830_stow_z1,H3_wspd_20241120_1800_1830_stow_z2,H3_wspd_20241120_1800_1830_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -2482,9 +3349,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241120_1800_1830_stow,H1_wdir_20241120_1800_1830_stow,H1_wdir_20241120_1800_1830_stow], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241120_1800_1830_stow,H2_wdir_20241120_1800_1830_stow,H2_wdir_20241120_1800_1830_stow], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241120_1800_1830_stow,H3_wdir_20241120_1800_1830_stow,H3_wdir_20241120_1800_1830_stow], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241120_1800_1830_stow_z1,H1_wdir_20241120_1800_1830_stow_z2,H1_wdir_20241120_1800_1830_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241120_1800_1830_stow_z1,H2_wdir_20241120_1800_1830_stow_z2,H2_wdir_20241120_1800_1830_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241120_1800_1830_stow_z1,H3_wdir_20241120_1800_1830_stow_z2,H3_wdir_20241120_1800_1830_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -2493,11 +3360,12 @@ plt.xlim(120,180)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241120_1800_1830_stow,H1_Iu_20241120_1800_1830_stow,H1_Iu_20241120_1800_1830_stow], heights, label='inflow')            
-plt.scatter([H2_Iu_20241120_1800_1830_stow,H2_Iu_20241120_1800_1830_stow,H2_Iu_20241120_1800_1830_stow], heights, label='mast1')            
-plt.scatter([H3_Iu_20241120_1800_1830_stow,H3_Iu_20241120_1800_1830_stow,H3_Iu_20241120_1800_1830_stow], heights, label='mast3')            
+plt.scatter([H1_Iu_20241120_1800_1830_stow_z1,H1_Iu_20241120_1800_1830_stow_z2,H1_Iu_20241120_1800_1830_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241120_1800_1830_stow_z1,H2_Iu_20241120_1800_1830_stow_z2,H2_Iu_20241120_1800_1830_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241120_1800_1830_stow_z1,H3_Iu_20241120_1800_1830_stow_z2,H3_Iu_20241120_1800_1830_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -2508,9 +3376,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241120_1800_1830_stow,H1_Iw_20241120_1800_1830_stow,H1_Iw_20241120_1800_1830_stow], heights, label='inflow')            
-plt.scatter([H2_Iw_20241120_1800_1830_stow,H2_Iw_20241120_1800_1830_stow,H2_Iw_20241120_1800_1830_stow], heights, label='mast1')            
-plt.scatter([H3_Iw_20241120_1800_1830_stow,H3_Iw_20241120_1800_1830_stow,H3_Iw_20241120_1800_1830_stow], heights, label='mast3')            
+plt.scatter([H1_Iw_20241120_1800_1830_stow_z1,H1_Iw_20241120_1800_1830_stow_z2,H1_Iw_20241120_1800_1830_stow_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241120_1800_1830_stow_z1,H2_Iw_20241120_1800_1830_stow_z2,H2_Iw_20241120_1800_1830_stow_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241120_1800_1830_stow_z1,H3_Iw_20241120_1800_1830_stow_z2,H3_Iw_20241120_1800_1830_stow_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -2522,9 +3390,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241120_1800_1830_stow/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241120_1800_1830_stow/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241120_1800_1830_stow/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241120_1800_1830_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241120_1800_1830_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241120_1800_1830_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
@@ -2535,9 +3403,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241120_1800_1830_stow/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241120_1800_1830_stow/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241120_1800_1830_stow/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241120_1800_1830_stow/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241120_1800_1830_stow/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241120_1800_1830_stow/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
@@ -2545,6 +3413,7 @@ plt.ylabel("$z$ (m)")
 plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
+
 
 
 
@@ -2565,27 +3434,27 @@ nblock = len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1, Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H1_U_ax_20241121_0000_0030_stow1_z1
 nPxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = (fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1)/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2, Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H1_U_ax_20241121_0000_0030_stow1_z2
 nPxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = (fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z2)/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3, Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H1_U_ax_20241121_0000_0030_stow1_z3
 nPxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = (fu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*Pxxfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z3)/loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1, Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H1_W_ax_20241121_0000_0030_stow1_z1
 nPxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1 = (fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1*Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z1)/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2, Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H1_W_ax_20241121_0000_0030_stow1_z2
 nPxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2 = (fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2*Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z2)/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3, Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H1_W_ax_20241121_0000_0030_stow1_z3
 nPxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = (fw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3*Pxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3)/loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.std()**2              
 
 
@@ -2622,7 +3491,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = runningMeanFast(nP
 nPxxfw_mod_loads_inflow_20Hz_20241121_0000_0030_stow1_z3 = [nPxxfw_loads_inflow_20Hz_20241121_0000_0030_stow1_z3[0:index_highfreq_loads_inflow_20Hz_20241121_0000_0030_stow1_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241121_0000_0030_stow1_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241121_0000_0030_stow1_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241121_0000_0030_stow1_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241121_0000_0030_stow1_z1[1], label='2.75m')            
@@ -2649,6 +3517,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241121_0000_0030_stow1_z1 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low)
+U_corr_inflow_20241121_0000_0030_stow1_z2 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid)
+U_corr_inflow_20241121_0000_0030_stow1_z3 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top)
+
+V_corr_inflow_20241121_0000_0030_stow1_z1 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.V_ax_Low)
+V_corr_inflow_20241121_0000_0030_stow1_z2 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.V_ax_Mid)
+V_corr_inflow_20241121_0000_0030_stow1_z3 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.V_ax_Top)
+
+W_corr_inflow_20241121_0000_0030_stow1_z1 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low)
+W_corr_inflow_20241121_0000_0030_stow1_z2 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid)
+W_corr_inflow_20241121_0000_0030_stow1_z3 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top)
+
+Ts_corr_inflow_20241121_0000_0030_stow1_z1 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Low)
+Ts_corr_inflow_20241121_0000_0030_stow1_z2 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Mid)
+Ts_corr_inflow_20241121_0000_0030_stow1_z3 = pd.Series(loads_inflow_20Hz_20241121_0000_0030_stow1.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241121_0000_0030_stow1_z1[U_corr_inflow_20241121_0000_0030_stow1_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0000_0030_stow1_z1.dropna()) 
+U_corr_inflow_20241121_0000_0030_stow1_z2[U_corr_inflow_20241121_0000_0030_stow1_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0000_0030_stow1_z2.dropna()) 
+U_corr_inflow_20241121_0000_0030_stow1_z3[U_corr_inflow_20241121_0000_0030_stow1_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0000_0030_stow1_z3.dropna()) 
+
+V_corr_inflow_20241121_0000_0030_stow1_z1[V_corr_inflow_20241121_0000_0030_stow1_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0000_0030_stow1_z1.dropna()) 
+V_corr_inflow_20241121_0000_0030_stow1_z2[V_corr_inflow_20241121_0000_0030_stow1_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0000_0030_stow1_z2.dropna()) 
+V_corr_inflow_20241121_0000_0030_stow1_z3[V_corr_inflow_20241121_0000_0030_stow1_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0000_0030_stow1_z3.dropna()) 
+
+W_corr_inflow_20241121_0000_0030_stow1_z1[W_corr_inflow_20241121_0000_0030_stow1_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0000_0030_stow1_z1.dropna()) 
+W_corr_inflow_20241121_0000_0030_stow1_z2[W_corr_inflow_20241121_0000_0030_stow1_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0000_0030_stow1_z2.dropna()) 
+W_corr_inflow_20241121_0000_0030_stow1_z3[W_corr_inflow_20241121_0000_0030_stow1_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0000_0030_stow1_z3.dropna()) 
+
+Ts_corr_inflow_20241121_0000_0030_stow1_z1[Ts_corr_inflow_20241121_0000_0030_stow1_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0000_0030_stow1_z1.dropna()) 
+Ts_corr_inflow_20241121_0000_0030_stow1_z2[Ts_corr_inflow_20241121_0000_0030_stow1_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0000_0030_stow1_z2.dropna()) 
+Ts_corr_inflow_20241121_0000_0030_stow1_z3[Ts_corr_inflow_20241121_0000_0030_stow1_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0000_0030_stow1_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z1*V_corr_inflow_20241121_0000_0030_stow1_z1).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z1.mean()*V_corr_inflow_20241121_0000_0030_stow1_z1.mean());
+inflow_vw_z1_20241121_0000_0030_stow1 = (V_corr_inflow_20241121_0000_0030_stow1_z1*W_corr_inflow_20241121_0000_0030_stow1_z1).mean()-(V_corr_inflow_20241121_0000_0030_stow1_z1.mean()*W_corr_inflow_20241121_0000_0030_stow1_z1.mean());
+inflow_uw_z1_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z1*W_corr_inflow_20241121_0000_0030_stow1_z1).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z1.mean()*W_corr_inflow_20241121_0000_0030_stow1_z1.mean());
+inflow_wT_z1_20241121_0000_0030_stow1 = (W_corr_inflow_20241121_0000_0030_stow1_z1*Ts_corr_inflow_20241121_0000_0030_stow1_z1).mean()-(W_corr_inflow_20241121_0000_0030_stow1_z1.mean()*Ts_corr_inflow_20241121_0000_0030_stow1_z1.mean());
+
+inflow_uv_z2_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z2*V_corr_inflow_20241121_0000_0030_stow1_z2).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z2.mean()*V_corr_inflow_20241121_0000_0030_stow1_z2.mean());
+inflow_vw_z2_20241121_0000_0030_stow1 = (V_corr_inflow_20241121_0000_0030_stow1_z2*W_corr_inflow_20241121_0000_0030_stow1_z2).mean()-(V_corr_inflow_20241121_0000_0030_stow1_z2.mean()*W_corr_inflow_20241121_0000_0030_stow1_z2.mean());
+inflow_uw_z2_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z2*W_corr_inflow_20241121_0000_0030_stow1_z2).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z2.mean()*W_corr_inflow_20241121_0000_0030_stow1_z2.mean());
+inflow_wT_z2_20241121_0000_0030_stow1 = (W_corr_inflow_20241121_0000_0030_stow1_z2*Ts_corr_inflow_20241121_0000_0030_stow1_z2).mean()-(W_corr_inflow_20241121_0000_0030_stow1_z2.mean()*Ts_corr_inflow_20241121_0000_0030_stow1_z2.mean());
+
+inflow_uv_z3_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z3*V_corr_inflow_20241121_0000_0030_stow1_z3).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z3.mean()*V_corr_inflow_20241121_0000_0030_stow1_z3.mean());
+inflow_vw_z3_20241121_0000_0030_stow1 = (V_corr_inflow_20241121_0000_0030_stow1_z3*W_corr_inflow_20241121_0000_0030_stow1_z3).mean()-(V_corr_inflow_20241121_0000_0030_stow1_z3.mean()*W_corr_inflow_20241121_0000_0030_stow1_z3.mean());
+inflow_uw_z3_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z3*W_corr_inflow_20241121_0000_0030_stow1_z3).mean()-(U_corr_inflow_20241121_0000_0030_stow1_z3.mean()*W_corr_inflow_20241121_0000_0030_stow1_z3.mean());
+inflow_wT_z3_20241121_0000_0030_stow1 = (W_corr_inflow_20241121_0000_0030_stow1_z3*Ts_corr_inflow_20241121_0000_0030_stow1_z3).mean()-(W_corr_inflow_20241121_0000_0030_stow1_z3.mean()*Ts_corr_inflow_20241121_0000_0030_stow1_z3.mean());
+
+utau_z1_20241121_0000_0030_stow1 = (inflow_uw_z1_20241121_0000_0030_stow1**2+inflow_vw_z1_20241121_0000_0030_stow1**2)**(1/4) 
+utau_z2_20241121_0000_0030_stow1 = (inflow_uw_z2_20241121_0000_0030_stow1**2+inflow_vw_z2_20241121_0000_0030_stow1**2)**(1/4) 
+utau_z3_20241121_0000_0030_stow1 = (inflow_uw_z3_20241121_0000_0030_stow1**2+inflow_vw_z3_20241121_0000_0030_stow1**2)**(1/4) 
+
+L_z1_20241121_0000_0030_stow1 = -1*(utau_z1_20241121_0000_0030_stow1**3)/(0.4*(9.81/H1_Ts_20241121_0000_0030_stow1_z1)*inflow_wT_z1_20241121_0000_0030_stow1)
+L_z2_20241121_0000_0030_stow1 = -1*(utau_z2_20241121_0000_0030_stow1**3)/(0.4*(9.81/H1_Ts_20241121_0000_0030_stow1_z2)*inflow_wT_z2_20241121_0000_0030_stow1)
+L_z3_20241121_0000_0030_stow1 = -1*(utau_z3_20241121_0000_0030_stow1**3)/(0.4*(9.81/H1_Ts_20241121_0000_0030_stow1_z3)*inflow_wT_z3_20241121_0000_0030_stow1)
+
+zL_z1_20241121_0000_0030_stow1 = heights[0]/L_z1_20241121_0000_0030_stow1
+zL_z2_20241121_0000_0030_stow1 = heights[1]/L_z2_20241121_0000_0030_stow1
+zL_z3_20241121_0000_0030_stow1 = heights[2]/L_z3_20241121_0000_0030_stow1
+
+inflow_uprimewprime_z1_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z1*W_corr_inflow_20241121_0000_0030_stow1_z1);
+inflow_uprimewprime_z2_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z2*W_corr_inflow_20241121_0000_0030_stow1_z2);
+inflow_uprimewprime_z3_20241121_0000_0030_stow1 = (U_corr_inflow_20241121_0000_0030_stow1_z3*W_corr_inflow_20241121_0000_0030_stow1_z3);
+
 
 #%% LS exponential fit method
 
@@ -2656,47 +3592,48 @@ autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_202411
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.mean())
+Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z1)
 Lux_20241121_0000_0030_stow1_z1 = Lux_20241121_0000_0030_stow1_z1[Lux_20241121_0000_0030_stow1_z1>0]
 
 autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.mean())
+Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z2)
 Lux_20241121_0000_0030_stow1_z2 = Lux_20241121_0000_0030_stow1_z2[Lux_20241121_0000_0030_stow1_z2>0]
 
 autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.mean())
+Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z3)
 Lux_20241121_0000_0030_stow1_z3 = Lux_20241121_0000_0030_stow1_z3[Lux_20241121_0000_0030_stow1_z3>0]
 
 autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Low.mean())
+Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z1)
 Lwx_20241121_0000_0030_stow1_z1 = Lwx_20241121_0000_0030_stow1_z1[Lwx_20241121_0000_0030_stow1_z1>0]
 
 autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Mid.mean())
+Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z2)
 Lwx_20241121_0000_0030_stow1_z2 = Lwx_20241121_0000_0030_stow1_z2[Lwx_20241121_0000_0030_stow1_z2>0]
 
 autocorr_inflow_20241121_0000_0030_stow1 = np.correlate(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241121_0000_0030_stow1.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0000_0030_stow1.U_ax_Top.mean())
+Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0000_0030_stow1_z3)
 Lwx_20241121_0000_0030_stow1_z3 = Lwx_20241121_0000_0030_stow1_z3[Lwx_20241121_0000_0030_stow1_z3>0]
 
 Lux_profile_inflow_20241121_0000_0030_stow1 = pd.Series([Lux_20241121_0000_0030_stow1_z1,Lux_20241121_0000_0030_stow1_z2,Lux_20241121_0000_0030_stow1_z3])
 Lwx_profile_inflow_20241121_0000_0030_stow1 = pd.Series([Lwx_20241121_0000_0030_stow1_z1,Lwx_20241121_0000_0030_stow1_z2,Lwx_20241121_0000_0030_stow1_z3])
  
+
 
 #%% Mast 1
 
@@ -2705,28 +3642,29 @@ nblock = len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1, Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H2_U_ax_20241121_0000_0030_stow1_z1
 nPxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = (fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z1)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2, Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H2_U_ax_20241121_0000_0030_stow1_z2
 nPxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = (fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z2)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3, Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H2_U_ax_20241121_0000_0030_stow1_z3
 nPxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = (fu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*Pxxfu_loads_mast1_20Hz_20241121_0000_0030_stow1_z3)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1, Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H2_W_ax_20241121_0000_0030_stow1_z1
 nPxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1 = (fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1*Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z1)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2, Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H2_W_ax_20241121_0000_0030_stow1_z2
 nPxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2 = (fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2*Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z2)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3, Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H2_W_ax_20241121_0000_0030_stow1_z3
 nPxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3 = (fw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3*Pxxfw_loads_mast1_20Hz_20241121_0000_0030_stow1_z3)/loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -2796,42 +3734,42 @@ autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.mean())
+Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z1)
 Lux_mast1_20241121_0000_0030_stow1_z1 = Lux_20241121_0000_0030_stow1_z1[Lux_20241121_0000_0030_stow1_z1>0]
 
 autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.mean())
+Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z2)
 Lux_mast1_20241121_0000_0030_stow1_z2 = Lux_20241121_0000_0030_stow1_z2[Lux_20241121_0000_0030_stow1_z2>0]
 
 autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.mean())
+Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z3)
 Lux_mast1_20241121_0000_0030_stow1_z3 = Lux_20241121_0000_0030_stow1_z3[Lux_20241121_0000_0030_stow1_z3>0]
 
 autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Low.mean())
+Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z1)
 Lwx_mast1_20241121_0000_0030_stow1_z1 = Lwx_20241121_0000_0030_stow1_z1[Lwx_20241121_0000_0030_stow1_z1>0]
 
 autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Mid.mean())
+Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z2)
 Lwx_mast1_20241121_0000_0030_stow1_z2 = Lwx_20241121_0000_0030_stow1_z2[Lwx_20241121_0000_0030_stow1_z2>0]
 
 autocorr_mast1_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m1_U_ax_Top.mean())
+Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0000_0030_stow1_z3)
 Lwx_mast1_20241121_0000_0030_stow1_z3 = Lwx_20241121_0000_0030_stow1_z3[Lwx_20241121_0000_0030_stow1_z3>0]
 
 Lux_profile_mast1_20241121_0000_0030_stow1 = pd.Series([Lux_mast1_20241121_0000_0030_stow1_z1,Lux_mast1_20241121_0000_0030_stow1_z2,Lux_mast1_20241121_0000_0030_stow1_z3])
@@ -2846,27 +3784,27 @@ nblock = len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1, Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H3_U_ax_20241121_0000_0030_stow1_z1
 nPxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = (fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z1)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2, Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H3_U_ax_20241121_0000_0030_stow1_z2
 nPxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = (fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z2)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3, Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H3_U_ax_20241121_0000_0030_stow1_z3
 nPxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = (fu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*Pxxfu_loads_mast3_20Hz_20241121_0000_0030_stow1_z3)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1, Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*heights[0]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*heights[0]/H3_W_ax_20241121_0000_0030_stow1_z1
 nPxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1 = (fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1*Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z1)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2, Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*heights[1]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*heights[1]/H3_W_ax_20241121_0000_0030_stow1_z2
 nPxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2 = (fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2*Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z2)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3, Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = welch(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*heights[2]/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*heights[2]/H3_W_ax_20241121_0000_0030_stow1_z3
 nPxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3 = (fw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3*Pxxfw_loads_mast3_20Hz_20241121_0000_0030_stow1_z3)/loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.std()**2              
 
 
@@ -2931,48 +3869,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.mean())
+Lux_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z1)
 Lux_mast3_20241121_0000_0030_stow1_z1 = Lux_20241121_0000_0030_stow1_z1[Lux_20241121_0000_0030_stow1_z1>0]
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.mean())
+Lux_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z2)
 Lux_mast3_20241121_0000_0030_stow1_z2 = Lux_20241121_0000_0030_stow1_z2[Lux_20241121_0000_0030_stow1_z2>0]
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.mean())
+Lux_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z3)
 Lux_mast3_20241121_0000_0030_stow1_z3 = Lux_20241121_0000_0030_stow1_z3[Lux_20241121_0000_0030_stow1_z3>0]
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Low.mean())
+Lwx_20241121_0000_0030_stow1_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z1)
 Lwx_mast3_20241121_0000_0030_stow1_z1 = Lwx_20241121_0000_0030_stow1_z1[Lwx_20241121_0000_0030_stow1_z1>0]
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Mid.mean())
+Lwx_20241121_0000_0030_stow1_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z2)
 Lwx_mast3_20241121_0000_0030_stow1_z2 = Lwx_20241121_0000_0030_stow1_z2[Lwx_20241121_0000_0030_stow1_z2>0]
 
 autocorr_mast3_20241121_0000_0030_stow1 = np.correlate(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241121_0000_0030_stow1 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0000_0030_stow1.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241121_0000_0030_stow1)
-Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0000_0030_stow1.m3_U_ax_Top.mean())
+Lwx_20241121_0000_0030_stow1_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0000_0030_stow1_z3)
 Lwx_mast3_20241121_0000_0030_stow1_z3 = Lwx_20241121_0000_0030_stow1_z3[Lwx_20241121_0000_0030_stow1_z3>0]
 
 Lux_profile_mast3_20241121_0000_0030_stow1 = pd.Series([Lux_mast3_20241121_0000_0030_stow1_z1,Lux_mast3_20241121_0000_0030_stow1_z2,Lux_mast3_20241121_0000_0030_stow1_z3])
@@ -3001,11 +3941,12 @@ plt.xlim(0,10)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241121_0000_0030_stow1,H1_wspd_20241121_0000_0030_stow1,H1_wspd_20241121_0000_0030_stow1], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241121_0000_0030_stow1,H2_wspd_20241121_0000_0030_stow1,H2_wspd_20241121_0000_0030_stow1], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241121_0000_0030_stow1,H3_wspd_20241121_0000_0030_stow1,H3_wspd_20241121_0000_0030_stow1], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241121_0000_0030_stow1_z1,H1_wspd_20241121_0000_0030_stow1_z2,H1_wspd_20241121_0000_0030_stow1_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241121_0000_0030_stow1_z1,H2_wspd_20241121_0000_0030_stow1_z2,H2_wspd_20241121_0000_0030_stow1_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241121_0000_0030_stow1_z1,H3_wspd_20241121_0000_0030_stow1_z2,H3_wspd_20241121_0000_0030_stow1_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -3016,9 +3957,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241121_0000_0030_stow1,H1_wdir_20241121_0000_0030_stow1,H1_wdir_20241121_0000_0030_stow1], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241121_0000_0030_stow1,H2_wdir_20241121_0000_0030_stow1,H2_wdir_20241121_0000_0030_stow1], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241121_0000_0030_stow1,H3_wdir_20241121_0000_0030_stow1,H3_wdir_20241121_0000_0030_stow1], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241121_0000_0030_stow1_z1,H1_wdir_20241121_0000_0030_stow1_z2,H1_wdir_20241121_0000_0030_stow1_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241121_0000_0030_stow1_z1,H2_wdir_20241121_0000_0030_stow1_z2,H2_wdir_20241121_0000_0030_stow1_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241121_0000_0030_stow1_z1,H3_wdir_20241121_0000_0030_stow1_z2,H3_wdir_20241121_0000_0030_stow1_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -3027,11 +3968,12 @@ plt.xlim(120,180)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241121_0000_0030_stow1,H1_Iu_20241121_0000_0030_stow1,H1_Iu_20241121_0000_0030_stow1], heights, label='inflow')            
-plt.scatter([H2_Iu_20241121_0000_0030_stow1,H2_Iu_20241121_0000_0030_stow1,H2_Iu_20241121_0000_0030_stow1], heights, label='mast1')            
-plt.scatter([H3_Iu_20241121_0000_0030_stow1,H3_Iu_20241121_0000_0030_stow1,H3_Iu_20241121_0000_0030_stow1], heights, label='mast3')            
+plt.scatter([H1_Iu_20241121_0000_0030_stow1_z1,H1_Iu_20241121_0000_0030_stow1_z2,H1_Iu_20241121_0000_0030_stow1_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241121_0000_0030_stow1_z1,H2_Iu_20241121_0000_0030_stow1_z2,H2_Iu_20241121_0000_0030_stow1_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241121_0000_0030_stow1_z1,H3_Iu_20241121_0000_0030_stow1_z2,H3_Iu_20241121_0000_0030_stow1_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -3042,9 +3984,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241121_0000_0030_stow1,H1_Iw_20241121_0000_0030_stow1,H1_Iw_20241121_0000_0030_stow1], heights, label='inflow')            
-plt.scatter([H2_Iw_20241121_0000_0030_stow1,H2_Iw_20241121_0000_0030_stow1,H2_Iw_20241121_0000_0030_stow1], heights, label='mast1')            
-plt.scatter([H3_Iw_20241121_0000_0030_stow1,H3_Iw_20241121_0000_0030_stow1,H3_Iw_20241121_0000_0030_stow1], heights, label='mast3')            
+plt.scatter([H1_Iw_20241121_0000_0030_stow1_z1,H1_Iw_20241121_0000_0030_stow1_z2,H1_Iw_20241121_0000_0030_stow1_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241121_0000_0030_stow1_z1,H2_Iw_20241121_0000_0030_stow1_z2,H2_Iw_20241121_0000_0030_stow1_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241121_0000_0030_stow1_z1,H3_Iw_20241121_0000_0030_stow1_z2,H3_Iw_20241121_0000_0030_stow1_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -3056,22 +3998,22 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241121_0000_0030_stow1/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241121_0000_0030_stow1/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241121_0000_0030_stow1/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241121_0000_0030_stow1/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241121_0000_0030_stow1/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241121_0000_0030_stow1/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
 #plt.title('inflow')
-plt.xlim(0,100)
+plt.xlim(0,150)
 plt.ylim(0,12)
 plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241121_0000_0030_stow1/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241121_0000_0030_stow1/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241121_0000_0030_stow1/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241121_0000_0030_stow1/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241121_0000_0030_stow1/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241121_0000_0030_stow1/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
@@ -3079,6 +4021,8 @@ plt.ylabel("$z$ (m)")
 plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
+
+
 
 #%% PSD analysis
 
@@ -3097,27 +4041,27 @@ nblock = len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1, Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.mean()
+nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H1_U_ax_20241121_0300_0330_stow2_z1
 nPxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = (fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1)/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.std()**2
 
 fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2, Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.mean()
+nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H1_U_ax_20241121_0300_0330_stow2_z2
 nPxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = (fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z2)/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.std()**2
  
 fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3, Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.mean()
+nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H1_U_ax_20241121_0300_0330_stow2_z3
 nPxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = (fu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*Pxxfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z3)/loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.std()**2              
     
 fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1, Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.mean()
+nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H1_W_ax_20241121_0300_0330_stow2_z1
 nPxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1 = (fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1*Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z1)/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.std()**2
 
 fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2, Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.mean()
+nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H1_W_ax_20241121_0300_0330_stow2_z2
 nPxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2 = (fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2*Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z2)/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.std()**2
  
 fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3, Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.mean()
+nfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H1_W_ax_20241121_0300_0330_stow2_z3
 nPxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = (fw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3*Pxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3)/loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.std()**2              
 
 
@@ -3154,7 +4098,6 @@ nPxxfw_smooth_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = runningMeanFast(nP
 nPxxfw_mod_loads_inflow_20Hz_20241121_0300_0330_stow2_z3 = [nPxxfw_loads_inflow_20Hz_20241121_0300_0330_stow2_z3[0:index_highfreq_loads_inflow_20Hz_20241121_0300_0330_stow2_z3[0][0]-1],nPxxfw_smooth_loads_inflow_20Hz_20241121_0300_0330_stow2_z3]
 
 
-
 plt.figure()
 plt.subplot(1, 2, 1)
 plt.loglog(abs(nfu_loads_inflow_20Hz_20241121_0300_0330_stow2_z1[0:len(nPxxfu_mod_loads_inflow_20Hz_20241121_0300_0330_stow2_z1[1])]), nPxxfu_mod_loads_inflow_20Hz_20241121_0300_0330_stow2_z1[1], label='2.75m')            
@@ -3181,6 +4124,74 @@ plt.ylim(10e-4, 5*10e-2)
 plt.show()
 
 
+#%% Extract data by height
+
+U_corr_inflow_20241121_0300_0330_stow2_z1 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low)
+U_corr_inflow_20241121_0300_0330_stow2_z2 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid)
+U_corr_inflow_20241121_0300_0330_stow2_z3 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top)
+
+V_corr_inflow_20241121_0300_0330_stow2_z1 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.V_ax_Low)
+V_corr_inflow_20241121_0300_0330_stow2_z2 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.V_ax_Mid)
+V_corr_inflow_20241121_0300_0330_stow2_z3 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.V_ax_Top)
+
+W_corr_inflow_20241121_0300_0330_stow2_z1 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low)
+W_corr_inflow_20241121_0300_0330_stow2_z2 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid)
+W_corr_inflow_20241121_0300_0330_stow2_z3 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top)
+
+Ts_corr_inflow_20241121_0300_0330_stow2_z1 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Low)
+Ts_corr_inflow_20241121_0300_0330_stow2_z2 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Mid)
+Ts_corr_inflow_20241121_0300_0330_stow2_z3 = pd.Series(loads_inflow_20Hz_20241121_0300_0330_stow2.Ts_Top)
+
+# Detrend
+U_corr_inflow_20241121_0300_0330_stow2_z1[U_corr_inflow_20241121_0300_0330_stow2_z1.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0300_0330_stow2_z1.dropna()) 
+U_corr_inflow_20241121_0300_0330_stow2_z2[U_corr_inflow_20241121_0300_0330_stow2_z2.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0300_0330_stow2_z2.dropna()) 
+U_corr_inflow_20241121_0300_0330_stow2_z3[U_corr_inflow_20241121_0300_0330_stow2_z3.isna()==False] = scipy.signal.detrend(U_corr_inflow_20241121_0300_0330_stow2_z3.dropna()) 
+
+V_corr_inflow_20241121_0300_0330_stow2_z1[V_corr_inflow_20241121_0300_0330_stow2_z1.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0300_0330_stow2_z1.dropna()) 
+V_corr_inflow_20241121_0300_0330_stow2_z2[V_corr_inflow_20241121_0300_0330_stow2_z2.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0300_0330_stow2_z2.dropna()) 
+V_corr_inflow_20241121_0300_0330_stow2_z3[V_corr_inflow_20241121_0300_0330_stow2_z3.isna()==False] = scipy.signal.detrend(V_corr_inflow_20241121_0300_0330_stow2_z3.dropna()) 
+
+W_corr_inflow_20241121_0300_0330_stow2_z1[W_corr_inflow_20241121_0300_0330_stow2_z1.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0300_0330_stow2_z1.dropna()) 
+W_corr_inflow_20241121_0300_0330_stow2_z2[W_corr_inflow_20241121_0300_0330_stow2_z2.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0300_0330_stow2_z2.dropna()) 
+W_corr_inflow_20241121_0300_0330_stow2_z3[W_corr_inflow_20241121_0300_0330_stow2_z3.isna()==False] = scipy.signal.detrend(W_corr_inflow_20241121_0300_0330_stow2_z3.dropna()) 
+
+Ts_corr_inflow_20241121_0300_0330_stow2_z1[Ts_corr_inflow_20241121_0300_0330_stow2_z1.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0300_0330_stow2_z1.dropna()) 
+Ts_corr_inflow_20241121_0300_0330_stow2_z2[Ts_corr_inflow_20241121_0300_0330_stow2_z2.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0300_0330_stow2_z2.dropna()) 
+Ts_corr_inflow_20241121_0300_0330_stow2_z3[Ts_corr_inflow_20241121_0300_0330_stow2_z3.isna()==False] = scipy.signal.detrend(Ts_corr_inflow_20241121_0300_0330_stow2_z3.dropna()) 
+
+# Reynolds stresses and length scales (south2)
+
+inflow_uv_z1_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z1*V_corr_inflow_20241121_0300_0330_stow2_z1).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z1.mean()*V_corr_inflow_20241121_0300_0330_stow2_z1.mean());
+inflow_vw_z1_20241121_0300_0330_stow2 = (V_corr_inflow_20241121_0300_0330_stow2_z1*W_corr_inflow_20241121_0300_0330_stow2_z1).mean()-(V_corr_inflow_20241121_0300_0330_stow2_z1.mean()*W_corr_inflow_20241121_0300_0330_stow2_z1.mean());
+inflow_uw_z1_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z1*W_corr_inflow_20241121_0300_0330_stow2_z1).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z1.mean()*W_corr_inflow_20241121_0300_0330_stow2_z1.mean());
+inflow_wT_z1_20241121_0300_0330_stow2 = (W_corr_inflow_20241121_0300_0330_stow2_z1*Ts_corr_inflow_20241121_0300_0330_stow2_z1).mean()-(W_corr_inflow_20241121_0300_0330_stow2_z1.mean()*Ts_corr_inflow_20241121_0300_0330_stow2_z1.mean());
+
+inflow_uv_z2_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z2*V_corr_inflow_20241121_0300_0330_stow2_z2).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z2.mean()*V_corr_inflow_20241121_0300_0330_stow2_z2.mean());
+inflow_vw_z2_20241121_0300_0330_stow2 = (V_corr_inflow_20241121_0300_0330_stow2_z2*W_corr_inflow_20241121_0300_0330_stow2_z2).mean()-(V_corr_inflow_20241121_0300_0330_stow2_z2.mean()*W_corr_inflow_20241121_0300_0330_stow2_z2.mean());
+inflow_uw_z2_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z2*W_corr_inflow_20241121_0300_0330_stow2_z2).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z2.mean()*W_corr_inflow_20241121_0300_0330_stow2_z2.mean());
+inflow_wT_z2_20241121_0300_0330_stow2 = (W_corr_inflow_20241121_0300_0330_stow2_z2*Ts_corr_inflow_20241121_0300_0330_stow2_z2).mean()-(W_corr_inflow_20241121_0300_0330_stow2_z2.mean()*Ts_corr_inflow_20241121_0300_0330_stow2_z2.mean());
+
+inflow_uv_z3_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z3*V_corr_inflow_20241121_0300_0330_stow2_z3).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z3.mean()*V_corr_inflow_20241121_0300_0330_stow2_z3.mean());
+inflow_vw_z3_20241121_0300_0330_stow2 = (V_corr_inflow_20241121_0300_0330_stow2_z3*W_corr_inflow_20241121_0300_0330_stow2_z3).mean()-(V_corr_inflow_20241121_0300_0330_stow2_z3.mean()*W_corr_inflow_20241121_0300_0330_stow2_z3.mean());
+inflow_uw_z3_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z3*W_corr_inflow_20241121_0300_0330_stow2_z3).mean()-(U_corr_inflow_20241121_0300_0330_stow2_z3.mean()*W_corr_inflow_20241121_0300_0330_stow2_z3.mean());
+inflow_wT_z3_20241121_0300_0330_stow2 = (W_corr_inflow_20241121_0300_0330_stow2_z3*Ts_corr_inflow_20241121_0300_0330_stow2_z3).mean()-(W_corr_inflow_20241121_0300_0330_stow2_z3.mean()*Ts_corr_inflow_20241121_0300_0330_stow2_z3.mean());
+
+utau_z1_20241121_0300_0330_stow2 = (inflow_uw_z1_20241121_0300_0330_stow2**2+inflow_vw_z1_20241121_0300_0330_stow2**2)**(1/4) 
+utau_z2_20241121_0300_0330_stow2 = (inflow_uw_z2_20241121_0300_0330_stow2**2+inflow_vw_z2_20241121_0300_0330_stow2**2)**(1/4) 
+utau_z3_20241121_0300_0330_stow2 = (inflow_uw_z3_20241121_0300_0330_stow2**2+inflow_vw_z3_20241121_0300_0330_stow2**2)**(1/4) 
+
+L_z1_20241121_0300_0330_stow2 = -1*(utau_z1_20241121_0300_0330_stow2**3)/(0.4*(9.81/H1_Ts_20241121_0300_0330_stow2_z1)*inflow_wT_z1_20241121_0300_0330_stow2)
+L_z2_20241121_0300_0330_stow2 = -1*(utau_z2_20241121_0300_0330_stow2**3)/(0.4*(9.81/H1_Ts_20241121_0300_0330_stow2_z2)*inflow_wT_z2_20241121_0300_0330_stow2)
+L_z3_20241121_0300_0330_stow2 = -1*(utau_z3_20241121_0300_0330_stow2**3)/(0.4*(9.81/H1_Ts_20241121_0300_0330_stow2_z3)*inflow_wT_z3_20241121_0300_0330_stow2)
+
+zL_z1_20241121_0300_0330_stow2 = heights[0]/L_z1_20241121_0300_0330_stow2
+zL_z2_20241121_0300_0330_stow2 = heights[1]/L_z2_20241121_0300_0330_stow2
+zL_z3_20241121_0300_0330_stow2 = heights[2]/L_z3_20241121_0300_0330_stow2
+
+inflow_uprimewprime_z1_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z1*W_corr_inflow_20241121_0300_0330_stow2_z1);
+inflow_uprimewprime_z2_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z2*W_corr_inflow_20241121_0300_0330_stow2_z2);
+inflow_uprimewprime_z3_20241121_0300_0330_stow2 = (U_corr_inflow_20241121_0300_0330_stow2_z3*W_corr_inflow_20241121_0300_0330_stow2_z3);
+
 
 #%% LS exponential fit method
 
@@ -3188,47 +4199,48 @@ autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_202411
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.mean())
+Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z1)
 Lux_20241121_0300_0330_stow2_z1 = Lux_20241121_0300_0330_stow2_z1[Lux_20241121_0300_0330_stow2_z1>0]
 
 autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.mean())
+Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z2)
 Lux_20241121_0300_0330_stow2_z2 = Lux_20241121_0300_0330_stow2_z2[Lux_20241121_0300_0330_stow2_z2>0]
 
 autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.mean())
+Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z3)
 Lux_20241121_0300_0330_stow2_z3 = Lux_20241121_0300_0330_stow2_z3[Lux_20241121_0300_0330_stow2_z3>0]
 
 autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna(), mode='full') 
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Low.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Low.mean())
+Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z1)
 Lwx_20241121_0300_0330_stow2_z1 = Lwx_20241121_0300_0330_stow2_z1[Lwx_20241121_0300_0330_stow2_z1>0]
 
 autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna(), mode='full') 
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Mid.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Mid.mean())
+Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z2)
 Lwx_20241121_0300_0330_stow2_z2 = Lwx_20241121_0300_0330_stow2_z2[Lwx_20241121_0300_0330_stow2_z2>0]
 
 autocorr_inflow_20241121_0300_0330_stow2 = np.correlate(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna(), mode='full') 
 autocorr_inflow_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna()) * np.dot(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna(), loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna()) + 1, len(loads_inflow_20Hz_20241121_0300_0330_stow2.W_ax_Top.dropna()))
 Y = (lags, autocorr_inflow_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_inflow_20Hz_20241121_0300_0330_stow2.U_ax_Top.mean())
+Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H1_wspd_20241121_0300_0330_stow2_z3)
 Lwx_20241121_0300_0330_stow2_z3 = Lwx_20241121_0300_0330_stow2_z3[Lwx_20241121_0300_0330_stow2_z3>0]
 
 Lux_profile_inflow_20241121_0300_0330_stow2 = pd.Series([Lux_20241121_0300_0330_stow2_z1,Lux_20241121_0300_0330_stow2_z2,Lux_20241121_0300_0330_stow2_z3])
 Lwx_profile_inflow_20241121_0300_0330_stow2 = pd.Series([Lwx_20241121_0300_0330_stow2_z1,Lwx_20241121_0300_0330_stow2_z2,Lwx_20241121_0300_0330_stow2_z3])
  
+
 
 #%% Mast 1
 
@@ -3237,28 +4249,29 @@ nblock = len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1, Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.mean()
+nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H2_U_ax_20241121_0300_0330_stow2_z1
 nPxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = (fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z1)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.std()**2
 
 fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2, Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.mean()
+nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H2_U_ax_20241121_0300_0330_stow2_z2
 nPxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = (fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z2)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.std()**2
  
 fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3, Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.mean()
+nfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H2_U_ax_20241121_0300_0330_stow2_z3
 nPxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = (fu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*Pxxfu_loads_mast1_20Hz_20241121_0300_0330_stow2_z3)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.std()**2              
     
 fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1, Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.mean()
+nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H2_W_ax_20241121_0300_0330_stow2_z1
 nPxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1 = (fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1*Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z1)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.std()**2
 
 fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2, Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.mean()
+nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H2_W_ax_20241121_0300_0330_stow2_z2
 nPxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2 = (fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2*Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z2)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.std()**2
  
 fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3, Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.mean()
+nfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H2_W_ax_20241121_0300_0330_stow2_z3
 nPxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3 = (fw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3*Pxxfw_loads_mast1_20Hz_20241121_0300_0330_stow2_z3)/loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.std()**2              
+
 
 
 #%% Smooth high frequency region
@@ -3328,42 +4341,42 @@ autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.mean())
+Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z1)
 Lux_mast1_20241121_0300_0330_stow2_z1 = Lux_20241121_0300_0330_stow2_z1[Lux_20241121_0300_0330_stow2_z1>0]
 
 autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.mean())
+Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z2)
 Lux_mast1_20241121_0300_0330_stow2_z2 = Lux_20241121_0300_0330_stow2_z2[Lux_20241121_0300_0330_stow2_z2>0]
 
 autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.mean())
+Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z3)
 Lux_mast1_20241121_0300_0330_stow2_z3 = Lux_20241121_0300_0330_stow2_z3[Lux_20241121_0300_0330_stow2_z3>0]
 
 autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna(), mode='full') 
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Low.mean())
+Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z1)
 Lwx_mast1_20241121_0300_0330_stow2_z1 = Lwx_20241121_0300_0330_stow2_z1[Lwx_20241121_0300_0330_stow2_z1>0]
 
 autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Mid.mean())
+Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z2)
 Lwx_mast1_20241121_0300_0330_stow2_z2 = Lwx_20241121_0300_0330_stow2_z2[Lwx_20241121_0300_0330_stow2_z2>0]
 
 autocorr_mast1_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna(), mode='full') 
 autocorr_mast1_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m1_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast1_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m1_U_ax_Top.mean())
+Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H2_wspd_20241121_0300_0330_stow2_z3)
 Lwx_mast1_20241121_0300_0330_stow2_z3 = Lwx_20241121_0300_0330_stow2_z3[Lwx_20241121_0300_0330_stow2_z3>0]
 
 Lux_profile_mast1_20241121_0300_0330_stow2 = pd.Series([Lux_mast1_20241121_0300_0330_stow2_z1,Lux_mast1_20241121_0300_0330_stow2_z2,Lux_mast1_20241121_0300_0330_stow2_z3])
@@ -3378,27 +4391,27 @@ nblock = len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low)
 win = np.hamming(math.floor(nblock/10))
 
 fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1, Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.mean()
+nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H3_U_ax_20241121_0300_0330_stow2_z1
 nPxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = (fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z1)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.std()**2
 
 fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2, Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.mean()
+nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H3_U_ax_20241121_0300_0330_stow2_z2
 nPxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = (fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z2)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.std()**2
  
 fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3, Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.mean()
+nfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H3_U_ax_20241121_0300_0330_stow2_z3
 nPxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = (fu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*Pxxfu_loads_mast3_20Hz_20241121_0300_0330_stow2_z3)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.std()**2              
     
 fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1, Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*heights[0]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.mean()
+nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*heights[0]/H3_W_ax_20241121_0300_0330_stow2_z1
 nPxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1 = (fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1*Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z1)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.std()**2
 
 fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2, Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*heights[1]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.mean()
+nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*heights[1]/H3_W_ax_20241121_0300_0330_stow2_z2
 nPxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2 = (fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2*Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z2)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.std()**2
  
 fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3, Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = welch(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna(), fs, window=win, noverlap=overlap, nfft=nblock, detrend='constant', return_onesided=True)
-nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*heights[2]/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.mean()
+nfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*heights[2]/H3_W_ax_20241121_0300_0330_stow2_z3
 nPxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3 = (fw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3*Pxxfw_loads_mast3_20Hz_20241121_0300_0330_stow2_z3)/loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.std()**2              
 
 
@@ -3463,48 +4476,50 @@ plt.show()
 
 
 
+
+
 #%% LS exponential fit method
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.mean())
+Lux_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z1)
 Lux_mast3_20241121_0300_0330_stow2_z1 = Lux_20241121_0300_0330_stow2_z1[Lux_20241121_0300_0330_stow2_z1>0]
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.mean())
+Lux_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z2)
 Lux_mast3_20241121_0300_0330_stow2_z2 = Lux_20241121_0300_0330_stow2_z2[Lux_20241121_0300_0330_stow2_z2>0]
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.mean())
+Lux_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z3)
 Lux_mast3_20241121_0300_0330_stow2_z3 = Lux_20241121_0300_0330_stow2_z3[Lux_20241121_0300_0330_stow2_z3>0]
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Low.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Low.mean())
+Lwx_20241121_0300_0330_stow2_z1 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z1)
 Lwx_mast3_20241121_0300_0330_stow2_z1 = Lwx_20241121_0300_0330_stow2_z1[Lwx_20241121_0300_0330_stow2_z1>0]
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Mid.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Mid.mean())
+Lwx_20241121_0300_0330_stow2_z2 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z2)
 Lwx_mast3_20241121_0300_0330_stow2_z2 = Lwx_20241121_0300_0330_stow2_z2[Lwx_20241121_0300_0330_stow2_z2>0]
 
 autocorr_mast3_20241121_0300_0330_stow2 = np.correlate(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna(), mode='full') 
 autocorr_mast3_20241121_0300_0330_stow2 /= np.sqrt(np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna()) * np.dot(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna(), loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna()))  # Normalize the result
 lags = np.arange(-len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna()) + 1, len(loads_mast_20Hz_20241121_0300_0330_stow2.m3_W_ax_Top.dropna()))
 Y = (lags, autocorr_mast3_20241121_0300_0330_stow2)
-Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(loads_mast_20Hz_20241121_0300_0330_stow2.m3_U_ax_Top.mean())
+Lwx_20241121_0300_0330_stow2_z3 = Y[0][np.where(Y[1]==find_nearest(Y[1], value=1/np.e))]*(1/fs)*abs(H3_wspd_20241121_0300_0330_stow2_z3)
 Lwx_mast3_20241121_0300_0330_stow2_z3 = Lwx_20241121_0300_0330_stow2_z3[Lwx_20241121_0300_0330_stow2_z3>0]
 
 Lux_profile_mast3_20241121_0300_0330_stow2 = pd.Series([Lux_mast3_20241121_0300_0330_stow2_z1,Lux_mast3_20241121_0300_0330_stow2_z2,Lux_mast3_20241121_0300_0330_stow2_z3])
@@ -3533,11 +4548,12 @@ plt.xlim(0,10)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wspd_20241121_0300_0330_stow2,H1_wspd_20241121_0300_0330_stow2,H1_wspd_20241121_0300_0330_stow2], heights, s=8,label='inflow')            
-plt.scatter([H2_wspd_20241121_0300_0330_stow2,H2_wspd_20241121_0300_0330_stow2,H2_wspd_20241121_0300_0330_stow2], heights, s=8,label='mast1')            
-plt.scatter([H3_wspd_20241121_0300_0330_stow2,H3_wspd_20241121_0300_0330_stow2,H3_wspd_20241121_0300_0330_stow2], heights, s=8,label='mast3')            
+plt.scatter([H1_wspd_20241121_0300_0330_stow2_z1,H1_wspd_20241121_0300_0330_stow2_z2,H1_wspd_20241121_0300_0330_stow2_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wspd_20241121_0300_0330_stow2_z1,H2_wspd_20241121_0300_0330_stow2_z2,H2_wspd_20241121_0300_0330_stow2_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wspd_20241121_0300_0330_stow2_z1,H3_wspd_20241121_0300_0330_stow2_z2,H3_wspd_20241121_0300_0330_stow2_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind speed (m/s)")
 plt.ylabel("$z$ (m)")
@@ -3548,9 +4564,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_wdir_20241121_0300_0330_stow2,H1_wdir_20241121_0300_0330_stow2,H1_wdir_20241121_0300_0330_stow2], heights, s=8,label='inflow')            
-plt.scatter([H2_wdir_20241121_0300_0330_stow2,H2_wdir_20241121_0300_0330_stow2,H2_wdir_20241121_0300_0330_stow2], heights, s=8,label='mast1')            
-plt.scatter([H3_wdir_20241121_0300_0330_stow2,H3_wdir_20241121_0300_0330_stow2,H3_wdir_20241121_0300_0330_stow2], heights, s=8,label='mast3')            
+plt.scatter([H1_wdir_20241121_0300_0330_stow2_z1,H1_wdir_20241121_0300_0330_stow2_z2,H1_wdir_20241121_0300_0330_stow2_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_wdir_20241121_0300_0330_stow2_z1,H2_wdir_20241121_0300_0330_stow2_z2,H2_wdir_20241121_0300_0330_stow2_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_wdir_20241121_0300_0330_stow2_z1,H3_wdir_20241121_0300_0330_stow2_z2,H3_wdir_20241121_0300_0330_stow2_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("Wind direction (deg)")
 plt.ylabel("$z$ (m)")
@@ -3559,11 +4575,12 @@ plt.xlim(120,180)
 plt.ylim(0,12)
 plt.show()
 
+
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iu_20241121_0300_0330_stow2,H1_Iu_20241121_0300_0330_stow2,H1_Iu_20241121_0300_0330_stow2], heights, label='inflow')            
-plt.scatter([H2_Iu_20241121_0300_0330_stow2,H2_Iu_20241121_0300_0330_stow2,H2_Iu_20241121_0300_0330_stow2], heights, label='mast1')            
-plt.scatter([H3_Iu_20241121_0300_0330_stow2,H3_Iu_20241121_0300_0330_stow2,H3_Iu_20241121_0300_0330_stow2], heights, label='mast3')            
+plt.scatter([H1_Iu_20241121_0300_0330_stow2_z1,H1_Iu_20241121_0300_0330_stow2_z2,H1_Iu_20241121_0300_0330_stow2_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iu_20241121_0300_0330_stow2_z1,H2_Iu_20241121_0300_0330_stow2_z2,H2_Iu_20241121_0300_0330_stow2_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iu_20241121_0300_0330_stow2_z1,H3_Iu_20241121_0300_0330_stow2_z2,H3_Iu_20241121_0300_0330_stow2_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_u$")
 plt.ylabel("$z$ (m)")
@@ -3574,9 +4591,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter([H1_Iw_20241121_0300_0330_stow2,H1_Iw_20241121_0300_0330_stow2,H1_Iw_20241121_0300_0330_stow2], heights, label='inflow')            
-plt.scatter([H2_Iw_20241121_0300_0330_stow2,H2_Iw_20241121_0300_0330_stow2,H2_Iw_20241121_0300_0330_stow2], heights, label='mast1')            
-plt.scatter([H3_Iw_20241121_0300_0330_stow2,H3_Iw_20241121_0300_0330_stow2,H3_Iw_20241121_0300_0330_stow2], heights, label='mast3')            
+plt.scatter([H1_Iw_20241121_0300_0330_stow2_z1,H1_Iw_20241121_0300_0330_stow2_z2,H1_Iw_20241121_0300_0330_stow2_z3], heights, s=8,label='inflow')            
+plt.scatter([H2_Iw_20241121_0300_0330_stow2_z1,H2_Iw_20241121_0300_0330_stow2_z2,H2_Iw_20241121_0300_0330_stow2_z3], heights, s=8,label='mast1')            
+plt.scatter([H3_Iw_20241121_0300_0330_stow2_z1,H3_Iw_20241121_0300_0330_stow2_z2,H3_Iw_20241121_0300_0330_stow2_z3], heights, s=8,label='mast3')            
 plt.legend(loc='lower left',fontsize=8)
 plt.xlabel("$I_w$")
 plt.ylabel("$z$ (m)")
@@ -3588,9 +4605,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 1)
-plt.scatter(Lux_profile_inflow_20241121_0300_0330_stow2/11.23, heights, label='inflow')            
-plt.scatter(Lux_profile_mast1_20241121_0300_0330_stow2/11.23, heights, label='mast1')            
-plt.scatter(Lux_profile_mast3_20241121_0300_0330_stow2/11.23, heights, label='mast3')            
+plt.scatter(Lux_profile_inflow_20241121_0300_0330_stow2/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lux_profile_mast1_20241121_0300_0330_stow2/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lux_profile_mast3_20241121_0300_0330_stow2/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_u^x/c$")
 plt.ylabel("$z$ (m)")
@@ -3601,9 +4618,9 @@ plt.show()
 
 plt.figure()
 plt.subplot(1, 2, 2)
-plt.scatter(Lwx_profile_inflow_20241121_0300_0330_stow2/11.23, heights, label='inflow')            
-plt.scatter(Lwx_profile_mast1_20241121_0300_0330_stow2/11.23, heights, label='mast1')            
-plt.scatter(Lwx_profile_mast3_20241121_0300_0330_stow2/11.23, heights, label='mast3')            
+plt.scatter(Lwx_profile_inflow_20241121_0300_0330_stow2/11.23, heights, s=8,label='inflow')            
+plt.scatter(Lwx_profile_mast1_20241121_0300_0330_stow2/11.23, heights, s=8,label='mast1')            
+plt.scatter(Lwx_profile_mast3_20241121_0300_0330_stow2/11.23, heights, s=8,label='mast3')            
 plt.legend(loc='lower right',fontsize=8)
 plt.xlabel("$L_w^x/c$")
 plt.ylabel("$z$ (m)")
@@ -3611,6 +4628,7 @@ plt.ylabel("$z$ (m)")
 plt.xlim(0,0.4)
 plt.ylim(0,12)
 plt.show()
+
 
 
 
