@@ -81,16 +81,16 @@ H2_azimuth.rename(columns={'mean': 'H2_azimuth'}, inplace=True)
 H3_elevation.rename(columns={'mean': 'H3_elevation'}, inplace=True)
 H3_azimuth.rename(columns={'mean': 'H3_azimuth'}, inplace=True)
 
-H1_state.rename(columns={'first': 'H1_state'}, inplace=True)
-H2_state.rename(columns={'first': 'H2_state'}, inplace=True)
+H1_state.rename(columns={'last': 'H1_state'}, inplace=True)
+H2_state.rename(columns={'last': 'H2_state'}, inplace=True)
 H3_state.rename(columns={'first': 'H3_state'}, inplace=True)
 
 H1_elevation_azimuth_state_inflow_loads = inflow_loads.join([H1_elevation, H1_azimuth, H1_state], how='inner')
-H1_elevation_azimuth_state_inflow_loads = H1_elevation_azimuth_state_inflow_loads[~H1_elevation_azimuth_state_inflow_loads.index.duplicated(keep='first')]     
+H1_elevation_azimuth_state_inflow_loads = H1_elevation_azimuth_state_inflow_loads[~H1_elevation_azimuth_state_inflow_loads.index.duplicated(keep='last')]     
 H2_elevation_azimuth_state_inflow_loads = inflow_loads.join([H2_elevation, H2_azimuth, H2_state], how='inner')
-H2_elevation_azimuth_state_inflow_loads = H2_elevation_azimuth_state_inflow_loads[~H2_elevation_azimuth_state_inflow_loads.index.duplicated(keep='first')]
+H2_elevation_azimuth_state_inflow_loads = H2_elevation_azimuth_state_inflow_loads[~H2_elevation_azimuth_state_inflow_loads.index.duplicated(keep='last')]
 H3_elevation_azimuth_state_inflow_loads = inflow_loads.join([H3_elevation, H3_azimuth, H3_state], how='inner')
-H3_elevation_azimuth_state_inflow_loads = H3_elevation_azimuth_state_inflow_loads[~H3_elevation_azimuth_state_inflow_loads.index.duplicated(keep='first')]
+H3_elevation_azimuth_state_inflow_loads = H3_elevation_azimuth_state_inflow_loads[~H3_elevation_azimuth_state_inflow_loads.index.duplicated(keep='last')]
 
 H1_elevation_azimuth_state_inflow_loads["H1_Elevation_mean"] = -1*(H1_elevation_azimuth_state_inflow_loads.H1_Elevation_Left+H1_elevation_azimuth_state_inflow_loads.H1_Elevation_Right)/2
 H2_elevation_azimuth_state_inflow_loads["H2_Elevation_mean"] = -1*(H2_elevation_azimuth_state_inflow_loads.H2_Elevation_Left+H2_elevation_azimuth_state_inflow_loads.H2_Elevation_Right)/2
@@ -102,11 +102,11 @@ H2_elevation_azimuth_state_inflow_lowwind_2ms_loads = H2_elevation_azimuth_state
 H3_elevation_azimuth_state_inflow_lowwind_2ms_loads = H3_elevation_azimuth_state_inflow_loads[abs(H3_elevation_azimuth_state_inflow_loads['wspd_Mid'])<2]
 
 H1_elevation_azimuth_state_mast_loads = mast_loads.join([H1_elevation, H1_azimuth, H1_state], how='inner')
-H1_elevation_azimuth_state_mast_loads = H1_elevation_azimuth_state_mast_loads[~H1_elevation_azimuth_state_mast_loads.index.duplicated(keep='first')]      
+H1_elevation_azimuth_state_mast_loads = H1_elevation_azimuth_state_mast_loads[~H1_elevation_azimuth_state_mast_loads.index.duplicated(keep='last')]      
 H2_elevation_azimuth_state_mast_loads = mast_loads.join([H2_elevation, H2_azimuth, H2_state], how='inner')
-H2_elevation_azimuth_state_mast_loads = H2_elevation_azimuth_state_mast_loads[~H2_elevation_azimuth_state_mast_loads.index.duplicated(keep='first')]
+H2_elevation_azimuth_state_mast_loads = H2_elevation_azimuth_state_mast_loads[~H2_elevation_azimuth_state_mast_loads.index.duplicated(keep='last')]
 H3_elevation_azimuth_state_mast_loads = mast_loads.join([H3_elevation, H3_azimuth, H3_state], how='inner')
-H3_elevation_azimuth_state_mast_loads = H3_elevation_azimuth_state_mast_loads[~H3_elevation_azimuth_state_mast_loads.index.duplicated(keep='first')]
+H3_elevation_azimuth_state_mast_loads = H3_elevation_azimuth_state_mast_loads[~H3_elevation_azimuth_state_mast_loads.index.duplicated(keep='last')]
 
 #H1_elevation_azimuth_state_mast_lowwind_2ms_loads = H1_elevation_azimuth_state_mast_loads[abs(H1_elevation_azimuth_state_mast_loads['U_ax_Mid'])<2]
 #H2_elevation_azimuth_state_mast_lowwind_2ms_loads = H2_elevation_azimuth_state_mast_loads[abs(H2_elevation_azimuth_state_mast_loads['U_ax_Mid'])<2]
@@ -154,6 +154,7 @@ H3_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr = H3_elevation_azimuth_
 H1_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr["H1_Elevation_mean"] = -1*(H1_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H1_Elevation_Left+H1_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H1_Elevation_Right)/2
 H2_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr["H2_Elevation_mean"] = -1*(H2_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H2_Elevation_Left+H2_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H2_Elevation_Right)/2
 H3_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr["H3_Elevation_mean"] = -1*(H3_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H3_Elevation_Left+H3_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr.H3_Elevation_Right)/2
+
 
 
 
@@ -6178,9 +6179,9 @@ loads_inflow_20Hz_20241120['H3_Pedestal_Axial_elevation_temp_oper_offset'] = 0.5
 loads_inflow_20Hz_20241120['H3_Pedestal_Axial_elevation_temp_offset_average'] = np.where(abs(loads_inflow_20Hz_20241120['H3_Elevation_mean'])>1.26,loads_inflow_20Hz_20241120['H3_Pedestal_Axial_elevation_temp_oper_offset'],loads_inflow_20Hz_20241120['H3_Pedestal_Axial_elevation_temp_stow_offset'])
 loads_inflow_20Hz_20241120["H3_F_Lift"] = (loads_inflow_20Hz_20241120['H3_Pedestal_Axial '] - loads_inflow_20Hz_20241120['H3_Pedestal_Axial_elevation_temp_offset_average']) * axial_slope 
 
-loads_inflow_20Hz_20241120["H1_CF_Lift"] = loads_inflow_20Hz_20241120.H1_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
-loads_inflow_20Hz_20241120["H2_CF_Lift"] = loads_inflow_20Hz_20241120.H2_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
-loads_inflow_20Hz_20241120["H3_CF_Lift"] = loads_inflow_20Hz_20241120.H3_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H1_CF_Lift"] = loads_inflow_20Hz_20241120.H1_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H2_CF_Lift"] = loads_inflow_20Hz_20241120.H2_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H3_CF_Lift"] = loads_inflow_20Hz_20241120.H3_F_Lift*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
 
 loads_inflow_20Hz_20241120['H1_Torque_Tube_Left_elevation_offset'] = slope_H1_Torque_Tube_Left_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend*loads_inflow_20Hz_20241120.H1_Elevation_mean+intercept_H1_Torque_Tube_Left_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend
 loads_inflow_20Hz_20241120['H1_Torque_Tube_Left_temp_stow_offset'] = intercept_H1_Torque_Tube_Left_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr_elevation0_Ts_binned_avg_trend
@@ -6203,9 +6204,9 @@ loads_inflow_20Hz_20241120['H3_Torque_Tube_Left_elevation_temp_oper_offset'] = 0
 loads_inflow_20Hz_20241120['H3_Torque_Tube_Left_elevation_temp_offset_average'] = np.where(abs(loads_inflow_20Hz_20241120['H3_Elevation_mean'])>1.26,loads_inflow_20Hz_20241120['H3_Torque_Tube_Left_elevation_temp_oper_offset'],loads_inflow_20Hz_20241120['H3_Torque_Tube_Left_temp_stow_offset'])
 loads_inflow_20Hz_20241120["H3_Torque_Tube_Torque_Left"] = (loads_inflow_20Hz_20241120.H3_Torque_Tube_Left - loads_inflow_20Hz_20241120.H3_Torque_Tube_Left_elevation_temp_offset_average) * torque_tube_slopeT
 
-loads_inflow_20Hz_20241120["H1_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H1_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H2_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H2_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H3_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H3_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H1_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H1_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H2_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H2_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H3_Torque_Tube_Torque_Left_coefficient"] = loads_inflow_20Hz_20241120["H3_Torque_Tube_Torque_Left"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
 
 loads_inflow_20Hz_20241120['H1_Pedestal_Torque_elevation_offset'] = slope_H1_Pedestal_Torque_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend*loads_inflow_20Hz_20241120.H1_Elevation_mean+intercept_H1_Pedestal_Torque_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend
 loads_inflow_20Hz_20241120['H1_Pedestal_Torque_temp_stow_offset'] = intercept_H1_Pedestal_Torque_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr_elevation0_Ts_binned_avg_trend
@@ -6228,9 +6229,9 @@ loads_inflow_20Hz_20241120['H3_Pedestal_Torque_elevation_temp_oper_offset'] = 0.
 loads_inflow_20Hz_20241120['H3_Pedestal_Torque_elevation_temp_offset_average'] = np.where(abs(loads_inflow_20Hz_20241120['H3_Elevation_mean'])>1.26,loads_inflow_20Hz_20241120['H3_Pedestal_Torque_elevation_temp_oper_offset'],loads_inflow_20Hz_20241120['H3_Pedestal_Torque_temp_stow_offset'])
 loads_inflow_20Hz_20241120["H3_Pedestal_Torque"] = (loads_inflow_20Hz_20241120.H3_Pedestal_Torque - loads_inflow_20Hz_20241120.H3_Pedestal_Torque_elevation_temp_offset_average) * pedestal_torque_slopeT
 
-loads_inflow_20Hz_20241120["H1_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H2_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H3_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H1_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H2_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H3_Pedestal_Torque_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Torque"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
 
 loads_inflow_20Hz_20241120['H1_Pedestal_Bend_1_elevation_offset'] = slope_H1_Pedestal_Bend_1_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend*loads_inflow_20Hz_20241120.H1_Elevation_mean+intercept_H1_Pedestal_Bend_1_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend
 loads_inflow_20Hz_20241120['H1_Pedestal_Bend_1_temp_stow_offset'] = intercept_H1_Pedestal_Bend_1_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr_elevation0_Ts_binned_avg_trend
@@ -6253,9 +6254,9 @@ loads_inflow_20Hz_20241120['H3_Pedestal_Bend_1_elevation_temp_oper_offset'] = 0.
 loads_inflow_20Hz_20241120['H3_Pedestal_Bend_1_elevation_temp_offset_average'] = np.where(abs(loads_inflow_20Hz_20241120['H3_Elevation_mean'])>1.26,loads_inflow_20Hz_20241120['H3_Pedestal_Bend_1_elevation_temp_oper_offset'],loads_inflow_20Hz_20241120['H3_Pedestal_Bend_1_temp_stow_offset'])
 loads_inflow_20Hz_20241120["H3_Pedestal_Bend_1"] = (loads_inflow_20Hz_20241120.H3_Pedestal_Bend_1 - loads_inflow_20Hz_20241120.H3_Pedestal_Bend_1_elevation_temp_offset_average) * pedestal_bending_slopeM
 
-loads_inflow_20Hz_20241120["H1_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
-loads_inflow_20Hz_20241120["H2_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
-loads_inflow_20Hz_20241120["H3_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H1_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H2_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H3_Pedestal_Bend_1_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Bend_1"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
 
 loads_inflow_20Hz_20241120['H1_Pedestal_Bend_2_elevation_offset'] = slope_H1_Pedestal_Bend_2_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend*loads_inflow_20Hz_20241120.H1_Elevation_mean+intercept_H1_Pedestal_Bend_2_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend
 loads_inflow_20Hz_20241120['H1_Pedestal_Bend_2_temp_stow_offset'] = intercept_H1_Pedestal_Bend_2_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr_elevation0_Ts_binned_avg_trend
@@ -6278,9 +6279,9 @@ loads_inflow_20Hz_20241120['H3_Pedestal_Bend_2_elevation_temp_oper_offset'] = 0.
 loads_inflow_20Hz_20241120['H3_Pedestal_Bend_2_elevation_temp_offset_average'] = np.where(abs(loads_inflow_20Hz_20241120['H3_Elevation_mean'])>1.26,loads_inflow_20Hz_20241120['H3_Pedestal_Bend_2_elevation_temp_oper_offset'],loads_inflow_20Hz_20241120['H3_Pedestal_Bend_2_temp_stow_offset'])
 loads_inflow_20Hz_20241120["H3_Pedestal_Bend_2"] = (loads_inflow_20Hz_20241120['H3_Pedestal_Bend_2 '] - loads_inflow_20Hz_20241120.H3_Pedestal_Bend_2_elevation_temp_offset_average) * pedestal_bending_slopeM
 
-loads_inflow_20Hz_20241120["H1_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
-loads_inflow_20Hz_20241120["H2_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
-loads_inflow_20Hz_20241120["H3_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H1_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H1_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H2_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H2_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
+loads_inflow_20Hz_20241120["H3_Pedestal_Bend_2_coefficient"] = loads_inflow_20Hz_20241120["H3_Pedestal_Bend_2"]*1000/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*5.5)
 
 loads_inflow_20Hz_20241120['H1_Support_Frame_Bending_Top_elevation_offset'] = slope_H1_Support_Frame_Bending_Top_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend*loads_inflow_20Hz_20241120.H1_Elevation_mean+intercept_H1_Support_Frame_Bending_Top_elevation_azimuth_state_inflow_lowwind_2ms_nonzeros_elevationg0_binned_avg_trend
 loads_inflow_20Hz_20241120['H1_Support_Frame_Bending_Top_temp_stow_offset'] = intercept_H1_Support_Frame_Bending_Top_elevation_azimuth_state_inflow_lowwind_2ms_loads_corr_elevation0_Ts_binned_avg_trend
@@ -6361,13 +6362,13 @@ loads_inflow_20Hz_20241120["H3_DP_F_Drag"] = loads_inflow_20Hz_20241120.H3_DP_F_
 loads_inflow_20Hz_20241120["H3_DP_F_Lift"] = loads_inflow_20Hz_20241120.H3_DP_F_Normal*np.cos(np.radians(loads_inflow_20Hz_20241120.H3_Elevation_mean))
 loads_inflow_20Hz_20241120["H3_DP_M_Hy"] = (loads_inflow_20Hz_20241120.H3_DP1*A1*x1)+(loads_inflow_20Hz_20241120.H3_DP2*A2*x2)-(loads_inflow_20Hz_20241120.H3_DP3*A3*x3)
 
-loads_inflow_20Hz_20241120["H1_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H1_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
-loads_inflow_20Hz_20241120["H2_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H2_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
-loads_inflow_20Hz_20241120["H3_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H3_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H1_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H1_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H2_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H2_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
+loads_inflow_20Hz_20241120["H3_DP_CF_Lift"] = loads_inflow_20Hz_20241120.H3_DP_F_Lift/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23)
 
-loads_inflow_20Hz_20241120["H1_DP_CMHy"] = loads_inflow_20Hz_20241120.H1_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H2_DP_CMHy"] = loads_inflow_20Hz_20241120.H2_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
-loads_inflow_20Hz_20241120["H3_DP_CMHy"] = loads_inflow_20Hz_20241120.H3_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Mid**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H1_DP_CMHy"] = loads_inflow_20Hz_20241120.H1_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H2_DP_CMHy"] = loads_inflow_20Hz_20241120.H2_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
+loads_inflow_20Hz_20241120["H3_DP_CMHy"] = loads_inflow_20Hz_20241120.H3_DP_M_Hy/(0.5*rho(loads_inflow_20Hz_20241120.p, loads_inflow_20Hz_20241120.RH, loads_inflow_20Hz_20241120.Temp)*loads_inflow_20Hz_20241120.wspd_Top**2*10.3*11.23*11.23)
 
 # Convert time zone to local
 pacific_tz = pytz.timezone('America/Los_Angeles')
@@ -6631,46 +6632,4 @@ loads_inflow_20Hz_20241121.index = loads_inflow_20Hz_20241121.index.tz_localize(
 loads_mast_20Hz_20241121.index = loads_mast_20Hz_20241121.index.tz_localize('UTC').tz_convert(pacific_tz)
 
 
-#%%
-
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-#ax1.axvspan(pd.Timestamp(2024,11,18,16,40).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,18,50).tz_localize('UTC').tz_convert(pacific_tz),color='purple',alpha=0.2)
-#ax1.axvspan(pd.Timestamp(2024,11,18,17,00).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,19,27).tz_localize('UTC').tz_convert(pacific_tz),color='red',alpha=0.2)
-#ax1.axvspan(pd.Timestamp(2024,10,28,20,30).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,21,0).tz_localize('UTC').tz_convert(pacific_tz),color='maroon',alpha=0.2)
-plt.scatter(loads_inflow_20Hz_20241115.index,loads_inflow_20Hz_20241115.H1_Elevation_mean,marker='.',color='#1f77b4',edgecolor='none',alpha=0.3,s=1,label='H1')
-plt.scatter(loads_inflow_20Hz_20241115.index,loads_inflow_20Hz_20241115.H2_Elevation_mean,marker='.',color='#ff7f0e',edgecolor='none',alpha=0.3,s=1,label='H2')
-plt.scatter(loads_inflow_20Hz_20241115.index,loads_inflow_20Hz_20241115.H3_Elevation_mean,marker='.',color='#2ca02c',edgecolor='none',alpha=0.3,s=1,label='H3')
-#plt.axvline(x=H3_stowed_times_20241115.index[0],color='black',linestyle='--',linewidth=1.25)
-#plt.axvline(x=H1_stowed_times_20241115.index[0],color='black',linestyle='-.',linewidth=1.25)  
-#plt.title("Differential pressure 1")    
-plt.xlabel("Local time (November 15, 2024)")
-plt.ylabel("Elevation angle")
-#plt.ylim(-1, 3)    
-#plt.yticks([-1,0,1,2,3])
-#fig.autofmt_xdate()
-plt.xlim([datetime.datetime(2024,11,15,14,0), datetime.datetime(2024,11,15,23,59)])
-plt.gca().xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%H:%M', tz=pacific_tz))
-plt.tight_layout()
-
-
-fig = plt.figure()
-ax1 = fig.add_subplot(111)
-#ax1.axvspan(pd.Timestamp(2024,11,18,16,40).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,18,50).tz_localize('UTC').tz_convert(pacific_tz),color='purple',alpha=0.2)
-#ax1.axvspan(pd.Timestamp(2024,11,18,17,00).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,19,27).tz_localize('UTC').tz_convert(pacific_tz),color='red',alpha=0.2)
-#ax1.axvspan(pd.Timestamp(2024,10,28,20,30).tz_localize('UTC').tz_convert(pacific_tz),pd.Timestamp(2024,10,28,21,0).tz_localize('UTC').tz_convert(pacific_tz),color='maroon',alpha=0.2)
-plt.scatter(loads_inflow_20Hz_20241121.index,loads_inflow_20Hz_20241121.H1_Elevation_mean,marker='.',color='#1f77b4',edgecolor='none',alpha=0.3,s=1,label='H1')
-plt.scatter(loads_inflow_20Hz_20241121.index,loads_inflow_20Hz_20241121.H2_Elevation_mean,marker='.',color='#ff7f0e',edgecolor='none',alpha=0.3,s=1,label='H2')
-plt.scatter(loads_inflow_20Hz_20241121.index,loads_inflow_20Hz_20241121.H3_Elevation_mean,marker='.',color='#2ca02c',edgecolor='none',alpha=0.3,s=1,label='H3')
-#plt.axvline(x=H3_stowed_times_20241121.index[0],color='black',linestyle='--',linewidth=1.25)
-#plt.axvline(x=H1_stowed_times_20241121.index[0],color='black',linestyle='-.',linewidth=1.25)  
-#plt.title("Differential pressure 1")    
-plt.xlabel("Local time (November 21, 2024)")
-plt.ylabel("Elevation angle")
-#plt.ylim(-1, 3)    
-#plt.yticks([-1,0,1,2,3])
-#fig.autofmt_xdate()
-plt.xlim([datetime.datetime(2024,11,20,21,0), datetime.datetime(2024,11,21,10,0)])
-plt.gca().xaxis.set_major_formatter(plt.matplotlib.dates.DateFormatter('%H:%M', tz=pacific_tz))
-plt.tight_layout()
 
