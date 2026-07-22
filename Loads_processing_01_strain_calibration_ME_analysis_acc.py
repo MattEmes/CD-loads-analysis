@@ -5396,15 +5396,14 @@ H2_Support_Frame_Accel_3_Y_fit = sine_function(x_fit_radians, 1, 0.32*math.pi, -
 H2_Support_Frame_Accel_4_X_fit = sine_function(x_fit_radians, -1, 0.31*math.pi, math.pi/2, 0.05)
 H2_Support_Frame_Accel_4_Y_fit = sine_function(x_fit_radians, 1, 0.33*math.pi, -0.053, 0)
 
-H3_Support_Frame_Accel_1_X_fit = sine_function(x_fit_radians, -1, 0.31*math.pi, -0.053+math.pi/2, 0)
+H3_Support_Frame_Accel_1_X_fit = sine_function(x_fit_radians, -1, 0.32*math.pi, -0.053+math.pi/2, 0)
 H3_Support_Frame_Accel_1_Y_fit = sine_function(x_fit_radians, 1, 0.32*math.pi, -0.053, 0)
-H3_Support_Frame_Accel_2_X_fit = sine_function(x_fit_radians, -1, 0.32*math.pi, -0.053+math.pi/2, 0)
+H3_Support_Frame_Accel_2_X_fit = sine_function(x_fit_radians, -1, 0.34*math.pi, -0.053+math.pi/2, 0)
 H3_Support_Frame_Accel_2_Y_fit = sine_function(x_fit_radians, 1, 0.34*math.pi, -0.053, 0)
 H3_Support_Frame_Accel_3_X_fit = sine_function(x_fit_radians, -1, 0.32*math.pi, -0.053+math.pi/2, 0)
 H3_Support_Frame_Accel_3_Y_fit = sine_function(x_fit_radians, 1, 0.32*math.pi, -0.053, 0)
-H3_Support_Frame_Accel_4_X_fit = sine_function(x_fit_radians, -1, 0.29*math.pi, math.pi/2, 0)
-H3_Support_Frame_Accel_4_Y_fit = sine_function(x_fit_radians, 1, 0.2*math.pi, -0.053, 0)
-
+H3_Support_Frame_Accel_4_X_fit = sine_function(x_fit_radians, -1, 0.32*math.pi, math.pi/2, 0)
+H3_Support_Frame_Accel_4_Y_fit = sine_function(x_fit_radians, 1, 0.29*math.pi, -0.053, 0)
 
 #%% Mean and peak-peak load coefficients (loads + inflow 28 October 2024)
 
